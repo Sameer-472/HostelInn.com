@@ -1,7 +1,7 @@
 import HostelOwner from "../model/HostelOwnerSchema.js";
 import bcrypt from 'bcrypt'
 
- const HostelOwnercontroller = async(req , res)=>{
+ const HostelOwnerController = async(req , res)=>{
     
     const {name , email , password} = req.body
 
@@ -32,7 +32,7 @@ import bcrypt from 'bcrypt'
 
         
     } catch (error) {
-        console.log('error is occured')
+        console.log('error has occur',error)
     }
 }
-export default HostelOwnercontroller;
+export default HostelOwnerController;
