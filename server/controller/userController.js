@@ -34,7 +34,7 @@ import bcrypt from 'bcrypt';
         }
         
     } catch (error) {
-        console.log('error is occured' , error)
+        console.log('error has occur' , error)
     }
 }
 
