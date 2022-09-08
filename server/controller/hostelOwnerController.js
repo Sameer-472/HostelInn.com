@@ -1,13 +1,13 @@
-import { check , validationResult } from "express-validator";
-import HostelOwner from "../model/HostelOwnerSchema";
+import HostelOwner from "../model/HostelOwnerSchema.js";
+import bcrypt from 'bcrypt'
 
-export const HostelOwnercontroller = async(req , res)=>{
-    const error = validationResult(req);
+ const HostelOwnercontroller = async(req , res)=>{
+    
     const {name , email , password} = req.body
 
     try {
         let hostelOwner = await HostelOwner.findOne({
-            email
+            email:email
         });
         if(hostelOwner){
             return res.status(400).json({
@@ -21,11 +21,18 @@ export const HostelOwnercontroller = async(req , res)=>{
             password
         })
 
+        const salt = await bcrypt.genSalt(10);
+        hostelOwner.password = await bcrypt.hash(password, salt);
+
         if(hostelOwner){
+            const data = await hostelOwner.save()
+            res.status(201).json({msg: data})
             console.log("user added successfully")
         }
+
         
     } catch (error) {
         console.log('error is occured')
     }
 }
+export default HostelOwnercontroller;
