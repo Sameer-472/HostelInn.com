@@ -1,41 +1,79 @@
-import express from "express";
 import userSchema from "../model/userSchema.js";
-import bcrypt from 'bcrypt';
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
- const userController = async(req , res)=>{
-    // const error = validationResult(req);
-    const {name , email , password} = req.body
+// ! Register
+export const userController = async (req, res) => {
+  // const error = validationResult(req);
+  const { name, email, password } = req.body;
 
+  try {
+    let user = await userSchema.findOne({
+      email,
+    });
+
+    if (user) {
+      return res.status(400).json({
+        message: "User already exits",
+      });
+    }
+
+    user = new userSchema({
+      name,
+      email,
+      password,
+    });
+
+    const salt = await bcrypt.genSalt(10);
+    user.password = await bcrypt.hash(password, salt);
+
+    if (user) {
+      const data = await user.save();
+      res.status(201).json({ msg: data });
+      console.log("user added successfully");
+    }
+  } catch (error) {
+    console.log("error has occur", error);
+  }
+};
+
+// ! Login
+export const loginUser=async(req,res)=>{
     try {
-        let user = await userSchema.findOne({
-            email
-        });
+      const user =await userSchema.findOne({email:req.body.email});
+    if(user){
+      const compared= await bcrypt.compare(req.body.password,user.password);
+      
+      if(!compared){
+       return res.status(400).json({message:'Password does not match'});
+      }
 
-        if(user){
-            return res.status(400).json({
-                message: "User already exits"
-            })
+      const token=jwt.sign(
+        {
+            userId:user._id,
+            userEmail:user.email
+        },
+        "RANDOM TOKEN",
+        {
+            expiresIn:"15min"
         }
+      );
 
-        user = new userSchema({
-            name , 
-            email ,
-            password
-        })
+     return res.status(200).json({
+        message:'Login Successful',
+        email:user.email,
+        token,
+        user,
+      })
 
-            const salt = await bcrypt.genSalt(10);
-            user.password = await bcrypt.hash(password, salt);
+      
+    }
+   return res.status(404).send({message:'Email not found'});
 
-
-        if(user){
-            const data = await user.save()
-            res.status(201).json({msg: data})
-            console.log("user added successfully")
-        }
-        
     } catch (error) {
-        console.log('error has occur' , error)
+        return res.status(500).json({message:'Error in User Login Controller',error: error.message})
     }
 }
 
-export default userController;
+
+
