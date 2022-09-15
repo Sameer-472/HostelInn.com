@@ -23,3 +23,8 @@ export const login=async(endpoint,payload)=>{
         console.log(error.message);
     }
 }
+
+export const logout=()=>{
+    localStorage.removeItem("user");
+
+}
