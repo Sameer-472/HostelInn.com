@@ -23,14 +23,14 @@ function Login() {
         <FormControl>
             <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
             <MailIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-            <TextField id="input-with-sx" label="Enter Email" variant="standard" name='email' onChange={(e)=>handleChange(e)} value={values.email} />
+            <TextField id="input-with-sx-email-login" label="Enter Email" variant="standard" name='email' onChange={(e)=>handleChange(e)} value={values.email} />
             </Box>
             
         </FormControl>
         <FormControl>
             <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
             <LockIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-            <TextField type='password' id="input-with-sx" label="Enter Password" variant="standard" name='password' onChange={(e)=>handleChange(e)} value={values.password} />
+            <TextField type='password' id="input-with-sx-password" label="Enter Password" variant="standard" name='password' onChange={(e)=>handleChange(e)} value={values.password} />
             </Box>
             
         </FormControl>

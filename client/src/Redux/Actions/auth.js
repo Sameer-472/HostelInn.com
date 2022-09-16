@@ -5,21 +5,27 @@
 
 import {register , login , logout} from "../../Services/authService";
 
-export const register = (endpoint , payload)=> (dispatch)=>{
-    return register(endpoint , payload).then(
-    (response)=>{
-        dispatch({
-            type: REGISTER_SUCCESS
-        });
-        return Promise.resolve();
-    }) , 
-    (error)=>{
-        // const message = error.response.data.message;
-        dispatch({
-            type: REGISTER_FAIL
-        })
-        return Promise.reject();
+export const register = (endpoint , payload)=> async(dispatch)=>{
+    try {
+      const result= await register(endpoint,payload);
+      dispatch({type:REGISTER_SUCCESS})
+    } catch (error) {
+        dispatch({type:REGISTER_FAIL})
     }
+    // return register(endpoint , payload).then(
+    // (response)=>{
+    //     dispatch({
+    //         type: REGISTER_SUCCESS
+    //     });
+    //     return Promise.resolve();
+    // }) , 
+    // (error)=>{
+    //     // const message = error.response.data.message;
+    //     dispatch({
+    //         type: REGISTER_FAIL
+    //     })
+    //     return Promise.reject();
+    // }
 }
 
 export const login = (endpoint , payload) =>(dispatch)=>{
