@@ -7,6 +7,7 @@ import Registration from './components/Registration/Registration';
 function App() {
   return (
     <div className="App">
+      hello
       <Registration/>
       <Login/>
       
