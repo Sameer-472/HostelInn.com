@@ -12,7 +12,8 @@ export default function auth(state = initialState , action){
     const {type , payload} = action;
     switch (type) {
         case REGISTER_SUCCESS: return{
-            ...state , isLoggedIn: false
+            ...state , isLoggedIn: false,
+            user: payload.user
         }
         case REGISTER_FAIL: return{
             ...state , isLoggedIn: false

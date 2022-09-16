@@ -1,12 +1,26 @@
-import React,{useState} from 'react'
+import React,{useState , useEffect} from 'react'
 import {Box,TextField, FormControl,FormGroup} from '@mui/material';
 import MailIcon from '@mui/icons-material/Mail';
 import LockIcon from '@mui/icons-material/Lock';
+import {useSelector , useDispatch} from 'react-redux';
+import { login } from '../../Redux/Actions/auth';
 
 
 
 
 function Login() {
+
+    const result = useSelector(state=> state);
+    console.log(result)
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        
+        // dispatch(login("/loginUser" , {"email": "asheryar123@gmail.com", "password": "abcd123"}));
+      
+    }, [])
+    
     const initialValues={
         email:'',
         password:'',

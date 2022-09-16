@@ -21,7 +21,7 @@ router.post('/loginOwner',loginOwner);
 
 // ? For User
 
-    router.post('/loginUser',loginUser)
+router.post('/loginUser',loginUser)
 
 
 
