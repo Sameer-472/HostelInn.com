@@ -8,8 +8,11 @@ import {REGISTER_SUCCESS , REGISTER_FAIL, LOGIN_SUCCESS , LOGIN_FAIL , LOGOUT} f
 
 export const register = (endpoint , payload)=> async(dispatch)=>{
     try {
-      const result= await Register(endpoint,payload);
-      dispatch({type: REGISTER_SUCCESS})
+      const response = await Register(endpoint,payload);
+      dispatch({
+        type: REGISTER_SUCCESS,
+        payload: {user : response}
+    })
     } catch (error) {
         dispatch({type:REGISTER_FAIL})
     }
