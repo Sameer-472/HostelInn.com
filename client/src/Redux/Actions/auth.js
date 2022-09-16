@@ -3,12 +3,13 @@
 
 // we are gonna use authService from Services folder to make HTTP request 
 
-import {register , login , logout} from "../../Services/authService";
+import {Register , Login , Logout} from "../../Services/authService";
+import {REGISTER_SUCCESS , REGISTER_FAIL, LOGIN_SUCCESS , LOGIN_FAIL , LOGOUT} from './actionType'
 
 export const register = (endpoint , payload)=> async(dispatch)=>{
     try {
-      const result= await register(endpoint,payload);
-      dispatch({type:REGISTER_SUCCESS})
+      const result= await Register(endpoint,payload);
+      dispatch({type: REGISTER_SUCCESS})
     } catch (error) {
         dispatch({type:REGISTER_FAIL})
     }
@@ -29,7 +30,7 @@ export const register = (endpoint , payload)=> async(dispatch)=>{
 }
 
 export const login = (endpoint , payload) =>(dispatch)=>{
-    return login(endpoint , payload).then(
+    return Login(endpoint , payload).then(
     (response)=>{
         dispatch({
             type: LOGIN_SUCCESS ,

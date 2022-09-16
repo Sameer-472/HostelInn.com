@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useEffect} from 'react'
 import {FormGroup,FormControl,Button ,IconButton ,InputLabel,TextField,Input ,styled,Box,Typography} from '@mui/material'
 import PersonIcon from '@mui/icons-material/Person';
 import { useState } from 'react';
@@ -9,6 +9,8 @@ import LockIcon from '@mui/icons-material/Lock';
 import { useFormik } from "formik";
 import { SignUpSchema } from '../Yup/RegisterValidation';
 import MailIcon from '@mui/icons-material/Mail';
+import {useSelector , useDispatch} from 'react-redux';
+import { register } from '../../Redux/Actions/auth';
 
 const FGroup=styled(FormGroup)`
 display:flex;
@@ -18,7 +20,17 @@ align-items:center;
 
 `
 function Registration() {
+
+    const result = useSelector(state => state)
+    console.log(result)
     
+    const dispatch = useDispatch();
+    
+    useEffect(() => {
+      dispatch(register("user" , {"email" : "muhammadsameer2016@yahoo.com" , "name": "sameer" , "password": "1234"}))
+    }, [])
+    
+
     const initialValue={
         name:'',
         email:'',

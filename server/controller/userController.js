@@ -13,7 +13,7 @@ export const userController = async (req, res) => {
     });
 
     if (user) {
-      return res.status(400).json({
+      return res.status(200).json({
         message: "User already exits",
       });
     }
@@ -29,7 +29,7 @@ export const userController = async (req, res) => {
 
     if (user) {
       const data = await user.save();
-      res.status(201).json({ msg: data });
+      res.status(200).json({ msg: data });
       console.log("user added successfully");
     }
   } catch (error) {
@@ -68,7 +68,7 @@ export const loginUser=async(req,res)=>{
 
       
     }
-   return res.status(404).send({message:'Email not found'});
+   return res.status(200).send({message:'Email not found'});
 
     } catch (error) {
         return res.status(500).json({message:'Error in User Login Controller',error: error.message})
