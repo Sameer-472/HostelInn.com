@@ -9,6 +9,9 @@ import LockIcon from '@mui/icons-material/Lock';
 import { useFormik } from "formik";
 import { SignUpSchema } from '../Yup/RegisterValidation';
 import MailIcon from '@mui/icons-material/Mail';
+// import { useEffect } from 'react';
+import {useDispatch} from 'react-redux';
+// import { login } from '../../Redux/Actions/auth';
 
 const FGroup=styled(FormGroup)`
 display:flex;
@@ -58,6 +61,8 @@ function Registration() {
       const handleMouseDownPassword = (event) => {
         event.preventDefault();
       }; 
+      const dispatch=useDispatch();
+      
 
       
   return (
