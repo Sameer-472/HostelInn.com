@@ -1,6 +1,8 @@
 import axios from 'axios';
-
 const URL = "http://localhost:8000";
+
+// payload is object contains email , password and username 
+// endpoint determine rather its a user or hostelOwner 
 
 export const register=async(endpoint,payload)=>{
     try {
@@ -9,7 +11,6 @@ export const register=async(endpoint,payload)=>{
     } catch (error) {
         console.log(error.message);
     }
-
 }
 
 export const login=async(endpoint,payload)=>{
@@ -26,5 +27,4 @@ export const login=async(endpoint,payload)=>{
 
 export const logout=()=>{
     localStorage.removeItem("user");
-
 }
