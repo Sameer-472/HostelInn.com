@@ -21,7 +21,7 @@ const password=process.env.DB_PASSWORD;
 
 Connection(username,password);
 
-const PORT= 8001;
+const PORT= 8000;
 
 app.listen(PORT,console.log('Listening At port 8000'));
 
