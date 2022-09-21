@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 // ! Register
-export const userController = async (req, res) => {
+export const Register = async (req, res) => {
   // const error = validationResult(req);
   const { name, email, password } = req.body;
 
@@ -13,8 +13,8 @@ export const userController = async (req, res) => {
     });
 
     if (user) {
-      return res.status(201).json({
-        message: "User already exits",
+      return res.status(403).json({
+        message: "Email already exits",
       });
     }
 

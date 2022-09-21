@@ -43,7 +43,7 @@ function Login() {
         //201 Email Not Found
         //202 Password Does not match
         
-        const result = await dispatch(login("/loginUser" , {"email": `${values.email}`, "password": `${values.password}`}));
+        const result = await dispatch(login("/loginUser" , {"email": `${values.email.toLowerCase()}`, "password": `${values.password}`}));
     
         const statusCode= result.status;
         console.log(statusCode);

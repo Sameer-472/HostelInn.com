@@ -15,11 +15,22 @@ import {
 export const register = (endpoint, payload) => async (dispatch) => {
   try {
     const response = await Register(endpoint, payload);
-    dispatch({
-      type: REGISTER_SUCCESS,
-      payload: { user: response },
-    });
+    if(response.status === 200){
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: { user: response },
+      });
+      return response
+    }
+    else{
+      dispatch({
+        type: LOGIN_FAIL,
+        payload: {user: response}
+      });
+      return response;
+    }
   } catch (error) {
+    console.log('Error',error.message)
     dispatch({ type: REGISTER_FAIL });
   }
 };
@@ -45,6 +56,7 @@ export const login = (endpoint, payload) => async (dispatch) => {
     }
 
   } catch (error) {
+    console.log('Error',error.message)
     console.log(error)
   }
 };

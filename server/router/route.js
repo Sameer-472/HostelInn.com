@@ -1,6 +1,6 @@
 import express from 'express';
 import {HostelOwnerController,loginOwner} from '../controller/hostelOwnerController.js';
-import {userController,loginUser} from '../controller/userController.js';
+import {Register,loginUser} from '../controller/userController.js';
 const router = express.Router();
 
 // !  Sign Up Routes
@@ -12,7 +12,7 @@ router.post("/signUp/hostelOwner",
 )
 // ? For User
 router.post('/signUp/user' ,  
-    userController
+    Register
 )
 
 // !  Login Routes

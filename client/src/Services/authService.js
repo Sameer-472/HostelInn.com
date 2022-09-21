@@ -10,7 +10,7 @@ export const Register=async(endpoint,payload)=>{
         console.log(response)
         return response; 
     } catch (error) {
-        console.log(error.message);
+        return error.response
     }
 }
 
