@@ -8,7 +8,7 @@ const user = JSON.parse(localStorage.getItem("user"));
 
 const initialState = user ? {isLoggedIn: true , user}: {isLoggedIn: false , user: null};
 
-export default function auth(state = initialState , action){
+export default function (state = initialState , action){
     const {type , payload} = action;
     switch (type) {
         case REGISTER_SUCCESS: return{
@@ -24,7 +24,7 @@ export default function auth(state = initialState , action){
         }
         case LOGIN_FAIL: return{
             ...state , isLoggedIn: false , 
-            user: null
+            user: payload.user
         }
         case LOGOUT: return{
             ...state , isLoggedIn: false , 
