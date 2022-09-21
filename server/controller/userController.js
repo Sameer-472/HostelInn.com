@@ -46,7 +46,7 @@ export const loginUser=async(req,res)=>{
       const compared= await bcrypt.compare(req.body.password,user.password);
       
       if(!compared){
-       return res.status(202).json({message:'Password does not match'});
+       return res.status(403).json({message:'Password does not match'});
       }
 
       const token=jwt.sign(
@@ -69,7 +69,7 @@ export const loginUser=async(req,res)=>{
 
       
     }
-   return res.status(201).send({message:'Email not found'});
+   return res.status(403).send({message:'Email not found'});
 
     } catch (error) {
         return res.status(500).json({message:'Error in User Login Controller',error: error.message})

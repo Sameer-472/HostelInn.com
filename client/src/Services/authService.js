@@ -25,7 +25,8 @@ export const Login=async(endpoint,payload)=>{
         }
         return response;
     } catch (error) {   
-        console.log(error.message);
+        console.log(error);
+        return error.response
     }
 }
 

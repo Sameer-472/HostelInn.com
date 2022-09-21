@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState , useEffect} from 'react'
 import {Box,TextField, FormControl,FormGroup,Button,Typography} from '@mui/material';
 import MailIcon from '@mui/icons-material/Mail';
 import LockIcon from '@mui/icons-material/Lock';
@@ -11,22 +11,24 @@ import { useNavigate } from 'react-router-dom';
 
 function Login() {
     const [error,setError]=useState(false);
-
-
     const result = useSelector(state=> state);
+    console.log(result , "result before dispatch")
     const dispatch = useDispatch();
 
-    // useEffect(() => {
-        
-    //     // dispatch(login("/loginUser" , {"email": "asheryar123@gmail.com", "password": "abcd123"}));
-      
-    // }, [])
+    useEffect(() => {
+        try {
+            if(result.user === null){
+                console.log("user if null")
+            }
+        } catch (error) {
+            console.log(error)
+        }      
+    }, [])
     
     const initialValues={
         email:'',
         password:'',
     }
-
 
     const [values,setValues]=useState(initialValues)
     
@@ -36,32 +38,31 @@ function Login() {
     }
     const navigate=useNavigate();
 
-    const handleLogin=()=>{
+    const handleLogin= async () =>{
         //200 Login Successful
         //201 Email Not Found
         //202 Password Does not match
-        dispatch(login("/loginUser" , {"email": `${values.email}`, "password": `${values.password}`}));
+        
+        const result = await dispatch(login("/loginUser" , {"email": `${values.email}`, "password": `${values.password}`}));
+    
+        const statusCode= result.status;
+        console.log(statusCode);
         // ! result coming from useState
-        // console.log(result)
-        const statusCode=result.user.status;
+        console.log(result, "after dispatch method")
         if(statusCode===200){
             console.log('Login Successful');
             setError(false);
             navigate('/home');
-
         }
-        else if(statusCode===201){
+        else if(statusCode===403){
             console.log('Email Not Found');
             setError(true);
             return;
         }
-        else if(statusCode===202){
+        else if(statusCode===403){
             console.log('Password Does not match');
                 setError(true)
         }
-        
-        
-        
     }
 
     return (
