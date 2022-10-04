@@ -1,10 +1,10 @@
-import React,{useState , useEffect} from 'react'
+import React,{useState } from 'react'
 import {Box,TextField, FormControl,FormGroup,Button,Typography} from '@mui/material';
 import MailIcon from '@mui/icons-material/Mail';
 import LockIcon from '@mui/icons-material/Lock';
 import {useSelector , useDispatch} from 'react-redux';
 import { login } from '../../Redux/Actions/auth';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate,NavLink } from 'react-router-dom';
 
 
 
@@ -15,15 +15,15 @@ function Login() {
     console.log(result , "result before dispatch")
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        try {
-            if(result.user === null){
-                console.log("user if null")
-            }
-        } catch (error) {
-            console.log(error)
-        }      
-    }, [])
+    // useEffect(() => {
+    //     try {
+    //         if(result.user === null){
+    //             console.log("user if null")
+    //         }
+    //     } catch (error) {
+    //         console.log(error)
+    //     }      
+    // }, [])
     
     const initialValues={
         email:'',
@@ -85,6 +85,8 @@ function Login() {
           </Typography>
         )}
         </FormControl>
+        <NavLink to='/forget-password'> Forget Password ? </NavLink>
+
         <Button variant='contained' onClick={handleLogin}>Login</Button>
     </FormGroup>
   )
