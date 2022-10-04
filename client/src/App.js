@@ -4,6 +4,7 @@ import Login from './components/Login/Login';
 import Registration from './components/Registration/Registration';
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import Home from './components/Home/Home';
+import OwnerRegistration from './components/Registration/OwnerRegistration/ownerRegistration';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Registration/>} ></Route>
+        <Route path='/ownerSignUp' element={<OwnerRegistration/>} ></Route>
         <Route path='/login' element={<Login/>} ></Route>
         <Route path='/home' element={<Home/>} ></Route>
       {/* <Login/> */}

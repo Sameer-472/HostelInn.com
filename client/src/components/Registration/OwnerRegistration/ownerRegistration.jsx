@@ -18,10 +18,10 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import InputAdornment from "@mui/material/InputAdornment";
 import LockIcon from "@mui/icons-material/Lock";
 import { useFormik } from "formik";
-import { SignUpSchema } from "../Yup/RegisterValidation";
+import { SignUpSchema } from "../../Yup/RegisterValidation";
 import MailIcon from "@mui/icons-material/Mail";
 import { useSelector, useDispatch } from "react-redux";
-import { register } from "../../Redux/Actions/auth";
+import { register } from "../../../Redux/Actions/auth";
 
 const FGroup = styled(FormGroup)`
   display: flex;
@@ -29,16 +29,12 @@ const FGroup = styled(FormGroup)`
   flex-direction: center;
   align-items: center;
 `;
-function Registration() {
+function OwnerRegistration() {
   const [error, setError] = useState(false);
 
   const result = useSelector((state) => state);
 
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch()
-  // }, [])
 
   const initialValue = {
     name: "",
@@ -74,6 +70,7 @@ function Registration() {
           return;
         }
         else if( statusCode === 200){
+          alert("Please check your eamail address for confirmation.")
           action.resetForm();
           setError(false)
           return;
@@ -83,8 +80,6 @@ function Registration() {
           console.log('error has occured');
           return;
         }
-        
-      
       },
     });
 
@@ -235,4 +230,4 @@ function Registration() {
   );
 }
 
-export default Registration;
+export default OwnerRegistration;
