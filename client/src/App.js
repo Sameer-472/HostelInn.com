@@ -5,6 +5,7 @@ import Registration from './components/Registration/Registration';
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import Home from './components/Home/Home';
 import OwnerRegistration from './components/Registration/OwnerRegistration/ownerRegistration';
+import UserDetails from "./components/UserDetails/UserDetails";
 
 function App() {
   return (
@@ -12,10 +13,10 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Registration/>} ></Route>
+        <Route path="/user/details" element={<UserDetails />}></Route>
         <Route path='/ownerSignUp' element={<OwnerRegistration/>} ></Route>
         <Route path='/login' element={<Login/>} ></Route>
         <Route path='/home' element={<Home/>} ></Route>
-      {/* <Login/> */}
       </Routes>
     </BrowserRouter>
   );
