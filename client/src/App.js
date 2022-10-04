@@ -1,20 +1,23 @@
 import './App.css';
 import Login from './components/Login/Login';
 // import RegisterUser from './components/Registration/RegisterUser';
-import Registration from './components/Registration/Registration';
+// import Registration from './components/Registration/Registration';
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import Home from './components/Home/Home';
 import OwnerRegistration from './components/Registration/OwnerRegistration/ownerRegistration';
+import Forget from './components/Login/Forget';
 
 function App() {
   return (
     
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Registration/>} ></Route>
+        {/* <Route path='/' element={<Registration/>} ></Route> */}
         <Route path='/ownerSignUp' element={<OwnerRegistration/>} ></Route>
         <Route path='/login' element={<Login/>} ></Route>
         <Route path='/home' element={<Home/>} ></Route>
+        <Route path='/forget-password' element={<Forget/>} ></Route>
+
       {/* <Login/> */}
       </Routes>
     </BrowserRouter>
