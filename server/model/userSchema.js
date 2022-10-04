@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const userSchema=mongoose.Schema({
+const userSchema = mongoose.Schema({
     name:{
         type:String,
         required:[true,"Please Provide a Name"],
@@ -17,6 +17,14 @@ const userSchema=mongoose.Schema({
         required: [true, "Please provide a password!"],
         unique: false,
       },
+      verified: {
+        type: Boolean,
+        default: false,
+      },
+      confirmationCode: {
+        type: String,
+        required: false
+      }
     
 },{timestamps : true})
 

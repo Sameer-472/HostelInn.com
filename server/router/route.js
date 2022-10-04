@@ -1,30 +1,36 @@
-import express from 'express';
-import {HostelOwnerController,loginOwner} from '../controller/hostelOwnerController.js';
-import {userController,loginUser} from '../controller/userController.js';
+import express from "express";
+import {
+  signUpOwner,
+  loginOwner,
+  verifyOwner
+} from "../controller/hostelOwnerController.js";
+import {
+signUpUser,
+  loginUser,
+  verifyUser,
+} from "../controller/userController.js";
+// import { verifyEmail } from '../controller/verifyEmail.js';
 const router = express.Router();
 
 // !  Sign Up Routes
 
 // ? For Hostel
 
-router.post("/signUp/hostelOwner",  
-    HostelOwnerController
-)
+router.post("/register/hostelOwner", signUpOwner);
 // ? For User
-router.post('/signUp/user' ,  
-    userController
-)
+router.post("/register/user", signUpUser);
 
 // !  Login Routes
 // ? For HostelOwner
-router.post('/loginOwner',loginOwner);
+router.post("/loginOwner", loginOwner);
 
 // ? For User
 
-router.post('/loginUser',loginUser)
+router.post("/loginUser", loginUser);
 
+// verify the email
 
+router.get("/register/user/confirm:confirmationCode", verifyUser);
+router.get("/register/hostelOwner/confirm:confirmationCode", verifyOwner);
 
-
-export default router
-
+export default router;
