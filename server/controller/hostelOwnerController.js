@@ -1,14 +1,15 @@
-import HostelOwner from "../model/HostelOwnerSchema.js";
+import HostelOwnerModel from "../model/HostelOwnerSchema.js";
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken';
+import { sendMailForOwner } from "../services/mail.js";
 // ! For SignUp
 
-export const HostelOwnerController = async(req , res)=>{
+export const signUpOwner = async(req , res)=>{
     
     const {name , email , password} = req.body
 
     try {
-        let hostelOwner = await HostelOwner.findOne({
+        let hostelOwner = await HostelOwnerModel.findOne({
             email:email
         });
         if(hostelOwner){
@@ -16,23 +17,31 @@ export const HostelOwnerController = async(req , res)=>{
                 message: "User already exits"
             })
         }
+        
+        const token = jwt.sign({
+            // ownerId: hostelOwner._id,
+            email: email,
+        } , "RONDOM_TOKEN" , {
+            expiresIn: "5min"
+        })
 
-        hostelOwner = new HostelOwner({
-            name , 
+        hostelOwner = new HostelOwnerModel({
+            name,
             email ,
-            password
+            password,
+            confirmationCode: token
         })
 
         const salt = await bcrypt.genSalt(10);
         hostelOwner.password = await bcrypt.hash(password, salt);
 
+
         if(hostelOwner){
             const data = await hostelOwner.save()
             res.status(201).json({msg: data})
-            console.log("OwnerUser added successfully")
+            sendMailForOwner(hostelOwner.name , hostelOwner.email , token);
+            console.log("Owner registered successfully please check your email for confirmation ")
         }
-
-        
     } catch (error) {
         console.log('error has occur',error)
     }
@@ -41,7 +50,7 @@ export const HostelOwnerController = async(req , res)=>{
 // ! For SignIn
 export const loginOwner=async(req,res)=>{
     try {
-      const OwnerUser =await HostelOwner.findOne({email:req.body.email});
+      const OwnerUser =await HostelOwnerModel.findOne({email:req.body.email});
     if(OwnerUser){
       const compared= await bcrypt.compare(req.body.password,OwnerUser.password);
       
@@ -62,12 +71,10 @@ export const loginOwner=async(req,res)=>{
 
       return res.status(200).json({
         message:'Login Successful',
-        email:OwnerUser.email,
+        email: OwnerUser.email,
         token,
         OwnerUser,
       })
-      
-
     }
    return res.status(404).send({message:'Email not found'});
 
@@ -76,6 +83,20 @@ export const loginOwner=async(req,res)=>{
     }
 }
 
-
+export const verifyOwner = async(req, res)=>{
+    try {
+      const owner = await HostelOwnerModel.findOne({
+        confirmationCode: req.params.confirmationCode
+      })
+    
+      if(owner){
+        owner.verified = true
+        res.status(200).json({ message: "Owner has been confirm the email" , owner});
+      }
+    } catch (error) {
+      res.status(403).json({ message: "confirmation code is not exist" });
+      console.log(error.message)
+    }
+  }
 
 
