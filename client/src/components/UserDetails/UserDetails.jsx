@@ -1,11 +1,9 @@
 import React from 'react';
 import { useFormik } from 'formik';
-import { SignUpSchema } from '../Yup/RegisterValidation';
+import { UserDetailsValidation } from '../Yup/UserDetailsValidation';
 import {
   Box,
   Button,
-  Input,
-  InputLabel,
   FormGroup,
   FormControl,
   Typography,
@@ -15,13 +13,13 @@ import {
   RadioGroup,
   Radio,
   styled,
+  Autocomplete,
 } from '@mui/material';
 import {
   Person as PersonIcon,
   Mail as MailIcon,
-  Lock as LockIcon,
+  LocationOn as LocationOnIcon,
   Home as HomeIcon,
-  Signpost as SignPostIcon,
 } from '@mui/icons-material';
 
 const StyledBox = styled(Box)({
@@ -48,6 +46,28 @@ const FGroup = styled(FormGroup)({
   marginTop: '1rem',
 });
 
+const provinces = [
+  { label: 'Punjab' },
+  {
+    label: 'Sindh',
+  },
+  {
+    label: 'KPK',
+  },
+  {
+    label: 'Balochistan',
+  },
+  {
+    label: 'Gilgit Baltistan',
+  },
+  {
+    label: 'Azad Kashmir',
+  },
+  {
+    label: 'Islamabad Capital Territory',
+  },
+];
+
 const UserRegistration = () => {
   const initialValue = {
     firstName: '',
@@ -56,18 +76,29 @@ const UserRegistration = () => {
     gender: '',
     houseNumber: '',
     street: '',
+    area: '',
+    province: '',
   };
-  const { handleBlur, values, touched, errors, handleChange, handleSubmit } =
-    useFormik({
-      initialValues: initialValue,
-      validationSchema: SignUpSchema,
-      validateOnChange: true,
-      onSubmit: (values) => {
-        console.log('Hello');
-        console.log(values);
-      },
-    });
+  const {
+    handleBlur,
+    values,
+    touched,
+    errors,
+    handleChange,
+    handleSubmit,
+    setFieldValue,
+  } = useFormik({
+    initialValues: initialValue,
+    validationSchema: UserDetailsValidation,
+    validateOnChange: true,
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
   const handleRadioButtons = (e) => (values.gender = e.target.value);
+  const selectProvince = (e, value) => {
+    setFieldValue('province', value !== null ? value.label : values.province);
+  };
 
   return (
     <FGroup>
@@ -79,7 +110,7 @@ const UserRegistration = () => {
               <TextField
                 onBlur={handleBlur}
                 id='input-with-sx-name'
-                label='Enter First Name'
+                label='First Name'
                 variant='standard'
                 name='firstName'
                 onChange={handleChange}
@@ -98,7 +129,7 @@ const UserRegistration = () => {
               <TextField
                 onBlur={handleBlur}
                 id='input-with-sx-lastname'
-                label='Enter Last Name'
+                label='Last Name'
                 variant='standard'
                 name='lastName'
                 onChange={handleChange}
@@ -119,7 +150,7 @@ const UserRegistration = () => {
               sx={{ width: '100%' }}
               onBlur={handleBlur}
               id='input-with-sx-email'
-              label='Enter Email'
+              label='Email'
               variant='standard'
               name='email'
               onChange={handleChange}
@@ -174,7 +205,7 @@ const UserRegistration = () => {
               <TextField
                 onBlur={handleBlur}
                 id='input-with-sx-name'
-                label='Enter Your House Number'
+                label='House Number'
                 variant='standard'
                 name='houseNumber'
                 onChange={handleChange}
@@ -189,11 +220,11 @@ const UserRegistration = () => {
           </FormControl>
           <FormControl>
             <NameInput>
-              <SignPostIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+              <LocationOnIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
               <TextField
                 onBlur={handleBlur}
                 id='input-with-sx-lastname'
-                label='Enter Street'
+                label='Street'
                 variant='standard'
                 name='street'
                 onChange={handleChange}
@@ -205,6 +236,60 @@ const UserRegistration = () => {
                 {errors.street}
               </Typography>
             ) : null}
+          </FormControl>
+        </DoubleBox>
+        <FormControl sx={{ marginBottom: '2rem' }}>
+          <Box sx={{ display: 'flex', alignItems: 'flex-end', width: '100%' }}>
+            <LocationOnIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+            <TextField
+              sx={{ width: '100%' }}
+              onBlur={handleBlur}
+              id='input-with-sx-email'
+              label='Area'
+              variant='standard'
+              name='area'
+              onChange={handleChange}
+              value={values.area}
+            />
+          </Box>
+          {touched.area && errors.area ? (
+            <Typography style={{ fontSize: 12, color: 'red' }}>
+              {errors.area}
+            </Typography>
+          ) : null}
+        </FormControl>
+        <DoubleBox>
+          <FormControl>
+            <NameInput>
+              <HomeIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+              <TextField
+                onBlur={handleBlur}
+                id='input-with-sx-name'
+                label='City'
+                variant='standard'
+                name='city'
+                onChange={handleChange}
+                value={values.city}
+              />
+            </NameInput>
+            {touched.city && errors.city ? (
+              <Typography style={{ fontSize: 12, color: 'red' }}>
+                {errors.city}
+              </Typography>
+            ) : null}
+          </FormControl>
+          <FormControl>
+            <Autocomplete
+              disablePortal
+              id='combo-box-demo'
+              name='province'
+              options={provinces}
+              sx={{ width: 300 }}
+              renderInput={(params) => (
+                <TextField {...params} label='Province' />
+              )}
+              onChange={selectProvince}
+            />
           </FormControl>
         </DoubleBox>
       </StyledBox>
