@@ -5,10 +5,11 @@ import {
   verifyOwner
 } from "../controller/hostelOwnerController.js";
 import {
-signUpUser,
+  signUpUser,
   loginUser,
   verifyUser,
-} from "../controller/userController.js";
+  UserDetails,
+} from '../controller/userController.js';
 // import { verifyEmail } from '../controller/verifyEmail.js';
 const router = express.Router();
 
@@ -19,6 +20,8 @@ const router = express.Router();
 router.post("/register/hostelOwner", signUpOwner);
 // ? For User
 router.post("/register/user", signUpUser);
+
+router.post("/user/details", UserDetails);
 
 // !  Login Routes
 // ? For HostelOwner

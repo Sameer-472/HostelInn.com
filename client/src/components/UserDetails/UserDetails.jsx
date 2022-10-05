@@ -53,13 +53,10 @@ const UserRegistration = () => {
     firstName: '',
     lastName: '',
     email: '',
-    password: '',
-    confirmPassword: '',
     gender: '',
     houseNumber: '',
     street: '',
   };
-  const [signUpValues, setValues] = React.useState(initialValue);
   const { handleBlur, values, touched, errors, handleChange, handleSubmit } =
     useFormik({
       initialValues: initialValue,
@@ -134,66 +131,7 @@ const UserRegistration = () => {
               {errors.email}
             </Typography>
           ) : null}
-          {/* {error && (
-          <Typography style={{ fontSize: 12, color: 'red' }}>
-            Email Already Exist.
-          </Typography>
-        )} */}
         </FormControl>
-        <DoubleBox>
-          <FormControl sx={{ m: 0.5, width: '25.5ch' }} variant='standard'>
-            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-              <LockIcon
-                sx={{ color: 'action.active', ml: -0.5, mr: 1, my: 0.5 }}
-              />
-              <InputLabel
-                htmlFor='standard-adornment-password'
-                style={{ paddingLeft: 30 }}
-              >
-                Password
-              </InputLabel>
-              <Input
-                onBlur={handleBlur}
-                value={values.password}
-                id='standard-adornment-password'
-                type={signUpValues.showPassword ? 'text' : 'password'}
-                onChange={handleChange}
-                name='password'
-              />
-            </Box>
-            {touched.password && errors.password ? (
-              <Typography style={{ fontSize: 12, color: 'red' }}>
-                {errors.password}
-              </Typography>
-            ) : null}
-          </FormControl>
-          <FormControl sx={{ m: 0.5, width: '25.5ch' }} variant='standard'>
-            <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
-              <LockIcon
-                sx={{ color: 'action.active', ml: -0.5, mr: 1, my: 0.5 }}
-              />
-              <InputLabel
-                htmlFor='standard-adornment-confirmPassword'
-                style={{ paddingLeft: 30 }}
-              >
-                Confirm Password
-              </InputLabel>
-              <Input
-                onBlur={handleBlur}
-                value={values.confirmPassword}
-                id='standard-adornment-confirmPassword'
-                type={signUpValues.showPassword ? 'text' : 'password'}
-                onChange={handleChange}
-                name='confirmPassword'
-              />
-            </Box>
-            {touched.confirmPassword && errors.confirmPassword ? (
-              <Typography style={{ fontSize: 12, color: 'red' }}>
-                {errors.confirmPassword}
-              </Typography>
-            ) : null}
-          </FormControl>
-        </DoubleBox>
         <FormControl sx={{ marginBottom: '1rem' }}>
           <FormLabel id='demo-row-radio-buttons-group-label'>Gender</FormLabel>
           <RadioGroup
