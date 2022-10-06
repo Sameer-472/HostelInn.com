@@ -42,8 +42,10 @@ const userDetailsSchema = mongoose.Schema(
       required: [true, 'Please provide your address'],
       unique: false,
     },
-    roles: String,
-    occupation: String,
+    occupation: {
+      type: String,
+      required: [true, 'Please provide your occupation'],
+    }
     companyName: String,
     universityName: {
       type: String,

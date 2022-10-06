@@ -16,4 +16,10 @@ export const UserDetailsValidation = Yup.object({
   area: Yup.string().min(4).required('Please Enter Area Name'),
   city: Yup.string().min(4).required('Please Enter City Name'),
   province: Yup.string().min(4).required('Please Enter Your Province'),
+  occupation: Yup.string().min(4).required('Please Enter Your Occupation'),
+  companyName: Yup.string(),
+  universityName: Yup.string().min(4).required('Please Enter Your University'),
+  criminalRecord: Yup.boolean().required('Please Select'),
+  contactNumber: Yup.string().min(11).required('Please Enter Your Contact Number'),
+  emergencyNumber: Yup.string().min(11).required('Please Enter Your Emergency Number'),
 });

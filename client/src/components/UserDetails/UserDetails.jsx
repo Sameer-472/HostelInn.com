@@ -13,6 +13,7 @@ import {
   RadioGroup,
   Radio,
   styled,
+  Checkbox,
   Autocomplete,
 } from '@mui/material';
 import {
@@ -78,6 +79,12 @@ const UserRegistration = () => {
     street: '',
     area: '',
     province: '',
+    occupation: '',
+    companyName: '',
+    universityName: '',
+    criminalRecord: false,
+    contactNumber: '',
+    emergencyNumber: '',
   };
   const {
     handleBlur,
@@ -108,6 +115,7 @@ const UserRegistration = () => {
             <NameInput>
               <PersonIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
               <TextField
+                required
                 onBlur={handleBlur}
                 id='input-with-sx-name'
                 label='First Name'
@@ -127,6 +135,7 @@ const UserRegistration = () => {
             <NameInput>
               <PersonIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
               <TextField
+                required
                 onBlur={handleBlur}
                 id='input-with-sx-lastname'
                 label='Last Name'
@@ -147,6 +156,7 @@ const UserRegistration = () => {
           <Box sx={{ display: 'flex', alignItems: 'flex-end', width: '100%' }}>
             <MailIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
             <TextField
+              required
               sx={{ width: '100%' }}
               onBlur={handleBlur}
               id='input-with-sx-email'
@@ -203,6 +213,7 @@ const UserRegistration = () => {
             <NameInput>
               <HomeIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
               <TextField
+                required
                 onBlur={handleBlur}
                 id='input-with-sx-name'
                 label='House Number'
@@ -222,6 +233,7 @@ const UserRegistration = () => {
             <NameInput>
               <LocationOnIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
               <TextField
+                required
                 onBlur={handleBlur}
                 id='input-with-sx-lastname'
                 label='Street'
@@ -242,6 +254,7 @@ const UserRegistration = () => {
           <Box sx={{ display: 'flex', alignItems: 'flex-end', width: '100%' }}>
             <LocationOnIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
             <TextField
+              required
               sx={{ width: '100%' }}
               onBlur={handleBlur}
               id='input-with-sx-email'
@@ -263,6 +276,7 @@ const UserRegistration = () => {
             <NameInput>
               <HomeIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
               <TextField
+                required
                 onBlur={handleBlur}
                 id='input-with-sx-name'
                 label='City'
@@ -280,16 +294,129 @@ const UserRegistration = () => {
           </FormControl>
           <FormControl>
             <Autocomplete
+              required
               disablePortal
               id='combo-box-demo'
               name='province'
               options={provinces}
-              sx={{ width: 300 }}
+              sx={{ width: 210 }}
               renderInput={(params) => (
                 <TextField {...params} label='Province' />
               )}
               onChange={selectProvince}
             />
+          </FormControl>
+        </DoubleBox>
+        <DoubleBox>
+          <FormControl>
+            <NameInput>
+              <PersonIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+              <TextField
+                required
+                onBlur={handleBlur}
+                id='input-with-sx-name'
+                label='Occupation'
+                variant='standard'
+                name='occupation'
+                onChange={handleChange}
+                value={values.occupation}
+              />
+            </NameInput>
+            {touched.occupation && errors.occupation ? (
+              <Typography style={{ fontSize: 12, color: 'red' }}>
+                {errors.occupation}
+              </Typography>
+            ) : null}
+          </FormControl>
+          <FormControl>
+            <NameInput>
+              <PersonIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+              <TextField
+                id='input-with-sx-lastname'
+                label='Company Name'
+                variant='standard'
+                name='companyName'
+                onChange={handleChange}
+                value={values.companyName}
+              />
+            </NameInput>
+          </FormControl>
+        </DoubleBox>
+        <DoubleBox>
+          <FormControl>
+            <NameInput>
+              <PersonIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+              <TextField
+                required
+                onBlur={handleBlur}
+                id='input-with-sx-name'
+                label='University Name'
+                variant='standard'
+                name='universityName'
+                onChange={handleChange}
+                value={values.universityName}
+              />
+            </NameInput>
+            {touched.universityName && errors.universityName ? (
+              <Typography style={{ fontSize: 12, color: 'red' }}>
+                {errors.universityName}
+              </Typography>
+            ) : null}
+          </FormControl>
+          <FormControl sx={{ marginTop: '1rem' }}>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={values.criminalRecord}
+                  onChange={() =>
+                    setFieldValue('criminalRecord', !values.criminalRecord)
+                  }
+                />
+              }
+              label='Any criminal record?'
+            />
+          </FormControl>
+        </DoubleBox>
+        <DoubleBox>
+          <FormControl>
+            <NameInput>
+              <PersonIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+              <TextField
+                required
+                onBlur={handleBlur}
+                id='input-with-sx-name'
+                label='Contact Number'
+                variant='standard'
+                name='contactNumber'
+                onChange={handleChange}
+                value={values.contactNumber}
+              />
+            </NameInput>
+            {touched.contactNumber && errors.contactNumber ? (
+              <Typography style={{ fontSize: 12, color: 'red' }}>
+                {errors.contactNumber}
+              </Typography>
+            ) : null}
+          </FormControl>
+          <FormControl>
+            <NameInput>
+              <PersonIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+              <TextField
+                required
+                onBlur={handleBlur}
+                id='input-with-sx-lastname'
+                label='Emergency Number'
+                variant='standard'
+                name='emergencyNumber'
+                onChange={handleChange}
+                value={values.emergencyNumber}
+              />
+            </NameInput>
+            {touched.emergencyNumber && errors.emergencyNumber ? (
+              <Typography style={{ fontSize: 12, color: 'red' }}>
+                {errors.emergencyNumber}
+              </Typography>
+            ) : null}
           </FormControl>
         </DoubleBox>
       </StyledBox>
