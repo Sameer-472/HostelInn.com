@@ -5,6 +5,7 @@ import Login from './components/Login/Login';
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import Home from './components/Home/Home';
 import OwnerRegistration from './components/Registration/OwnerRegistration/ownerRegistration';
+import UserDetails from "./components/UserDetails/UserDetails";
 import Forget from './components/Login/Forget';
 
 function App() {
@@ -12,13 +13,12 @@ function App() {
     
     <BrowserRouter>
       <Routes>
-        {/* <Route path='/' element={<Registration/>} ></Route> */}
+
+        <Route path="/user/details" element={<UserDetails />}></Route>        
         <Route path='/ownerSignUp' element={<OwnerRegistration/>} ></Route>
         <Route path='/login' element={<Login/>} ></Route>
         <Route path='/home' element={<Home/>} ></Route>
         <Route path='/forget-password' element={<Forget/>} ></Route>
-
-      {/* <Login/> */}
       </Routes>
     </BrowserRouter>
   );
