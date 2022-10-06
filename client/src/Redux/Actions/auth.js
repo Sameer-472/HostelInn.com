@@ -28,23 +28,14 @@ export const login = (endpoint, payload) => async (dispatch) => {
   try {
     const response = await Login(endpoint, payload);
     console.log(response)
-
-    if(response.status === 200){
-      dispatch({
-        type: LOGIN_SUCCESS,
-        payload: { user: response },
-      });
-      return response
-    }
-    else{
-      dispatch({
-        type: LOGIN_FAIL,
-        payload: {user: response}
-      });
-      return response;
-    }
-
+    dispatch({
+      type: LOGIN_SUCCESS,
+      payload: { user: response },
+    });
   } catch (error) {
+    dispatch({
+      type: LOGIN_FAIL
+    });
     console.log(error)
   }
 };

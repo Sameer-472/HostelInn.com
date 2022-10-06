@@ -16,7 +16,7 @@ export const Register=async(endpoint,payload)=>{
 
 export const Login=async(endpoint,payload)=>{
     try {
-        const response =await axios.post(`${URL}${endpoint}`,payload)
+        const response =await axios.post(`${URL}${endpoint}`, payload)
         const data = response.data
         console.log(data)
         console.log(response)
