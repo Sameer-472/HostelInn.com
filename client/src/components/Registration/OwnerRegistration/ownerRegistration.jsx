@@ -49,9 +49,9 @@ function OwnerRegistration() {
       initialValues: initialValue,
       validationSchema: SignUpSchema,
       validateOnChange: true,
-      onSubmit: (values, action) => {
+      onSubmit: async(values, action) => {
         const { name, password, email } = values;
-        dispatch(
+      const result = await  dispatch(
           register("hostelOwner", {
             email: `${email}`,
             name: `${name}`,
@@ -64,7 +64,7 @@ function OwnerRegistration() {
         //201 user already exist
 
         // result.user.status === 200 ? action.resetForm() : setError(true);
-        const statusCode=result.user.status;
+        const statusCode=result.status;
         if(statusCode===400){
           console.log('code 400')
           return;
