@@ -7,7 +7,8 @@ import router from "./router/route.js";
 
 
 const app=express();
-
+app.use(express.json());
+app.set("view engine", "ejs");
 app.use(cors());
 app.use(bodyParser.json({extended:true}))
 app.use(bodyParser.urlencoded({extended:true}));

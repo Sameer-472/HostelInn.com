@@ -10,6 +10,8 @@ import {
   verifyUser,
   UserDetails,
 } from '../controller/userController.js';
+import { verifyFG,forgetPassword,updatePassword } from '../controller/forgetPasswordController.js';
+
 // import { verifyEmail } from '../controller/verifyEmail.js';
 const router = express.Router();
 
@@ -31,9 +33,16 @@ router.post("/loginOwner", loginOwner);
 
 router.post("/loginUser", loginUser);
 
-// verify the email
+// !verify the email
 
 router.get("/register/user/confirm:confirmationCode", verifyUser);
 router.get("/register/hostelOwner/confirm:confirmationCode", verifyOwner);
+
+// ! Forget Password
+router.post('/forget-password',forgetPassword)
+router.get('/verify-forget-password/:id/:token',verifyFG)
+router.post('/verify-forget-password/:id/:token',updatePassword)
+
+
 
 export default router;

@@ -8,7 +8,6 @@ import { sendMailForUser } from '../services/mail.js';
 export const signUpUser = async (req, res) => {
   // const error = validationResult(req);
   const { name, email, password } = req.body;
-
   try {
     let user = await userSchema.findOne({
       email: email,
