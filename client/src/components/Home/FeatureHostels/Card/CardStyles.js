@@ -1,62 +1,102 @@
-export const cardStyles = {
-  main: { display: 'flex', width: 412, height: 249, borderRadius: 3 },
-  boxFlex: {
-    display: 'flex',
-    flexDirection: 'column',
-    position: 'relative',
-  },
-  favouriteIcon: {
-    alignSelf: 'flex-end',
-    color: '#FF6600',
-    cursor: 'pointer',
-  },
-  favouriteBorderIcon: { alignSelf: 'flex-end', cursor: 'pointer' },
-  hostelName: {
-    fontSize: 18,
-    fontWeight: 700,
-    color: '#4D148C',
-    fontFamily: '"League Spartan", sans-serif',
-  },
-  distance: {
-    fontSize: 12,
-    color: '#606060',
-    fontWeight: 400,
-    fontFamily: "'Lato', sans-serif",
-  },
-  ratingButton: {
-    backgroundColor: '#4D148C',
-    marginTop: '14px',
-    color: '#fff',
-    '&:hover': {
-      backgroundColor: '#4D148C',
-      cursor: 'default',
-    },
-    width: '70px',
-    borderRadius: '3px',
-  },
-  pricingLabel: {
-    position: 'absolute',
-    bottom: 0,
-    right: 0,
-    display: 'flex',
-  },
-  from: {
-    fontSize: '12px',
-    fontWeight: 400,
-    fontFamily: '"League Spartan", sans-serif',
-    marginBottom: '1px',
-  },
-  currency: {
-    fontSize: '16px',
-    fontWeight: 700,
-    fontFamily: '"League Spartan", sans-serif',
-    marginLeft: '5px',
-    color: '#FF6B00',
-  },
-  price: {
-    fontSize: '20px',
-    fontWeight: 700,
-    fontFamily: '"League Spartan", sans-serif',
-    marginLeft: '5px',
-  },
-};
+import {
+  Card,
+  CardMedia,
+  CardContent,
+  Typography,
+  Button,
+  Box,
+  styled,
+} from '@mui/material';
+import {
+  FavoriteBorder as FavoriteBorderIcon,
+  Favorite as FavoriteIcon,
+} from '@mui/icons-material';
+
+export const CardMain = styled(Card)`
+  display: flex;
+  width: 412px;
+  height: 249px;
+  border-radius: 12px;
+`;
+
+export const CardImage = styled(CardMedia)`
+  width: 200px;
+`;
+
+export const BoxFlex = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  position: relative;
+`;
+
+export const FlexCardContent = styled(CardContent)`
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+`;
+
+export const AlignedFavoriteBorderIcon = styled(FavoriteBorderIcon)`
+  align-self: flex-end;
+  cursor: pointer;
+`;
+
+export const AlignedFavoriteIcon = styled(FavoriteIcon)`
+  align-self: flex-end;
+  cursor: pointer;
+  color: #ff6600;
+`;
+
+export const HostelNameText = styled(Typography)`
+  font-size: 18px;
+  font-weight: 700;
+  color: #4d148c;
+  font-family: 'League Spartan', sans-serif;
+`;
+
+export const DistanceText = styled(Typography)`
+  font-size: 12px;
+  color: #606060;
+  font-weight: 400;
+  font-family: 'Lato', sans-serif;
+`;
+
+export const RatingButton = styled(Button)`
+  background-color: #4d148c;
+  margin-top: 14px;
+  color: #fff;
+  width: 70px;
+  border-radius: 3px;
+  &:hover {
+    background-color: #4d148c;
+    cursor: default;
+  }
+`;
+
+export const PriceCard = styled(CardContent)`
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+`;
+
+export const FromText = styled(Typography)`
+  font-size: 12px;
+  font-weight: 400;
+  font-family: 'League Spartan', sans-serif;
+  margin-bottom: 1px;
+`;
+
+export const CurrencyText = styled(Typography)`
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'League Spartan', sans-serif;
+  margin-left: 5px;
+  color: #ff6b00;
+`;
+
+export const PriceText = styled(Typography)`
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'League Spartan', sans-serif;
+  margin-left: 5px;
+`;

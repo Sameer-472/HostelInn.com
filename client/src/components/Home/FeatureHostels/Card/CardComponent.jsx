@@ -1,69 +1,65 @@
 import React from 'react';
 import {
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  Button,
-  Box,
-} from '@mui/material';
-import {
-  FavoriteBorder as FavoriteBorderIcon,
-  Favorite as FavoriteIcon,
-  Star as StarIcon,
-} from '@mui/icons-material';
+  CardMain,
+  CardImage,
+  BoxFlex,
+  FlexCardContent,
+  AlignedFavoriteBorderIcon,
+  AlignedFavoriteIcon,
+  HostelNameText,
+  RatingButton,
+  DistanceText,
+  PriceText,
+  CurrencyText,
+  PriceCard,
+  FromText,
+} from './CardStyles';
 
-import { cardStyles } from './CardStyles';
+import { Star as StarIcon } from '@mui/icons-material';
 
 const CardComponent = ({ name, distance, rating, startingFrom }) => {
   const [isFavourite, setIsFavourite] = React.useState(false);
   return (
-    <Card sx={cardStyles.main}>
-      <CardMedia
+    <CardMain>
+      <CardImage
         component='img'
         image={require('../Assets/Hostel-Image.png')}
-        sx={{ width: 200 }}
       />
-      <Box sx={cardStyles.boxFlex}>
-        <CardContent sx={{ display: 'flex', flexDirection: 'column' }}>
+      <BoxFlex>
+        <FlexCardContent>
           {isFavourite ? (
-            <FavoriteIcon
-              sx={cardStyles.favouriteIcon}
-              onClick={() => setIsFavourite(!isFavourite)}
-            />
+            <AlignedFavoriteIcon onClick={() => setIsFavourite(!isFavourite)} />
           ) : (
-            <FavoriteBorderIcon
-              sx={cardStyles.favouriteBorderIcon}
+            <AlignedFavoriteBorderIcon
               onClick={() => setIsFavourite(!isFavourite)}
             />
           )}
-          <Typography variant='h6' component='div' sx={cardStyles.hostelName}>
+          <HostelNameText variant='h6' component='div'>
             {name}
-          </Typography>
-          <Typography variant='p' component='p' sx={cardStyles.distance}>
+          </HostelNameText>
+          <DistanceText variant='p' component='p'>
             {distance}
-          </Typography>
-          <Button
+          </DistanceText>
+          <RatingButton
             variant='raised'
             startIcon={<StarIcon sx={{ color: '#FFD600' }} />}
-            sx={cardStyles.ratingButton}
           >
             {rating}
-          </Button>
-        </CardContent>
-        <CardContent sx={cardStyles.pricingLabel}>
-          <Typography variant='p' component='span' sx={cardStyles.from}>
+          </RatingButton>
+        </FlexCardContent>
+        <PriceCard>
+          <FromText variant='p' component='span'>
             From
-          </Typography>
-          <Typography variant='h5' component='span' sx={cardStyles.currency}>
+          </FromText>
+          <CurrencyText variant='h5' component='span'>
             PKRs
-            <Typography variant='h2' component='span' sx={cardStyles.price}>
+            <PriceText variant='h2' component='span'>
               {startingFrom}
-            </Typography>
-          </Typography>
-        </CardContent>
-      </Box>
-    </Card>
+            </PriceText>
+          </CurrencyText>
+        </PriceCard>
+      </BoxFlex>
+    </CardMain>
   );
 };
 

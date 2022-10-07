@@ -1,56 +1,41 @@
 import React from 'react';
-import {
-  Card,
-  Avatar,
-  CardContent,
-  Typography,
-  Rating,
-  Box,
-} from '@mui/material';
+import { CardContent } from '@mui/material';
 
-import { cardStyles } from './CardStyles';
+import {
+  CardMain,
+  BoxFlex,
+  AvatarStyled,
+  NameText,
+  ReviewText,
+  BoxRating,
+  RatingStars,
+  RatingText,
+} from './CardStyles';
 
 const CardComponent = ({ profilePhoto, name, review, rating }) => {
   return (
-    <Card sx={cardStyles.main}>
-      <Box sx={cardStyles.boxFlex}>
-        <Avatar
-          alt='Remy Sharp'
-          src={profilePhoto}
-          sx={cardStyles.avatar}
-        />
-        <Typography
-          variant='h2'
-          component='div'
-          sx={cardStyles.name}
-        >
+    <CardMain>
+      <BoxFlex>
+        <AvatarStyled alt='Remy Sharp' src={profilePhoto} />
+        <NameText variant='h2' component='div'>
           {name}
-        </Typography>
-      </Box>
+        </NameText>
+      </BoxFlex>
       <CardContent>
-        <Typography
-          variant='p'
-          component='div'
-          sx={cardStyles.review}
-        >
+        <ReviewText variant='p' component='div'>
           {review}
-        </Typography>
-        <Box sx={cardStyles.flexRating}>
-          <Rating
-            sx={{ color: '#FFD600', gap: 1 }}
+        </ReviewText>
+        <BoxRating>
+          <RatingStars
             name='text-feedback'
             value={rating}
             precision={0.5}
             readOnly
           />
-          <Typography
-            sx={cardStyles.rating}
-          >
-            {rating.toFixed(1)}
-          </Typography>
-        </Box>
+          <RatingText>{rating.toFixed(1)}</RatingText>
+        </BoxRating>
       </CardContent>
-    </Card>
+    </CardMain>
   );
 };
 

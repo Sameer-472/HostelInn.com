@@ -1,37 +1,61 @@
-export const cardStyles = {
-  main: {
-    display: 'flex',
-    flexDirection: 'column',
-    width: 385,
-    height: 250,
-    borderRadius: 3,
-    padding: '27px',
-    boxShadow: '0px 8px 10px 2px rgba(0, 0, 0, 0.25)',
-  },
-  boxFlex: {
-    display: 'flex',
-  },
-  avatar: { width: 100, height: 100, border: '1px solid #4D148C', mt: 2 },
-  name: {
-    fontSize: 32,
-    fontWeight: 500,
-    color: '#4D148C',
-    fontFamily: '"League Spartan", sans-serif',
-    ml: '12px',
-    alignSelf: 'flex-end',
-  },
-  review: {
-    fontSize: 14,
-    fontWeight: 500,
-    color: '#606060',
-    fontFamily: '"Inter", sans-serif',
-    mt: '10px',
-  },
-  flexRating: { display: 'flex', justifyContent: 'space-between', mt: 4 },
-  rating: {
-    fontSize: 24,
-    fontWeight: 700,
-    color: '#4D148C',
-    fontFamily: '"League Spartan", sans-serif',
-  },
-};
+import {
+  Card,
+  Avatar,
+  Typography,
+  Rating,
+  Box,
+  styled,
+} from '@mui/material';
+
+export const CardMain = styled(Card)`
+  display: flex;
+  flex-direction: column;
+  width: 385px;
+  height: 250px;
+  border-radius: 10px;
+  padding: 27px;
+  box-shadow: 0px 8px 10px 2px rgba(0, 0, 0, 0.25);
+`;
+export const BoxFlex = styled(Box)`
+  display: flex;
+`;
+
+export const AvatarStyled = styled(Avatar)`
+  width: 100px;
+  height: 100px;
+  border: 1px solid #4d148c;
+  margin-top: 2px;
+`;
+export const NameText = styled(Typography)`
+  font-size: 32px;
+  font-weight: 500;
+  color: #4d148c;
+  font-family: 'League Spartan', sans-serif;
+  margin-left: 15px;
+  align-self: flex-end;
+`;
+
+export const ReviewText = styled(Typography)`
+  font-size: 14px;
+  font-weight: 500;
+  color: #606060;
+  font-family: 'Inter', sans-serif;
+  margin-top: 10px;
+`;
+export const BoxRating = styled(Box)`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+`;
+
+export const RatingText = styled(Typography)`
+  font-size: 24px;
+  font-weight: 700;
+  color: #4d148c;
+  font-family: 'League Spartan', sans-serif;
+`;
+
+export const RatingStars = styled(Rating)`
+  color: #ffd600;
+  gap: 10px;
+`;
