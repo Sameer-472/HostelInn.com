@@ -2,46 +2,36 @@ import React from 'react';
 import CardComponent from './Card/CardComponent';
 import { featuredHostelsData } from './featuredHostelData';
 import { Box, Typography } from '@mui/material';
+import { featuredHostelsStyles } from './FeaturedHostelsStyles';
 
 const FeaturedHostels = () => {
   return (
-    <Box
-      sx={{
-        background: `url(${require('./Assets/Rectangle130.png')}) no-repeat`,
-        height: '900px',
-        px: '5rem',
-        py: '15rem',
-      }}
-    >
+    <Box sx={featuredHostelsStyles.main}>
+      <img
+        src={require('./Assets/RectangleStrip130.png')}
+        alt=''
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+        }}
+      />
       <Typography
         variant='h2'
         component='div'
-        sx={{
-          fontSize: 48,
-          fontWeight: 700,
-          color: '#4D148C',
-          fontFamily: '"League Spartan", sans-serif',
-        }}
+        sx={featuredHostelsStyles.title}
       >
         Featured Hostels
       </Typography>
       <Typography
         variant='p'
         component='div'
-        sx={{
-          fontSize: 24,
-          fontWeight: 400,
-          fontFamily: "'Lato', sans-serif",
-        }}
+        sx={featuredHostelsStyles.description}
       >
         Select a top rated featured hostel
       </Typography>
       <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          my: '3rem',
-        }}
+        sx={featuredHostelsStyles.cardContainer}
       >
         {featuredHostelsData.map((hostel) => (
           <CardComponent
@@ -53,6 +43,15 @@ const FeaturedHostels = () => {
           />
         ))}
       </Box>
+      <img
+        src={require('./Assets/RectangleStrip130.png')}
+        alt=''
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          right: 0,
+        }}
+      />
     </Box>
   );
 };

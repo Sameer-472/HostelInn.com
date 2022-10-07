@@ -13,122 +13,51 @@ import {
   Star as StarIcon,
 } from '@mui/icons-material';
 
+import { cardStyles } from './CardStyles';
+
 const CardComponent = ({ name, distance, rating, startingFrom }) => {
   const [isFavourite, setIsFavourite] = React.useState(false);
   return (
-    <Card sx={{ display: 'flex', width: 412, height: 249, borderRadius: 3 }}>
+    <Card sx={cardStyles.main}>
       <CardMedia
         component='img'
         image={require('../Assets/Hostel-Image.png')}
         sx={{ width: 200 }}
       />
-      <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          position: 'relative',
-        }}
-      >
+      <Box sx={cardStyles.boxFlex}>
         <CardContent sx={{ display: 'flex', flexDirection: 'column' }}>
           {isFavourite ? (
             <FavoriteIcon
-              sx={{
-                alignSelf: 'flex-end',
-                color: '#FF6600',
-                cursor: 'pointer',
-              }}
+              sx={cardStyles.favouriteIcon}
               onClick={() => setIsFavourite(!isFavourite)}
             />
           ) : (
             <FavoriteBorderIcon
-              sx={{ alignSelf: 'flex-end', cursor: 'pointer' }}
+              sx={cardStyles.favouriteBorderIcon}
               onClick={() => setIsFavourite(!isFavourite)}
             />
           )}
-          <Typography
-            variant='h6'
-            component='div'
-            sx={{
-              fontSize: 18,
-              fontWeight: 700,
-              color: '#4D148C',
-              fontFamily: '"League Spartan", sans-serif',
-            }}
-          >
+          <Typography variant='h6' component='div' sx={cardStyles.hostelName}>
             {name}
           </Typography>
-          <Typography
-            variant='p'
-            component='p'
-            sx={{
-              fontSize: 12,
-              color: '#606060',
-              fontWeight: 400,
-              fontFamily: "'Lato', sans-serif",
-            }}
-          >
+          <Typography variant='p' component='p' sx={cardStyles.distance}>
             {distance}
           </Typography>
           <Button
             variant='raised'
             startIcon={<StarIcon sx={{ color: '#FFD600' }} />}
-            sx={{
-              backgroundColor: '#4D148C',
-              marginTop: '14px',
-              color: '#fff',
-              '&:hover': {
-                backgroundColor: '#4D148C',
-                cursor: 'default',
-              },
-              width: '70px',
-              borderRadius: '3px',
-            }}
+            sx={cardStyles.ratingButton}
           >
             {rating}
           </Button>
         </CardContent>
-        <CardContent
-          sx={{
-            position: 'absolute',
-            bottom: 0,
-            right: 0,
-            display: 'flex',
-          }}
-        >
-          <Typography
-            variant='p'
-            component='span'
-            sx={{
-              fontSize: '12px',
-              fontWeight: 400,
-              fontFamily: '"League Spartan", sans-serif',
-              marginBottom: '1px',
-            }}
-          >
+        <CardContent sx={cardStyles.pricingLabel}>
+          <Typography variant='p' component='span' sx={cardStyles.from}>
             From
           </Typography>
-          <Typography
-            variant='h5'
-            component='span'
-            sx={{
-              fontSize: '16px',
-              fontWeight: 700,
-              fontFamily: '"League Spartan", sans-serif',
-              marginLeft: '5px',
-              color: '#FF6B00',
-            }}
-          >
+          <Typography variant='h5' component='span' sx={cardStyles.currency}>
             PKRs
-            <Typography
-              variant='h2'
-              component='span'
-              sx={{
-                fontSize: '20px',
-                fontWeight: 700,
-                fontFamily: '"League Spartan", sans-serif',
-                marginLeft: '5px',
-              }}
-            >
+            <Typography variant='h2' component='span' sx={cardStyles.price}>
               {startingFrom}
             </Typography>
           </Typography>
