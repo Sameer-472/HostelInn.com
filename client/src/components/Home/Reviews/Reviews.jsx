@@ -37,7 +37,7 @@ const Reviews = () => {
         alt=''
         style={{
           position: 'absolute',
-          bottom: -10,
+          bottom: -25,
           right: 0,
         }}
       />
