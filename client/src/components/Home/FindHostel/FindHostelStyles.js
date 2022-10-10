@@ -36,14 +36,17 @@ export const SearchIconWrapper = styled(Box)`
 `;
 
 export const SearchIcon = styled(Search)`
-  color: #ffb686;
   width: 25px;
   height: 25px;
+  color: #ffb686;
 `;
 
 export const SearchInputBase = styled(InputBase)`
   margin: 0 24px 0 24px;
   width: 100%;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
 `;
 
 export const GoButton = styled(Button)`
@@ -53,6 +56,7 @@ export const GoButton = styled(Button)`
   font-family: 'Inter', sans-serif;
   font-weight: 600;
   text-transform: none;
+  border-radius: 10px;
   &:hover {
     background-color: #ff5600;
   }
