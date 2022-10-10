@@ -1,16 +1,11 @@
 import React from 'react';
 import CardComponent from './Card/CardComponent';
 import { reviewsData } from './reviewsData';
-import { Box, Typography } from '@mui/material';
-import { reviewsStyles } from './ReviewsStyles';
+import { BoxMain, TitleText, OrangeText, CardContainer } from './ReviewsStyles';
 
 const Reviews = () => {
   return (
-    <Box
-      sx={
-        reviewsStyles.main
-      }
-    >
+    <BoxMain>
       <img
         src={require('./Assets/RectangleStrip130.png')}
         alt=''
@@ -20,23 +15,13 @@ const Reviews = () => {
           left: 0,
         }}
       />
-      <Typography
-        variant='h1'
-        component='div'
-        sx={reviewsStyles.title}
-      >
+      <TitleText variant='h1' component='div'>
         Find verified hostels with{' '}
-        <Typography
-          variant='h1'
-          component='span'
-          sx={reviewsStyles.orangeTitle}
-        >
+        <OrangeText variant='h1' component='span'>
           honest reviews.
-        </Typography>
-      </Typography>
-      <Box
-        sx={reviewsStyles.cardContainer}
-      >
+        </OrangeText>
+      </TitleText>
+      <CardContainer>
         {reviewsData.map((reviewer) => (
           <CardComponent
             name={reviewer.name}
@@ -46,17 +31,17 @@ const Reviews = () => {
             key={reviewer.name}
           />
         ))}
-      </Box>
+      </CardContainer>
       <img
         src={require('./Assets/RectangleStrip130.png')}
         alt=''
         style={{
           position: 'absolute',
-          bottom: -25,
+          bottom: -10,
           right: 0,
         }}
       />
-    </Box>
+    </BoxMain>
   );
 };
 
