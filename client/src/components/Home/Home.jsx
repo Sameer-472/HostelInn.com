@@ -3,6 +3,7 @@ import FeaturedHostels from './FeatureHostels/FeaturedHostels';
 import Reviews from './Reviews/Reviews';
 import FindHostel from './FindHostel/FindHostel';
 import FindYourHome from './FindYourHome/FindYourHome';
+import Footer from './Footer/Footer';
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
         <FeaturedHostels />
         <Reviews />
         <FindYourHome />
+        <Footer />
     </div>
   )
 }
