@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
 const FullNameSchema = mongoose.Schema({
   firstName: {
@@ -23,65 +23,65 @@ const userDetailsSchema = mongoose.Schema(
   {
     fullName: {
       type: FullNameSchema,
-      required: [true, 'Please provide your full name'],
+      required: [true, "Please provide your full name"],
       unique: [false],
     },
     email: {
       type: String,
-      required: [true, 'Please provide an Email!'],
-      unique: [true, 'Email Exist'],
+      required: [true, "Please provide an Email!"],
+      unique: [true, "Email Exist"],
     },
 
     gender: {
       type: String,
-      required: [true, 'Please provide gender'],
+      required: [true, "Please provide gender"],
     },
 
     address: {
       type: AddressSchema,
-      required: [true, 'Please provide your address'],
+      required: [true, "Please provide your address"],
       unique: false,
     },
     occupation: {
       type: String,
-      required: [true, 'Please provide your occupation'],
-    }
+      required: [true, "Please provide your occupation"],
+    },
     companyName: String,
     universityName: {
       type: String,
-      required: [true, 'Please enter your university name'],
+      required: [true, "Please enter your university name"],
     },
     criminalRecord: Boolean,
     contactNumber: {
       type: String,
-      required: [true, 'Please enter your contact number'],
-      unique: [true, 'Contact number exist'],
+      required: [true, "Please enter your contact number"],
+      unique: [true, "Contact number exist"],
     },
     emergencyNumber: {
       type: String,
-      required: [true, 'Please enter your emergency number'],
-      unique: [true, 'Emergency number exist'],
+      required: [true, "Please enter your emergency number"],
+      unique: [true, "Emergency number exist"],
     },
     bloodGroup: {
       type: String,
-      required: [true, 'Please enter your blood group'],
+      required: [true, "Please enter your blood group"],
     },
     dateOfBirth: {
       type: Date,
-      required: [true, 'Please enter your date of birth'],
+      required: [true, "Please enter your date of birth"],
     },
     cnicPhoto: {
       type: String,
-      required: [true, 'Please enter your cnic photo'],
+      required: [true, "Please enter your cnic photo"],
     },
     profilePhoto: {
       type: String,
-      required: [true, 'Please enter your profile photo'],
+      required: [true, "Please enter your profile photo"],
     },
   },
   { timestamps: true }
 );
 
-const UserDetails = mongoose.model('userDetail', userDetailsSchema);
+const UserDetails = mongoose.model("userDetail", userDetailsSchema);
 
 export default UserDetails;
