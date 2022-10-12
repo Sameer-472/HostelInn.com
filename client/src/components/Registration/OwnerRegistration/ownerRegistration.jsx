@@ -60,7 +60,7 @@ function OwnerRegistration() {
         );
         console.log(result);
         // ! Status Codes
-        // 200 User added Successful 
+        // 200 User added Successful+ 
         //201 user already exist
 
         // result.user.status === 200 ? action.resetForm() : setError(true);
