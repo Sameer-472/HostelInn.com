@@ -11,6 +11,7 @@ import Forget from "./components/Login/Forget";
 import Navbar from "./components/Home/Navbar/Navbar";
 import Footer from "./components/Home/Footer/Footer";
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -22,6 +23,7 @@ function App() {
         <Route path='/login' element={<Login />}></Route>
         <Route path='/home' element={<Home />}></Route>
         <Route path='/forget-password' element={<Forget />}></Route>
+
       </Routes>
       <Footer />
     </BrowserRouter>
