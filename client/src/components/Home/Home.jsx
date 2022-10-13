@@ -1,21 +1,14 @@
-import React from 'react'
-import FeaturedHostels from './FeatureHostels/FeaturedHostels';
-import Reviews from './Reviews/Reviews';
-import FindHostel from './FindHostel/FindHostel';
-import FindYourHome from './FindYourHome/FindYourHome';
-import Footer from './Footer/Footer';
-
-const Home = () => {
+import React from "react";
+import BookNow from "./BookNow/BookNow";
+import MultiCarousel from "./Carousel/MultiCarousel";
+import Footer from "./Footer/Footer";
+function Home() {
   return (
-    <div>
-        <div>Home</div>
-        <FindHostel />
-        <FeaturedHostels />
-        <Reviews />
-        <FindYourHome />
-        <Footer />
-    </div>
-  )
+    <>
+      <MultiCarousel />
+      <BookNow />
+    </>
+  );
 }
 
-export default Home
+export default Home;
