@@ -8,8 +8,9 @@ import { Stepper } from "./Stepper";
 export const ChooseAnimation = () => {
   return (
     <>
+      <div>
       <Flex>
-        <div>
+        <div style= {{marginTop: 20}}>
           <span style={{ fontSize: "3rem", fontWeight: "bolder" }}>
             {" "}
             All by your{" "}
@@ -26,7 +27,7 @@ export const ChooseAnimation = () => {
           </span>
         </div>
       </Flex>
-      <Flex>
+      <Flex style={{marginTop: -55 , height: '43rem'}}>
           <Card1>
             <img src={Img1} alt="Card1" width={247} height={438} />
           </Card1>
@@ -37,6 +38,7 @@ export const ChooseAnimation = () => {
             <img src={Img3} alt="Card3" width={247} height={438} />
           </Card3> 
           </Flex>
+      </div>
     </>
   );
 };

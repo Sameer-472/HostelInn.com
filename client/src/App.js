@@ -25,7 +25,7 @@ function App() {
         <Route path='/forget-password' element={<Forget />}></Route>
 
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }
