@@ -18,7 +18,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import InputAdornment from "@mui/material/InputAdornment";
 import LockIcon from "@mui/icons-material/Lock";
 import { useFormik } from "formik";
-import { SignUpSchema } from "../../Yup/RegisterValidation";
+import { SignUpSchema } from "../../Yup/SignUpValidation";
 import MailIcon from "@mui/icons-material/Mail";
 import { useSelector, useDispatch } from "react-redux";
 import { register } from "../../../Redux/Actions/auth";

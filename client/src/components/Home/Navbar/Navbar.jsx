@@ -3,6 +3,7 @@ import React from 'react';
 import { Button, AppBar, Toolbar, Box, styled, Avatar } from '@mui/material';
 import { Link, NavLink } from 'react-router-dom';
 import UserSignUp from './../../SignUp/UserSignUp';
+import UserSignIn from './../../SignIn/UserSignIn';
 
 const Image = styled('img')({
   fontSize: 80,
@@ -54,8 +55,11 @@ const Btn = styled(Button)`
   }
 `;
 function Navbar() {
-  const [open, setOpen] = React.useState(false);
-  
+  const [signUpOpen, setSignUpOpen] = React.useState(false);
+  const [signInOpen, setSignInOpen] = React.useState(false);
+  const [renderSignIn, setRenderSignIn] = React.useState(false);
+  const [renderSignUp, setRenderSignUp] = React.useState(false);
+
   return (
     <>
       <AppBar position='sticky'>
@@ -76,7 +80,15 @@ function Navbar() {
             <NavLink to='/about-us'> About us </NavLink>
           </LinkWrapper>
           <RightWrapper>
-            <Btn onClick={() => setOpen(true)} variant='text'>Signup/Login</Btn>
+            <Btn
+              onClick={() => {
+                setSignUpOpen(true);
+                setRenderSignUp(true);
+              }}
+              variant='text'
+            >
+              Signup/Login
+            </Btn>
             <Avatar
               //   sx={{ bgcolor: deepOrange[500] }}
               //   alt='Remy Sharp'
@@ -85,7 +97,24 @@ function Navbar() {
           </RightWrapper>
         </Toolbar>
       </AppBar>
-      <UserSignUp open={open} setOpen = {setOpen} />
+      {renderSignUp && (
+        <UserSignUp
+          signUpOpen={signUpOpen}
+          setSignUpOpen={setSignUpOpen}
+          setRenderSignIn={setRenderSignIn}
+          setRenderSignUp={setRenderSignUp}
+          setSignInOpen={setSignInOpen}
+        />
+      )}
+      {renderSignIn && (
+        <UserSignIn
+          signInOpen={signInOpen}
+          setSignInOpen={setSignInOpen}
+          setSignUpOpen={setSignUpOpen}
+          setRenderSignIn={setRenderSignIn}
+          setRenderSignUp={setRenderSignUp}
+        />
+      )}
     </>
   );
 }

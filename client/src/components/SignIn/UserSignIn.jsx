@@ -15,10 +15,11 @@ import {
   styled,
 } from '@mui/material';
 import { useFormik } from 'formik';
-import { SignUpSchema } from '../Yup/RegisterValidation';
+import { SignInSchema } from '../Yup/SignInValidation';
 import MailIcon from '@mui/icons-material/Mail';
 import { useSelector, useDispatch } from 'react-redux';
-import { register } from '../../Redux/Actions/auth';
+import { login } from '../../Redux/Actions/auth';
+import { useNavigate, NavLink } from 'react-router-dom';
 
 import {
   Search as SearchIcon,
@@ -94,7 +95,7 @@ const StyledBox = styled(Box)`
   margin-top: 1rem;
 `;
 
-const CreateAccountButton = styled(Button)`
+const LoginButton = styled(Button)`
   background-color: #4d148c;
   height: 2.5rem;
   width: 13.5rem;
@@ -112,7 +113,7 @@ const CreateAccountButton = styled(Button)`
   }
 `;
 
-const SignUpWithGoogleButton = styled(Button)`
+const LoginWithGoogleButton = styled(Button)`
   margin-top: 0.5rem;
   display: flex;
   justify-content: space-around;
@@ -141,7 +142,7 @@ const OrText = styled(Typography)`
   margin-top: 0.5rem;
 `;
 
-const SignInInsteadText = styled(Typography)`
+const SignUpInsteadText = styled(Typography)`
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   font-size: 1rem;
@@ -150,7 +151,7 @@ const SignInInsteadText = styled(Typography)`
   margin-top: 2rem;
 `;
 
-const SignInText = styled(Typography)`
+const SignUpText = styled(Typography)`
   font-weight: 700;
   font-family: 'Lato', sans-serif;
   font-size: 1rem;
@@ -163,15 +164,15 @@ const SignInText = styled(Typography)`
   }
 `;
 
-const UserSignUp = ({
-  signUpOpen,
-  setSignUpOpen,
+const UserSignIn = ({
+  signInOpen,
+  setSignInOpen,
   setRenderSignIn,
   setRenderSignUp,
-  setSignInOpen,
+  setSignUpOpen,
 }) => {
   const handleClose = () => {
-    setSignUpOpen(false);
+    setSignInOpen(false);
   };
 
   const [signedUp, setSignedUp] = React.useState(false);
@@ -180,9 +181,9 @@ const UserSignUp = ({
 
   const result = useSelector((state) => state);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const initialValue = {
-    name: '',
     email: '',
     password: '',
   };
@@ -196,38 +197,32 @@ const UserSignUp = ({
     handleSubmit,
   } = useFormik({
     initialValues: initialValue,
-    validationSchema: SignUpSchema,
+    validationSchema: SignInSchema,
     validateOnChange: true,
-    onSubmit: (values, action) => {
-      const { name, email, password } = values;
+    onSubmit: async (values) => {
+      const { email, password } = values;
       dispatch(
-        register('user', {
-          email: `${email}`,
-          name: `${name}`,
-          password: `${password}`,
+        login('/loginUser', {
+          email: `${values.email}`,
+          password: `${values.password}`,
         })
       );
-      console.log(result);
-      const statusCode = result.user.status
-        ? result.user.status
-        : result.user.response.status;
+
+      const statusCode = result.response.status;
       console.log(statusCode);
+      // ! result coming from useState
+      console.log(result, 'after dispatch method');
       if (statusCode === 200) {
-        // TODO: redirect to home page
-        console.log('success');
-        setErrorMsg('');
+        console.log('Login Successful');
         setError(false);
-        setSignedUp(true);
-        setSignUpOpen(false);
-      } else if (statusCode === 401) {
-        setErrorMsg('');
+        navigate('/');
+      } else if (statusCode === 403) {
+        console.log('Email Not Found');
         setError(true);
-        setErrorMsg('Email already exists');
         return;
-      } else {
+      } else if (statusCode === 403) {
+        console.log('Password Does not match');
         setError(true);
-        setErrorMsg('Something went wrong');
-        return;
       }
     },
   });
@@ -236,12 +231,12 @@ const UserSignUp = ({
     <>
       {signedUp ? (
         <Alert variant='outlined' severity='success'>
-          User created successfully
+          User Logged In successfully
         </Alert>
       ) : (
         <>
           <Dialog
-            open={signUpOpen}
+            open={signInOpen}
             onClose={handleClose}
             PaperProps={{
               style: { borderRadius: '35px' },
@@ -252,28 +247,8 @@ const UserSignUp = ({
                 {errorMsg}
               </Alert>
             )}
-            <DialogTitleStyled>Sign Up</DialogTitleStyled>
+            <DialogTitleStyled>Sign In</DialogTitleStyled>
             <DialogContentStyled>
-              <TextBox>
-                <IconWrapper>
-                  <PersonIconStyled />
-                </IconWrapper>
-                <TextFieldStyled
-                  variant='standard'
-                  placeholder='Username'
-                  InputProps={{ disableUnderline: true }}
-                  type='text'
-                  name='name'
-                  onChange={handleChange}
-                  value={values.name}
-                  onBlur={handleBlur}
-                />
-                {touched.name && errors.name ? (
-                  <Typography style={{ fontSize: 12, color: 'red' }}>
-                    {errors.name}
-                  </Typography>
-                ) : null}
-              </TextBox>
               <TextBox>
                 <IconWrapper>
                   <EmailIconStyled />
@@ -315,29 +290,27 @@ const UserSignUp = ({
                 ) : null}
               </TextBox>
               <StyledBox>
-                <CreateAccountButton onClick={handleSubmit}>
-                  Create Account
-                </CreateAccountButton>
+                <LoginButton onClick={handleSubmit}>Login</LoginButton>
                 <OrText>OR</OrText>
-                <SignUpWithGoogleButton>
+                <LoginWithGoogleButton>
                   <GoogleIcon />
-                  <Typography>Sign Up with Google</Typography>
-                </SignUpWithGoogleButton>
-                <SignInInsteadText>
-                  Already have an account?
-                  <SignInText
+                  <Typography>Login with Google</Typography>
+                </LoginWithGoogleButton>
+                <SignUpInsteadText>
+                  Don't have an account?
+                  <SignUpText
                     component={'span'}
                     variant={'body2'}
                     onClick={() => {
-                      setSignUpOpen(false);
-                      setSignInOpen(true);
-                      setRenderSignIn(true);
-                      setRenderSignUp(false);
+                      setSignInOpen(false);
+                      setSignUpOpen(true);
+                      setRenderSignUp(true);
+                      setRenderSignIn(false);
                     }}
                   >
-                    Sign In
-                  </SignInText>
-                </SignInInsteadText>
+                    Sign Up
+                  </SignUpText>
+                </SignUpInsteadText>
               </StyledBox>
             </DialogContentStyled>
           </Dialog>
@@ -347,4 +320,4 @@ const UserSignUp = ({
   );
 };
 
-export default UserSignUp;
+export default UserSignIn;

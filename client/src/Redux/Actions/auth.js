@@ -27,7 +27,7 @@ export const register = (endpoint, payload) => async (dispatch) => {
 export const login = (endpoint, payload) => async (dispatch) => {
   try {
     const response = await Login(endpoint, payload);
-    console.log(response)
+    // console.log(response)
     dispatch({
       type: LOGIN_SUCCESS,
       payload: { user: response },
