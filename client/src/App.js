@@ -3,6 +3,7 @@ import React from "react";
 import Login from "./components/Login/Login";
 // import RegisterUser from './components/Registration/RegisterUser';
 // import Registration from './components/Registration/Registration';
+import UserRegistration from './components/Registration/Registration';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home.jsx";
 import OwnerRegistration from "./components/Registration/OwnerRegistration/ownerRegistration";
