@@ -11,40 +11,40 @@ const hostelOwnerDetails = mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, "Please Provide a Name"],
-      unique: [false],
+      // required: [true, "Please Provide a Name"],
+      // unique: [false],
     },
     email: {
       type: String,
-      required: [true, "Please provide an Email!"],
-      unique: [true, "Email Exist"],
+      // required: [true, "Please provide an Email!"],
+      // unique: [true, "Email Exist"],
     },
 
     password: {
       type: String,
-      required: [true, "Please provide a password!"],
-      unique: false,
+      // required: [true, "Please provide a password!"],
+      // unique: false,
     },
     confirmationCode: {
       type: String,
     },
     fullName: {
       type: String,
-      require: [true, "please write your name"],
-      unique: [false],
+      // require: [true, "please write your name"],
+      // unique: [false],
     },
     emailAddress: {
       type: String,
-      require: [true, "please provide your emailAddress"],
-      unique: true,
+      // require: [true, "please provide your emailAddress"],
+      // unique: true,
     },
     number: {
       type: Number,
-      require: [true, "please [provide your number"],
+      // require: [true, "please [provide your number"],
     },
     cnic: {
       type: Number,
-      require: [true, "please provide your CNIC"],
+      // require: [true, "please provide your CNIC"],
     },
     profilePic: String,
 
@@ -64,6 +64,6 @@ const hostelOwnerDetails = mongoose.Schema(
   { timestamps: true }
 );
 
-const HostelOwnerModel = mongoose.model("hostelOwner", hostelOwnerDetails);
+const HostelOwnerSchema = mongoose.model("hostelOwner", hostelOwnerDetails);
 
-export default HostelOwnerModel;
+export default HostelOwnerSchema;

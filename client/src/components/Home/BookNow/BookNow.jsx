@@ -63,7 +63,7 @@ const Btn = styled(Button)`
 `;
 const Absolute = styled(Box)(({ theme }) => ({
   position: "absolute",
-  marginTop: "-30%",
+  marginTop: "-28%",
   marginLeft: "7%",
   [theme.breakpoints.down(1000)]: {
     marginTop: "-42.5%",

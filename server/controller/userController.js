@@ -14,14 +14,15 @@ export const signUpUser = async (req, res) => {
     });
 
     if (user) {
-      return res.status(201).json({
-        message: "User already exits",
+
+      return res.status(401).json({
+        message: 'User already exits',
       });
     }
     //Generated Token For Email Verification
     const token = jwt.sign(
       {
-        userId: user._id,
+        // userId: user._id,
         userEmail: email,
       },
       "RANDOM TOKEN",

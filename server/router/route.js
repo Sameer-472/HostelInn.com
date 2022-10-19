@@ -11,6 +11,7 @@ import {
   UserDetails,
 } from '../controller/userController.js';
 import { verifyFG,forgetPassword,updatePassword } from '../controller/forgetPasswordController.js';
+import { RegisterNewHostel } from "../controller/hostelRegistrationController.js";
 
 // import { verifyEmail } from '../controller/verifyEmail.js';
 const router = express.Router();
@@ -44,5 +45,6 @@ router.get('/verify-forget-password/:id/:token',verifyFG)
 router.post('/verify-forget-password/:id/:token',updatePassword)
 
 
+router.post("/registerNewHostel" , RegisterNewHostel);
 
 export default router;

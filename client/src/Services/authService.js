@@ -7,10 +7,11 @@ const URL = "http://localhost:8000";
 export const Register=async(endpoint,payload)=>{
     try {
         const response = await axios.post(`${URL}/register/${endpoint}`,payload)
-        console.log(response)
+        // console.log(response)
         return response; 
     } catch (error) {
-        console.log(error.message);
+        // console.log(error);
+        return error;
     }
 }
 
@@ -18,8 +19,8 @@ export const Login=async(endpoint,payload)=>{
     try {
         const response =await axios.post(`${URL}${endpoint}`, payload)
         const data = response.data
-        console.log(data)
-        console.log(response)
+        // console.log(data)
+        // console.log(response)
         if(data.token){
             localStorage.setItem("user",JSON.stringify(data))
         }
