@@ -14,7 +14,8 @@ import {
 
 export const CardMain = styled(Card)`
   display: flex;
-  width: 412px;
+  max-width: 412px;
+  margin: 0 15px 0 15px;
   height: 249px;
   border-radius: 12px;
 `;
