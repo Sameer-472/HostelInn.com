@@ -1,0 +1,54 @@
+import React from 'react';
+import CardComponent from './Card/CardComponent';
+import { featuredHostelsData } from './featuredHostelData';
+import StripImage from './Assets/RectangleStrip130.png';
+import {
+  MainBox,
+  TitleText,
+  DescriptionText,
+  CardContainter,
+} from './FeaturedHostelsStyles';
+
+const FeaturedHostels = () => {
+  return (
+    <MainBox>
+      <img
+        src={StripImage}
+        alt=''
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+        }}
+      />
+      <TitleText variant='h2' component='div'>
+        Featured Hostels
+      </TitleText>
+      <DescriptionText variant='p' component='div'>
+        Select a top rated featured hostel
+      </DescriptionText>
+      <CardContainter>
+        {featuredHostelsData.map((hostel) => (
+          <CardComponent
+            name={hostel.name}
+            distance={hostel.distance}
+            rating={hostel.rating}
+            startingFrom={hostel.startingFrom}
+            key={hostel.name}
+          />
+        ))}
+      </CardContainter>
+      <img
+        src={StripImage}
+        alt=''
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          right: 0,
+        }}
+      />
+    </MainBox>
+  );
+};
+
+export default FeaturedHostels;
