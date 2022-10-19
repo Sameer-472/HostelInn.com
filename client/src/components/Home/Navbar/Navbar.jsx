@@ -45,7 +45,7 @@ const Btn = styled(Button)`
   height: 35px;
   width: 155px;
   margin-right: 10px;
-  hover: {
+  :hover {
     background-color: orange;
   }
 `;

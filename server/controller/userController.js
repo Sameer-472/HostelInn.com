@@ -1,8 +1,8 @@
-import userSchema from '../model/userSchema.js';
+import userSchema from "../model/userSchema.js";
 import userDetailsSchema from "../model/userDetailsSchema.js";
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
-import { sendMailForUser } from '../services/mail.js';
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import { sendMailForUser } from "../services/mail.js";
 
 // ! Register
 export const signUpUser = async (req, res) => {
@@ -15,40 +15,39 @@ export const signUpUser = async (req, res) => {
 
     if (user) {
       return res.status(201).json({
-        message: 'User already exits',
+        message: "User already exits",
       });
     }
-
+    //Generated Token For Email Verification
     const token = jwt.sign(
       {
         userId: user._id,
         userEmail: email,
       },
-      'RANDOM TOKEN',
+      "RANDOM TOKEN",
       {
-        expiresIn: '5min',
+        expiresIn: "5min",
       }
     );
+
+    const salt = await bcrypt.genSalt(10);
+    const encryptedPassword = await bcrypt.hash(password, salt);
+
     user = new userSchema({
       name,
       email,
-      password,
+      encryptedPassword,
       confirmationCode: token,
     });
 
-    const salt = await bcrypt.genSalt(10);
-    user.password = await bcrypt.hash(password, salt);
-
     if (user) {
       const data = await user.save();
-      res
-        .status(200)
-        .json({
-          message:
-            'User has been successfully registered Please check your email',
-        });
+      res.status(200).json({
+        message:
+          "User has been successfully registered Please check your email",
+      });
       sendMailForUser(user.name, user.email, token);
-      console.log('user added successfully');
+      console.log("user added successfully");
     }
   } catch (error) {
     res.status(500).json({ msg: error });
@@ -64,7 +63,7 @@ export const loginUser = async (req, res) => {
       const compared = await bcrypt.compare(req.body.password, user.password);
 
       if (!compared) {
-        return res.status(403).json({ message: 'Password does not match' });
+        return res.status(403).json({ message: "Password does not match" });
       }
 
       const token = jwt.sign(
@@ -72,27 +71,25 @@ export const loginUser = async (req, res) => {
           userId: user._id,
           userEmail: user.email,
         },
-        'RANDOM TOKEN',
+        "RANDOM TOKEN",
         {
-          expiresIn: '15min',
+          expiresIn: "15min",
         }
       );
 
       return res.status(200).json({
-        message: 'Login Successful',
+        message: "Login Successful",
         email: user.email,
         token,
         user,
       });
     }
-    return res.status(403).send({ message: 'Email not found' });
+    return res.status(403).send({ message: "Email not found" });
   } catch (error) {
-    return res
-      .status(500)
-      .json({
-        message: 'Error in User Login Controller',
-        error: error.message,
-      });
+    return res.status(500).json({
+      message: "Error in User Login Controller",
+      error: error.message,
+    });
   }
 };
 
@@ -107,7 +104,7 @@ export const UserDetails = async (req, res) => {
 
     if (userExists) {
       return res.status(403).json({
-        message: 'User Details already exits',
+        message: "User Details already exits",
       });
     }
 
@@ -116,13 +113,13 @@ export const UserDetails = async (req, res) => {
     if (newUser) {
       await newUser.save();
       res.status(200).json({
-        msg: 'User added successfully',
+        msg: "User added successfully",
       });
     }
   } catch (error) {
     res.status(500).json({
       msg: error,
-      stack: error.stack
+      stack: error.stack,
     });
   }
 };
@@ -137,10 +134,10 @@ export const verifyUser = async (req, res) => {
       user.verified = true;
       res
         .status(200)
-        .json({ message: 'User has been confirm the email', user });
+        .json({ message: "User has been confirm the email", user });
     }
   } catch (error) {
-    res.status(403).json({ message: 'confirmation code is not exist' });
+    res.status(403).json({ message: "confirmation code is not exist" });
     console.log(error.message);
   }
 };
