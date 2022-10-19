@@ -1,15 +1,15 @@
 import mongoose from "mongoose";
 
-const FullNameSchema = mongoose.Schema({
-  firstName: {
-    type: String,
-    required: true,
-  },
-  lastName: {
-    type: String,
-    required: true,
-  },
-});
+// const FullNameSchema = mongoose.Schema({
+//   firstName: {
+//     type: String,
+//     required: true,
+//   },
+//   lastName: {
+//     type: String,
+//     required: true,
+//   },
+// });
 
 const AddressSchema = mongoose.Schema({
   houseNumber: String,
@@ -22,7 +22,7 @@ const AddressSchema = mongoose.Schema({
 const userDetailsSchema = mongoose.Schema(
   {
     fullName: {
-      type: FullNameSchema,
+      type: String,
       required: [true, "Please provide your full name"],
       unique: [false],
     },

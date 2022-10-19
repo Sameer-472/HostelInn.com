@@ -50,6 +50,7 @@ const Btn = styled(Button)`
   height: 35px;
   width: 155px;
   margin-right: 10px;
+
   &: hover {
     background-color: #4d148c;
   }
