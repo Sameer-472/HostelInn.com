@@ -2,6 +2,7 @@ import React from "react";
 
 import { Button, AppBar, Toolbar, Box, styled, Avatar } from "@mui/material";
 import { Link, NavLink } from "react-router-dom";
+import AccountMenu from "./account-menu";
 
 const Image = styled("img")({
   fontSize: 80,
@@ -70,11 +71,7 @@ function Navbar() {
         </LinkWrapper>
         <RightWrapper>
           <Btn variant='text'>Signup/Login</Btn>
-          <Avatar
-            //   sx={{ bgcolor: deepOrange[500] }}
-            //   alt='Remy Sharp'
-            src='./assets/user.png'
-          />
+         <AccountMenu/>
         </RightWrapper>
       </Toolbar>
     </AppBar>

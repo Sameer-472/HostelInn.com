@@ -39,11 +39,11 @@ const Animation2 = keyframes`
 
 const Animation3 = keyframes`
     from {
-        left: 40rem;
+        left: -1rem;
         top: 10rem;
 }
     to {
-        left: 40rem;
+        left: -1rem;
         top: 15rem;
     }
 `
@@ -52,6 +52,8 @@ const Flex = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: row;
+    /* background-color: aqua; */
+    /* height: 1000px; */
     /* margin-top: 10px; */
 `
 
@@ -65,17 +67,15 @@ const Card2 = styled.div`
     margin: 10px;
     position: relative;
     left: 1.7rem;
-    top: 200px;
+    top: 100px;
     width: fit-content;
     z-index: 2;
+    height: fit-content;
     border-radius: 12%;
     animation: ${Animation2} 3s infinite ;
 `
 const Card3 = styled.div`
-    margin: 10px;
     position: relative;
-    /* left: 650px;
-    top: 250px; */
   animation: ${Animation3} 1s ease-in-out infinite alternate-reverse;
 
 `
