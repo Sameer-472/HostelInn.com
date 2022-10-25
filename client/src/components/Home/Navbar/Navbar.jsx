@@ -1,9 +1,7 @@
 import React from 'react';
-
-
 import { Button, AppBar, Toolbar, Box, styled, Avatar } from '@mui/material';
 import { Link, NavLink } from 'react-router-dom';
-import UserSignUp from './../../SignUp/UserSignUp';
+import UserSignUp from './../../SignUp/userRegistration/UserSignUp';
 import UserSignIn from './../../SignIn/UserSignIn';
 import AccountMenu from "./account-menu";
 
@@ -93,11 +91,7 @@ function Navbar() {
             >
               Signup/Login
             </Btn>
-            <Avatar
-              //   sx={{ bgcolor: deepOrange[500] }}
-              //   alt='Remy Sharp'
-              src='./assets/user.png'
-            />
+            <AccountMenu/>
           </RightWrapper>
         </Toolbar>
       </AppBar>

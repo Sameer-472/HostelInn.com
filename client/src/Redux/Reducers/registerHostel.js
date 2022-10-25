@@ -1,6 +1,6 @@
 import { HOSTEL_REGISTER_SUCCUSS, HOSTEL_REGISTER_FAILED } from "../Actions/actionType";
 
-const initialState = {}
+const initialState = {};
 
 export const registerHostel = (state = initialState , action)=>{
     const {type , payload} = action;
@@ -12,7 +12,6 @@ export const registerHostel = (state = initialState , action)=>{
             ...state, hostelDetails: payload.hostelDetails
         }
         default:
-            break;
+            return state;
     }
 }
-

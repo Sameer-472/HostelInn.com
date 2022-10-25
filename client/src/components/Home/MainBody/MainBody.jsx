@@ -1,117 +1,41 @@
-import React from "react";
-// import Container from '@mui/material/Container';
-import { styled } from "@mui/material";
-import { mon } from "@mui/material/colors";
+import React from 'react'
+import Img from "./assets/img.png";
+import Frame1 from "./assets/Frame1.png"
+import Frame2 from "./assets/Frame2.png"
+import Frame3 from "./assets/Frame3.png"
+import Frame4 from "./assets/Frame4.png"
+import Frame5 from "./assets/Frame5.png"
+import Frame6 from "./assets/Frame6.png"
+import { Image , Circle1 , Circle2 , Circle3 , Circle4 , Circle5 , Circle6} from './style';
 
-const Container = styled("div")({
-  backgroundColor: "#F8F2FF",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  height: "30rem",
-  fontWeight: "bold",
-  fontSize: "77px",
-  color: "purple",
-  position: "relative",
-});
 
-const Circle = styled("div")({
-  backgroundColor: "#FF6600",
-  width: "44px",
-  height: "44px",
-  borderRadius: 100,
-  borderColor: "transparent",
-  boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25)",
-  position: "absolute",
-  left: "1300px",
-  top: "500px",
-  display: "bl",
-});
-
-const Circle2 = styled("div")({
-  position: "absolute",
-  width: "42px",
-  height: "42px",
-  left: "278px",
-  top: "11px",
-  /* Surface */
-  background: "#FFB686",
-  borderRadius: 100,
-});
-
-const Circle3 = styled("div")({
-  position: "absolute",
-  width: "28px",
-  height: "28px",
-  left: "278px",
-  top: "113px",
-  /* Surface */
-  background: "#FF6600",
-  borderRadius: 100,
-});
-
-const Circle4 = styled("div")({
-  boxSizing: "border-box",
-  position: "absolute",
-  width: "56px",
-  height: "56px",
-  left: "905px",
-  top: "30px",
-  borderRadius: 100,
-  /* Purple color 2 */
-  border: "2px solid #4D148C",
-});
-
-const Circle7 = styled("div")({
-  boxSizing: "border-box",
-  position: "absolute",
-  width: "39px",
-  height: "39px",
-  left: "59px",
-  top: "80px",
-  borderRadius: 100,
-  /* Purple color 2 */
-  border: "2px solid #4D148C",
-});
-const Circle5 = styled("div")({
-  boxSizing: "border-box",
-  position: "absolute",
-  width: "56px",
-  height: "56px",
-  left: "565px",
-  top: "462px",
-  borderRadius: 100,
-  border: "2px solid #FFB686",
-});
-
-const Circle6 = styled("div")({
-  boxSizing: "border-box",
-  position: "absolute",
-  width: "48px",
-  height: "48px",
-  left: "565px",
-  top: "42px",
-  borderRadius: 100,
-  border: "2px solid #FFB686",
-});
-
-const Room = styled('div')({
-  
-})
 
 export const MainBody = () => {
   return (
-    <>
-      <Container>
-        Let's get started!
-        <Circle />
-        <Circle2 />
-        <Circle3 />
-        <Circle4 />
-        <Circle5 />
-        <Circle6 />
-        <Circle7 />
-      </Container>
-    </>
-  );
-};
+    <div>
+      <Image>
+      <img src={Img} alt="" style={{maxWidth: '100%'}} height={500}/>
+      {/* <Circle1>
+        <img src={Frame1} alt="" width={200}/>
+      </Circle1> */}
+      {/* <Circle2>
+        <img src={Frame2} alt="" />
+      </Circle2>
+      <Circle3>
+        <img src={Frame3} alt="" />
+      </Circle3>
+      <Circle4>
+        <img src={Frame4} alt="" />
+      </Circle4>
+      <Circle5>
+        <img src={Frame5} alt="" />
+      </Circle5>
+      <Circle6>
+        <img src={Frame6} alt="" />
+      </Circle6> */}
+      </Image>
+    </div>
+  )
+}
+
+
