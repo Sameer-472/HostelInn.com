@@ -3,6 +3,13 @@ import { auth } from "./auth";
 import { registerHostel } from "./registerHostel";
 import { combineReducers } from "redux";
 
-const rootReducer = combineReducers(auth , registerHostel)
+// console.log(registerHostel)
 
-export default rootReducer
+const rootReducer = combineReducers({
+    auth: auth , 
+    registerHostel: registerHostel
+})
+
+export default rootReducer;
+
+
