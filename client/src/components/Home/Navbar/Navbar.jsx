@@ -1,9 +1,10 @@
-import React from "react";
 
-import { Button, AppBar, Toolbar, Box, styled, Avatar } from "@mui/material";
-import { Link, NavLink } from "react-router-dom";
-import UserSignUp from "./../../SignUp/UserSignUp";
-import UserSignIn from "./../../SignIn/UserSignIn";
+
+import React from 'react';
+import { Button, AppBar, Toolbar, Box, styled, Avatar } from '@mui/material';
+import { Link, NavLink } from 'react-router-dom';
+import UserSignUp from './../../SignUp/userRegistration/UserSignUp';
+import UserSignIn from './../../SignIn/UserSignIn';
 import AccountMenu from "./account-menu";
 
 const Image = styled("img")({
@@ -91,7 +92,8 @@ function Navbar() {
             >
               Signup/Login
             </Btn>
-            <AccountMenu />
+
+            <AccountMenu/>
           </RightWrapper>
         </Toolbar>
       </AppBar>
