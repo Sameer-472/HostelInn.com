@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { styled } from "@mui/material";
+import { styled, Box } from "@mui/material";
 
 const responsive = {
   superLargeDesktop: {
@@ -24,7 +24,7 @@ const responsive = {
 };
 
 const Image = styled("img")(({ theme }) => ({
-  maxHeight: 450,
+  height: 550,
   width: "100%",
   objectFit: "cover",
   //   [theme.breakpoints.down("md")]: {
@@ -32,9 +32,13 @@ const Image = styled("img")(({ theme }) => ({
   //     height: 180,
   //   },
 }));
+const Component = styled(Box)`
+  height: 550px;
+`;
+
 function MultiCarousel() {
   return (
-    <>
+    <Component>
       <Carousel
         responsive={responsive}
         ssr={true}
@@ -42,16 +46,16 @@ function MultiCarousel() {
         autoPlay={true}
         autoPlaySpeed={1500}
         transitionDuration={2000}
-        removeArrowOnDeviceType={["desktop", "tablet", "mobile"]}
+        // removeArrowOnDeviceType={["desktop", "tablet", "mobile"]}
         // deviceType={this.props.deviceType}
         dotListClass='custom-dot-list-style'
         itemClass='carousel-item-padding-40-px'
       >
-        <Image src={require("./assets/frame1.png")} alt='Slides' />
-        <Image src={require("./assets/frame2.png")} alt='Slides' />
-        <Image src={require("./assets/frame3.png")} alt='Slides' />
+        <Image src={require("./assets/Frame4.png")} alt='Slides' />
+        <Image src={require("./assets/Frame5.png")} alt='Slides' />
+        <Image src={require("./assets/Frame6.png")} alt='Slides' />
       </Carousel>
-    </>
+    </Component>
   );
 }
 
