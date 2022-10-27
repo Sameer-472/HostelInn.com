@@ -1,6 +1,6 @@
 import React from "react";
 
-function UserPersonalInfo() {
+function UserPersonalInfo({ yupFunctions }) {
   return <div>UserPersonalInfo</div>;
 }
 

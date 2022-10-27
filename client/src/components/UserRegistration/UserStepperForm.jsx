@@ -7,13 +7,34 @@ import {
   Typography,
   Box,
 } from "@mui/material";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import UserPersonalInfo from "./UserPersonalInfo";
 import EmergencyContact from "./EmergencyContact";
 import UserDocuments from "./UserDocuments";
+import { FormContext } from "../../ContextAPI/DataProvider";
 
 function UserStepperForm() {
+  // ! Getting Data from Context API
+  const { userFormik } = useContext(FormContext);
+  const {
+    handleBlur,
+    values,
+    touched,
+    errors,
+    handleChange,
+    handleSubmit,
+  } = userFormik;
+  const yupFunctions = {
+    handleBlur,
+    values,
+    touched,
+    errors,
+    handleChange,
+    handleSubmit,
+  };
+
+  // ! Component Logic
   const steps = ["Personal Information", "Emergency Contact", "Documents"];
   const navigate = useNavigate();
   const [activeSteps, setActiveStep] = useState(0);
@@ -42,9 +63,9 @@ function UserStepperForm() {
       </Box>
       {activeSteps}
       <Box>
-        {activeSteps === 0 && <UserPersonalInfo />}
-        {activeSteps === 1 && <EmergencyContact />}
-        {activeSteps === 2 && <UserDocuments />}
+        {activeSteps === 0 && <UserPersonalInfo yupFunctions={yupFunctions} />}
+        {activeSteps === 1 && <EmergencyContact yupFunctions={yupFunctions} />}
+        {activeSteps === 2 && <UserDocuments yupFunctions={yupFunctions} />}
       </Box>
       <Box>
         <Button

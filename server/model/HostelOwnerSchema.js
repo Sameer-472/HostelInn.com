@@ -33,11 +33,7 @@ const hostelOwnerDetails = mongoose.Schema(
       // require: [true, "please write your name"],
       // unique: [false],
     },
-    emailAddress: {
-      type: String,
-      // require: [true, "please provide your emailAddress"],
-      // unique: true,
-    },
+
     number: {
       type: Number,
       // require: [true, "please [provide your number"],
