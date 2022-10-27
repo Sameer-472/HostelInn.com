@@ -1,19 +1,17 @@
-import React from 'react';
+import React from "react";
 
-
-import { Button, AppBar, Toolbar, Box, styled, Avatar } from '@mui/material';
-import { Link, NavLink } from 'react-router-dom';
-import UserSignUp from './../../SignUp/UserSignUp';
-import UserSignIn from './../../SignIn/UserSignIn';
+import { Button, AppBar, Toolbar, Box, styled, Avatar } from "@mui/material";
+import { Link, NavLink } from "react-router-dom";
+import UserSignUp from "./../../SignUp/UserSignUp";
+import UserSignIn from "./../../SignIn/UserSignIn";
 import AccountMenu from "./account-menu";
 
-
-const Image = styled('img')({
+const Image = styled("img")({
   fontSize: 80,
   height: 80,
-  width: 'auto',
-  cursor: 'pointer',
-  alignItems: 'center',
+  width: "auto",
+  cursor: "pointer",
+  alignItems: "center",
 });
 
 const LinkWrapper = styled(Box)`
@@ -51,10 +49,10 @@ const Btn = styled(Button)`
   width: 155px;
   margin-right: 10px;
 
-  &: hover {
+  hover: {
     background-color: #4d148c;
   }
-  &: active {
+  active: {
     background-color: #ff6600;
   }
 `;
@@ -69,13 +67,13 @@ function Navbar() {
       <AppBar position='sticky'>
         <Toolbar
           style={{
-            backgroundColor: 'white',
-            alignItems: 'center',
-            textAlign: 'center',
+            backgroundColor: "white",
+            alignItems: "center",
+            textAlign: "center",
           }}
         >
           <Link to='/' style={{ maxHeight: 80 }}>
-            <Image src={require('./assets/hostelin-logo.png')} alt='logo' />
+            <Image src={require("./assets/hostelin-logo.png")} alt='logo' />
           </Link>
           <LinkWrapper>
             <NavLink to='/'> Home </NavLink>
@@ -93,11 +91,7 @@ function Navbar() {
             >
               Signup/Login
             </Btn>
-            <Avatar
-              //   sx={{ bgcolor: deepOrange[500] }}
-              //   alt='Remy Sharp'
-              src='./assets/user.png'
-            />
+            <AccountMenu />
           </RightWrapper>
         </Toolbar>
       </AppBar>

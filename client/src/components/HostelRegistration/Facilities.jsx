@@ -1,6 +1,6 @@
 import React from "react";
 
-function Facilities() {
+function Facilities({ yupFunctions }) {
   return <div>Facilities</div>;
 }
 

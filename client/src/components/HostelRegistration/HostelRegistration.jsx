@@ -1,6 +1,6 @@
 import React from "react";
 
-function HostelRegistration() {
+function HostelRegistration({ yupFunctions }) {
   return <div>HostelRegistration</div>;
 }
 
