@@ -13,30 +13,33 @@ import {
 } from "./actionType";
 
 export const register = (endpoint, payload) => async (dispatch) => {
-  try {
-    const response = await Register(endpoint, payload);
+  const response = await Register(endpoint, payload);
+  if (response.status === 200) {
     dispatch({
       type: REGISTER_SUCCESS,
       payload: { user: response },
     });
-  } catch (error) {
-    dispatch({ type: REGISTER_FAIL });
+    return response;
+  } else {
+    dispatch({ type: REGISTER_FAIL , payload: {user: response}});
+    return response;
   }
 };
 
 export const login = (endpoint, payload) => async (dispatch) => {
-  try {
-    const response = await Login(endpoint, payload);
-    // console.log(response)
+  const response = await Login(endpoint, payload);
+  if (response.status === 200) {
     dispatch({
       type: LOGIN_SUCCESS,
       payload: { user: response },
     });
-  } catch (error) {
+    return response
+  } else {
     dispatch({
-      type: LOGIN_FAIL
+      type: LOGIN_FAIL,
+      payload: {user: response}
     });
-    console.log(error)
+    return response
   }
 };
 

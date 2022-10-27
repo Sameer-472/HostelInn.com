@@ -14,8 +14,7 @@ export const signUpUser = async (req, res) => {
     });
 
     if (user) {
-
-      return res.status(401).json({
+      return res.status(403).json({
         message: 'User already exits',
       });
     }
@@ -31,15 +30,16 @@ export const signUpUser = async (req, res) => {
       }
     );
 
-    const salt = await bcrypt.genSalt(10);
-    const encryptedPassword = await bcrypt.hash(password, salt);
-
+    
     user = new userSchema({
       name,
       email,
-      encryptedPassword,
+      password,
       confirmationCode: token,
     });
+    
+    const salt = await bcrypt.genSalt(10);
+     user.password = await bcrypt.hash(password, salt);
 
     if (user) {
       const data = await user.save();
@@ -51,7 +51,7 @@ export const signUpUser = async (req, res) => {
       console.log("user added successfully");
     }
   } catch (error) {
-    res.status(500).json({ msg: error });
+    return res.status(500).json({ msg: error ,  message: "Error in User signUp ",});
     console.log(error.message);
   }
 };
