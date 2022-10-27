@@ -180,6 +180,7 @@ const UserSignIn = ({
   const [error, setError] = React.useState(false);
 
   const result = useSelector((state) => state);
+  console.log(result);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -199,16 +200,16 @@ const UserSignIn = ({
     initialValues: initialValue,
     validationSchema: SignInSchema,
     validateOnChange: true,
-    onSubmit: async (values) => {
+    onSubmit:  async(values) => {
       const { email, password } = values;
-      dispatch(
+      const result = await dispatch(
         login('/loginUser', {
           email: `${values.email}`,
           password: `${values.password}`,
         })
       );
-
-      const statusCode = result.response.status;
+      // console.log(result)
+      const statusCode = result.status;
       console.log(statusCode);
       // ! result coming from useState
       console.log(result, 'after dispatch method');
@@ -226,7 +227,7 @@ const UserSignIn = ({
       }
     },
   });
-
+  
   return (
     <>
       {signedUp ? (

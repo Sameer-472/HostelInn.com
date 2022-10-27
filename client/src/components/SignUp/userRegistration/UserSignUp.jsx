@@ -47,7 +47,7 @@ const UserSignUp = ({
   const [error, setError] = React.useState(false);
 
   const result = useSelector((state) => state);
-  console.log(result);
+  console.log(result.auth);
   const dispatch = useDispatch();
 
   const initialValue = {
@@ -69,18 +69,17 @@ const UserSignUp = ({
     validateOnChange: true,
     onSubmit: async(values, action) => {
       const { name, email, password } = values;
-      const result =  dispatch(
+      const result = await dispatch(
         register('user', {
           email: `${email}`,
           name: `${name}`,
           password: `${password}`,
         })
       );
-      const statusCode = await result.auth.user.response.status;
-      console.log(result);
+      const statusCode = result.status
+      console.log(statusCode);
         // ? result.user.status
         // : result.user.response.status;
-      console.log(statusCode);
       if (statusCode === 200) {
         // TODO: redirect to home page
         console.log('success');
@@ -88,7 +87,7 @@ const UserSignUp = ({
         setError(false);
         setSignedUp(true);
         setSignUpOpen(false);
-      } else if (statusCode === 401) {
+      } else if (statusCode === 403) {
         setErrorMsg('');
         setError(true);
         setErrorMsg('Email already exists');
