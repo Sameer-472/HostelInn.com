@@ -1,5 +1,5 @@
 import { Box, styled, Typography, InputBase, Button } from "@mui/material";
-import Rectangle from "../Assets/Rectangle.png";
+import Rectangle from "../assets/Rectangle.png";
 
 export const BoxMain = styled(Box)`
   background: url(${Rectangle}) no-repeat;
