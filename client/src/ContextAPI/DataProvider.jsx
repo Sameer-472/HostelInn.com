@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { createContext } from "react";
-import { hostelFormDetails } from "./HostlerSchema.js/HostlerSchema";
+import { hostelFormDetails } from './HostlerSchema/HostlerSchema';
 import { useFormik } from "formik";
 import { UserDetailsValidation } from "../components/Yup/UserDetailsValidation";
 import { hostelOwnerValidation } from "../components/Yup/HostelOwnerValidation";
@@ -87,7 +87,7 @@ function DataProvider({ children }) {
       // }
     },
   });
-  const { userFormik } = useFormik({
+  const  userFormik = useFormik({
     initialValues: userForm,
     validationSchema: UserDetailsValidation,
     validateOnChange: true,
