@@ -48,7 +48,7 @@ export const UserDetailsValidation = Yup.object({
     .required('Please enter your permanent address'),
   religion: Yup.string()
     .min(3, 'Please enter at least 3 letters')
-    .required('Please enter your religion'),
+    .required('Please select your religion'),
   gender: Yup.string().required('Please select gender'),
   occupation: Yup.string()
     .min(4, 'Please enter at least 4 letters ')
