@@ -36,8 +36,8 @@ const userFormDetails = {
   permanantAdress: '',
 
   profilePicture: '',
-  frontPicture: '',
-  backPicture: '',
+  cnicFrontPicture: '',
+  cnicBackPicture: '',
 };
 
 function DataProvider({ children }) {

@@ -53,10 +53,10 @@ function UserStepperForm() {
   return (
     <>
       <Box>
-        <Stepper activeStep={activeSteps}>
+        <Stepper activeStep={activeSteps} alternativeLabel>
           {steps.map((steps) => (
-            <Step>
-              <StepLabel>{steps}</StepLabel>
+            <Step sx={{ color: 'red' }}>
+              <StepLabel sx={{ color: 'red' }}>{steps}</StepLabel>
             </Step>
           ))}
         </Stepper>
@@ -77,7 +77,7 @@ function UserStepperForm() {
           Previous Step
         </Button>
         <Button variant='outlined' color='primary' onClick={nextStep}>
-          {activeSteps >= 2 ? "Submit Form" : "Next"}
+          {activeSteps >= 2 ? 'Submit Form' : 'Next'}
         </Button>
       </Box>
     </>
