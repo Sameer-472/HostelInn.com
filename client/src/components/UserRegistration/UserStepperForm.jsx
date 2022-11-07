@@ -51,7 +51,7 @@ function UserStepperForm() {
     }
   };
   return (
-    <>
+    <Box sx={{backgroundColor: "#FED8BF"}}>
       <Box>
         <Stepper activeStep={activeSteps} alternativeLabel>
           {steps.map((steps) => (
@@ -61,7 +61,6 @@ function UserStepperForm() {
           ))}
         </Stepper>
       </Box>
-      {activeSteps}
       <Box>
         {activeSteps === 0 && <UserPersonalInfo yupFunctions={yupFunctions} />}
         {activeSteps === 1 && <EmergencyContact yupFunctions={yupFunctions} />}
@@ -80,7 +79,7 @@ function UserStepperForm() {
           {activeSteps >= 2 ? 'Submit Form' : 'Next'}
         </Button>
       </Box>
-    </>
+    </Box>
   );
 }
 
