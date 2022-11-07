@@ -1,6 +1,6 @@
 import React from "react";
-import MailBox from "../assets/MailBox.png";
-import SendIcon from "../assets/SendIcon.png";
+import MailBox from "../Assets/MailBox.png";
+import SendIcon from "../Assets/SendIcon.png";
 import {
   BoxMain,
   BoxContent,
