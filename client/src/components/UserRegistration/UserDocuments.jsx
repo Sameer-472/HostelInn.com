@@ -1,8 +1,15 @@
 import React from 'react';
-import { Box, FormGroup, styled, Typography, TextField } from '@mui/material';
+import {
+  Box,
+  FormGroup,
+  Button,
+  styled,
+  Typography,
+  TextField,
+} from '@mui/material';
 
 const StyledFormGroup = styled(FormGroup)`
-  margin: 2% 8%;
+  padding: 2% 8%;
 `;
 
 const TitleBox = styled(Box)`
@@ -37,7 +44,7 @@ const FormContainer = styled(FormGroup)`
   margin-top: 1rem;
   background-color: white;
   border-radius: 10px;
-  height: 90px;
+  height: 100px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -51,21 +58,21 @@ const InputContainer = styled(Box)`
   justify-content: space-between;
 `;
 
-const AddressInputContainer = styled(Box)`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  justify-content: space-between;
-`;
-
 const FieldLabel = styled(Typography)`
   font-family: 'Lato', sans-serif;
   font-weight: 500;
   font-size: 1rem;
 `;
 
-const NameInput = styled(TextField)`
-  font-family: 'Lato', sans-serif;
+const UploadButton = styled(Button)`
+  background-color: #4d148c;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.8rem;
+  width: 25%;
+  &:hover {
+    background-color: #4d008c;
+  }
 `;
 
 function UserDocuments({ yupFunctions }) {
@@ -80,58 +87,31 @@ function UserDocuments({ yupFunctions }) {
       <FormContainer>
         <InputContainer>
           <FieldLabel>
-            Person Name<sup style={{ color: 'red' }}>*</sup>
+            Upload your profile picture <sup style={{ color: 'red' }}>*</sup>
           </FieldLabel>
-          <NameInput
-            id='standard-basic'
-            variant='standard'
-            placeholder='Emergency person name'
-          />
+          <UploadButton variant='contained'>Select File</UploadButton>
         </InputContainer>
-        <InputContainer>
-          <FieldLabel>
-            Relationship<sup style={{ color: 'red' }}>*</sup>
-          </FieldLabel>
-          <NameInput
-            id='standard-basic'
-            variant='standard'
-            placeholder='Relationship with the person'
-          />
-        </InputContainer>
+        <img src={require('./Assets/profile.png')} alt='Profile Preview' />
       </FormContainer>
       <FormContainer>
         <InputContainer>
           <FieldLabel>
-            Mobile Number<sup style={{ color: 'red' }}>*</sup>
+            Upload a front picture of your CNIC
+            <sup style={{ color: 'red' }}>*</sup>
           </FieldLabel>
-          <NameInput
-            id='standard-basic'
-            variant='standard'
-            placeholder="Person's mobile number"
-          />
+          <UploadButton variant='contained'>Select File</UploadButton>
         </InputContainer>
-        <InputContainer>
-          <FieldLabel>
-            WhatsApp Number<sup style={{ color: 'red' }}>*</sup>
-          </FieldLabel>
-          <NameInput
-            id='standard-basic'
-            variant='standard'
-            placeholder="Person's WhatsApp number"
-          />
-        </InputContainer>
+        <img src={require('./Assets/cnicFront.png')} alt='Profile Preview' />
       </FormContainer>
       <FormContainer>
-        <AddressInputContainer>
+        <InputContainer>
           <FieldLabel>
-            Mobile Number<sup style={{ color: 'red' }}>*</sup>
+            Upload a back picture of your CNIC
+            <sup style={{ color: 'red' }}>*</sup>
           </FieldLabel>
-          <NameInput
-            id='standard-basic'
-            variant='standard'
-            placeholder="Person's mobile number"
-          />
-        </AddressInputContainer>
+          <UploadButton variant='contained'>Select File</UploadButton>
+        </InputContainer>
+        <img src={require('./Assets/cnicBack.png')} alt='Profile Preview' />
       </FormContainer>
     </StyledFormGroup>
   );

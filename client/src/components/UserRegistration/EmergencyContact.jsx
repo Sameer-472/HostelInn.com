@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, FormGroup, styled, Typography, TextField } from '@mui/material';
 
 const StyledFormGroup = styled(FormGroup)`
-  margin: 2% 8%;
+  padding: 2% 8%;
 `;
 
 const TitleBox = styled(Box)`
