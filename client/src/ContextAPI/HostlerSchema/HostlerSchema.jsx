@@ -4,16 +4,16 @@
 const EmergencyContact = {
   name: "",
   relationship: "",
-  mobileNumber:   "",
+  mobileNumber: "",
   whatsappNumber: "",
-  permanantAddress: "",
-}
+  permanentAddress: "",
+};
 
 const Documents = {
   profilePicture: [String],
   cnicFrontPicture: [String],
   cnicBackPicture: [String],
-}
+};
 
 export const hostelFormDetails = {
   firstName: "",
@@ -29,14 +29,14 @@ export const hostelFormDetails = {
   dateOfBirth: "",
   mobileNumber: "",
   whatsappNumber: "",
-  permanantAddress: "",
+  permanentAddress: "",
   religion: "",
   gender: "",
   occupation: "",
   companyName: "",
   medicalIllness: "",
   criminalRecord: Boolean,
-  accomodationType: "",
+  accommodationType: "",
   emergencyContact: [EmergencyContact],
-  documents: [Documents]
+  documents: [Documents],
 };

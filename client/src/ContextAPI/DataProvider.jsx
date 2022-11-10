@@ -1,43 +1,42 @@
 import React from "react";
 import { useState } from "react";
 import { createContext } from "react";
-import { hostelFormDetails } from './HostlerSchema/HostlerSchema';
+import { hostelFormDetails } from "./HostlerSchema/HostlerSchema";
 import { useFormik } from "formik";
 import { UserDetailsValidation } from "../components/Yup/UserDetailsValidation";
 import { hostelOwnerValidation } from "../components/Yup/HostelOwnerValidation";
 
 export const FormContext = createContext(null);
 const userFormDetails = {
-  fistName: '',
-  lastName: '',
-  guardianFullName: '',
-  guardianCNIC: '',
-  guardianPhoneNumber: '',
-  email: '',
-  cnic: '',
-  nationality: '',
-  university: '',
-  programme: '',
-  dateOfBirth: '',
-  mobileNumber: '',
-  whatsappNumber: '',
-  permanentAddress: '',
-  religion: '',
-  gender: '',
-  occupation: '',
-  companyName: '',
-  medicalIllness: '',
-  criminalRecord: false,
-  accomodationType: '',
-  name: '',
-  relationship: '',
-  mobileNumber: '',
-  whatsappNumber: '',
-  permanantAdress: '',
+  fistName: "",
+  lastName: "",
+  guardianFullName: "",
+  guardianCNIC: "",
+  guardianPhoneNumber: "",
+  email: "",
+  cnic: "",
+  nationality: "",
+  university: "",
+  programme: "",
+  dateOfBirth: "",
+  mobileNumber: "",
+  whatsappNumber: "",
+  permanentAddress: "",
+  religion: "",
+  gender: "",
+  occupation: "",
+  companyName: "",
+  criminalRecord: "",
+  accommodationType: "",
+  name: "",
+  relationship: "",
+  mobileNumber: "",
+  whatsappNumber: "",
+  permanentAddress: "",
 
-  profilePicture: '',
-  cnicFrontPicture: '',
-  cnicBackPicture: '',
+  profilePicture: "",
+  cnicFrontPicture: "",
+  cnicBackPicture: "",
 };
 
 function DataProvider({ children }) {
@@ -92,7 +91,7 @@ function DataProvider({ children }) {
       // }
     },
   });
-  const  userFormik = useFormik({
+  const userFormik = useFormik({
     initialValues: userForm,
     validationSchema: UserDetailsValidation,
     validateOnChange: true,
