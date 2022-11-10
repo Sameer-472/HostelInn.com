@@ -15,7 +15,7 @@ export const signUpUser = async (req, res) => {
 
     if (user) {
       return res.status(403).json({
-        message: 'User already exits',
+        message: "User already exits",
       });
     }
     //Generated Token For Email Verification
@@ -30,16 +30,15 @@ export const signUpUser = async (req, res) => {
       }
     );
 
-    
     user = new userSchema({
       name,
       email,
       password,
       confirmationCode: token,
     });
-    
+
     const salt = await bcrypt.genSalt(10);
-     user.password = await bcrypt.hash(password, salt);
+    user.password = await bcrypt.hash(password, salt);
 
     if (user) {
       const data = await user.save();
@@ -49,9 +48,13 @@ export const signUpUser = async (req, res) => {
       });
       sendMailForUser(user.name, user.email, token);
       console.log("user added successfully");
+      return;
     }
+    // return res.status()
   } catch (error) {
-    return res.status(500).json({ msg: error ,  message: "Error in User signUp ",});
+    return res
+      .status(500)
+      .json({ msg: error, message: "Error in User signUp " });
     console.log(error.message);
   }
 };
@@ -85,7 +88,7 @@ export const loginUser = async (req, res) => {
         user,
       });
     }
-    return res.status(403).send({ message: "Email not found" });
+    return res.status(404).send({ message: "Email not found" });
   } catch (error) {
     return res.status(500).json({
       message: "Error in User Login Controller",

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -13,13 +13,14 @@ import {
   Typography,
   Alert,
   styled,
-} from '@mui/material';
-import { useFormik } from 'formik';
-import { SignInSchema } from '../Yup/SignInValidation';
-import MailIcon from '@mui/icons-material/Mail';
-import { useSelector, useDispatch } from 'react-redux';
-import { login } from '../../Redux/Actions/auth';
-import { useNavigate, NavLink } from 'react-router-dom';
+  Snackbar,
+} from "@mui/material";
+import { useFormik } from "formik";
+import { SignInSchema } from "../Yup/SignInValidation";
+import MailIcon from "@mui/icons-material/Mail";
+import { useSelector, useDispatch } from "react-redux";
+import { login } from "../../Redux/Actions/auth";
+import { useNavigate, NavLink } from "react-router-dom";
 
 import {
   Search as SearchIcon,
@@ -27,12 +28,12 @@ import {
   Email as EmailIcon,
   Lock as LockIcon,
   Google as GoogleIcon,
-} from '@mui/icons-material';
+} from "@mui/icons-material";
 
 const DialogTitleStyled = styled(DialogTitle)`
   text-align: center;
   color: #4d148c;
-  font-family: 'League Spartan', sans-serif;
+  font-family: "League Spartan", sans-serif;
   font-size: 3rem;
   font-weight: 600;
 `;
@@ -64,7 +65,7 @@ const IconWrapper = styled(Box)`
 const TextFieldStyled = styled(TextField)`
   margin: 0 14px 0 14px;
   width: 100%;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 400;
   font-size: 2rem;
   border: none;
@@ -99,7 +100,7 @@ const LoginButton = styled(Button)`
   background-color: #4d148c;
   height: 2.5rem;
   width: 13.5rem;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   color: white;
@@ -121,7 +122,7 @@ const LoginWithGoogleButton = styled(Button)`
   background-color: #ff6600;
   height: 2.7rem;
   width: 17.5rem;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
   text-transform: uppercase;
   color: white;
@@ -136,14 +137,14 @@ const LoginWithGoogleButton = styled(Button)`
 `;
 
 const OrText = styled(Typography)`
-  gfont-family: 'Lato', sans-serif;
+  gfont-family: "Lato", sans-serif;
   font-weight: 400;
   font-size: 1rem;
   margin-top: 0.5rem;
 `;
 
 const SignUpInsteadText = styled(Typography)`
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 400;
   font-size: 1rem;
   color: #606060;
@@ -153,7 +154,7 @@ const SignUpInsteadText = styled(Typography)`
 
 const SignUpText = styled(Typography)`
   font-weight: 700;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-size: 1rem;
   color: #ff6600;
   margin-left: 0.2rem;
@@ -176,17 +177,22 @@ const UserSignIn = ({
   };
 
   const [signedUp, setSignedUp] = React.useState(false);
-  const [errorMsg, setErrorMsg] = React.useState('');
+  const [errorMsg, setErrorMsg] = React.useState("");
   const [error, setError] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const handleCloseAlert = () => {
+    setOpen(false);
+    return;
+  };
 
   const result = useSelector((state) => state);
-  console.log(result);
+  // console.log(result);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const initialValue = {
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   };
 
   const {
@@ -200,10 +206,10 @@ const UserSignIn = ({
     initialValues: initialValue,
     validationSchema: SignInSchema,
     validateOnChange: true,
-    onSubmit:  async(values) => {
+    onSubmit: async (values) => {
       const { email, password } = values;
       const result = await dispatch(
-        login('/loginUser', {
+        login("/loginUser", {
           email: `${values.email}`,
           password: `${values.password}`,
         })
@@ -211,23 +217,26 @@ const UserSignIn = ({
       // console.log(result)
       const statusCode = result.status;
       console.log(statusCode);
+
       // ! result coming from useState
-      console.log(result, 'after dispatch method');
+      console.log(result, "after dispatch method");
       if (statusCode === 200) {
-        console.log('Login Successful');
+        console.log("UserLogin Login Successful");
         setError(false);
-        navigate('/');
-      } else if (statusCode === 403) {
-        console.log('Email Not Found');
+        setOpen(true);
+        handleClose();
+        // navigate("/");
+      } else if (statusCode === 404) {
+        console.log("Email Not Found");
         setError(true);
         return;
       } else if (statusCode === 403) {
-        console.log('Password Does not match');
+        console.log("Password Does not match");
         setError(true);
       }
     },
   });
-  
+
   return (
     <>
       {signedUp ? (
@@ -240,7 +249,7 @@ const UserSignIn = ({
             open={signInOpen}
             onClose={handleClose}
             PaperProps={{
-              style: { borderRadius: '35px' },
+              style: { borderRadius: "35px" },
             }}
           >
             {error && (
@@ -265,7 +274,7 @@ const UserSignIn = ({
                   onBlur={handleBlur}
                 />
                 {touched.email && errors.email ? (
-                  <Typography style={{ fontSize: 12, color: 'red' }}>
+                  <Typography style={{ fontSize: 12, color: "red" }}>
                     {errors.email}
                   </Typography>
                 ) : null}
@@ -285,11 +294,18 @@ const UserSignIn = ({
                   onBlur={handleBlur}
                 />
                 {touched.password && errors.password ? (
-                  <Typography style={{ fontSize: 12, color: 'red' }}>
+                  <Typography style={{ fontSize: 12, color: "red" }}>
                     {errors.password}
                   </Typography>
                 ) : null}
               </TextBox>
+              {error && (
+                <Typography
+                  style={{ fontSize: 12, marginLeft: 30, color: "red" }}
+                >
+                  Email or Password is wrong
+                </Typography>
+              )}
               <StyledBox>
                 <LoginButton onClick={handleSubmit}>Login</LoginButton>
                 <OrText>OR</OrText>
@@ -300,8 +316,8 @@ const UserSignIn = ({
                 <SignUpInsteadText>
                   Don't have an account?
                   <SignUpText
-                    component={'span'}
-                    variant={'body2'}
+                    component={"span"}
+                    variant={"body2"}
                     onClick={() => {
                       setSignInOpen(false);
                       setSignUpOpen(true);
@@ -315,6 +331,19 @@ const UserSignIn = ({
               </StyledBox>
             </DialogContentStyled>
           </Dialog>
+          <Snackbar
+            open={open}
+            autoHideDuration={4000}
+            onClose={handleCloseAlert}
+          >
+            <Alert
+              onClose={handleCloseAlert}
+              severity='success'
+              sx={{ width: "100%" }}
+            >
+              You are successfully logged In!
+            </Alert>
+          </Snackbar>
         </>
       )}
     </>

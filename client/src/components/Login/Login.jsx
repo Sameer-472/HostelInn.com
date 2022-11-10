@@ -44,8 +44,8 @@ function Login() {
 
   const handleLogin = async () => {
     //200 Login Successful
-    //201 Email Not Found
-    //202 Password Does not match
+    //404 Email Not Found
+    //403 Password Does not match
 
     const result = await dispatch(
       login("/loginUser", {
@@ -62,7 +62,7 @@ function Login() {
       console.log("Login Successful");
       setError(false);
       navigate("/home");
-    } else if (statusCode === 403) {
+    } else if (statusCode === 404) {
       console.log("Email Not Found");
       setError(true);
       return;
