@@ -21,62 +21,86 @@ const AddressSchema = mongoose.Schema({
 
 const userDetailsSchema = mongoose.Schema(
   {
-    fullName: {
+    firstName: {
       type: String,
-      required: [true, "Please provide your full name"],
-      unique: [false],
+    },
+    lastName: {
+      type: String,
+    },
+    fatherName: {
+      type: String,
+    },
+    guardianPhoneNumber: {
+      type: String,
     },
     email: {
       type: String,
-      required: [true, "Please provide an Email!"],
       unique: [true, "Email Exist"],
+    },
+    cnic: {
+      type: String,
+      unique: [true, "CNIC exists"],
+    },
+    institute: {
+      type: String,
+    },
+    program: {
+      type: String,
+    },
+    dateOfBirth: {
+      type: String,
+    },
+    mobileNumber: {
+      type: String,
+    },
+    whatsappNumber: {
+      type: String,
+    },
+    permanentAddress: {
+      type: String,
+    },
+    religion: {
+      type: String,
     },
 
     gender: {
       type: String,
-      required: [true, "Please provide gender"],
     },
 
-    address: {
-      type: AddressSchema,
-      required: [true, "Please provide your address"],
-      unique: false,
-    },
+    // address: {
+    //   type: AddressSchema,
+    //   required: [true, "Please provide your address"],
+    //   unique: false,
+    // },
     occupation: {
       type: String,
-      required: [true, "Please provide your occupation"],
     },
     companyName: String,
-    universityName: {
-      type: String,
-      required: [true, "Please enter your university name"],
-    },
     criminalRecord: Boolean,
-    contactNumber: {
+    // universityName: {
+    //   type: String,
+    //   required: [true, "Please enter your university name"],
+    // },
+
+    // emergency Number
+    personName: {
       type: String,
-      required: [true, "Please enter your contact number"],
-      unique: [true, "Contact number exist"],
     },
-    emergencyNumber: {
+    relationship: {
       type: String,
-      required: [true, "Please enter your emergency number"],
-      unique: [true, "Emergency number exist"],
     },
-    bloodGroup: {
+    permanentAddress: {
       type: String,
-      required: [true, "Please enter your blood group"],
     },
-    dateOfBirth: {
-      type: Date,
-      required: [true, "Please enter your date of birth"],
-    },
-    cnicPhoto: {
+    profilePicture: {
       type: String,
-      required: [true, "Please enter your cnic photo"],
     },
-    profilePhoto: {
+
+    cnicFrontPicture: {
       type: String,
-      required: [true, "Please enter your profile photo"],
+    },
+    cnicBackPicture: {
+      type: String,
     },
   },
   { timestamps: true }

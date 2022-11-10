@@ -1,6 +1,6 @@
 import React from "react";
 
-function UserDocuments() {
+function UserDocuments({ yupFunctions }) {
   return <div>UserDocuments</div>;
 }
 

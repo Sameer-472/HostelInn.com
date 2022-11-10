@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Stepper,
   Step,
@@ -12,8 +12,35 @@ import PersonalInformation from "./PersonalInformation";
 import HostelRegistration from "./HostelRegistration";
 import Facilities from "./Facilities";
 import { useNavigate } from "react-router-dom";
+import { FormContext } from "../../ContextAPI/DataProvider";
 
-function StepperForm() {
+function HostelStepperForm() {
+  // !Getting Data from Context API
+  const { hostelFormik, userForm } = useContext(FormContext);
+  // const jsonUser = JSON.stringify(userForm);
+
+  // console.log(jsonUser);
+  // console.log(hostelFormik);
+
+  const {
+    handleBlur,
+    values,
+    touched,
+    errors,
+    handleChange,
+    handleSubmit,
+  } = hostelFormik;
+
+  const yupFunctions = {
+    handleBlur,
+    values,
+    touched,
+    errors,
+    handleChange,
+    handleSubmit,
+  };
+
+  // !Component Logic
   const steps = ["Personal Information", "Hostel Registration", "Facilities"];
   const navigate = useNavigate();
   const [activeSteps, setActiveStep] = useState(0);
@@ -34,7 +61,7 @@ function StepperForm() {
       <Box>
         <Stepper activeStep={activeSteps}>
           {steps.map((steps) => (
-            <Step>
+            <Step key={steps}>
               <StepLabel>{steps}</StepLabel>
             </Step>
           ))}
@@ -42,9 +69,13 @@ function StepperForm() {
       </Box>
       {activeSteps}
       <Box>
-        {activeSteps === 0 && <PersonalInformation />}
-        {activeSteps === 1 && <HostelRegistration />}
-        {activeSteps === 2 && <Facilities />}
+        {activeSteps === 0 && (
+          <PersonalInformation yupFunctions={yupFunctions} />
+        )}
+        {activeSteps === 1 && (
+          <HostelRegistration yupFunctions={yupFunctions} />
+        )}
+        {activeSteps === 2 && <Facilities yupFunctions={yupFunctions} />}
       </Box>
       <Box>
         <Button
@@ -63,4 +94,4 @@ function StepperForm() {
   );
 }
 
-export default StepperForm;
+export default HostelStepperForm;

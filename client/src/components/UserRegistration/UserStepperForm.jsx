@@ -6,14 +6,37 @@ import {
   Button,
   Typography,
   Box,
+  styled,
 } from "@mui/material";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import UserPersonalInfo from "./UserPersonalInfo";
 import EmergencyContact from "./EmergencyContact";
 import UserDocuments from "./UserDocuments";
+import { FormContext } from "../../ContextAPI/DataProvider";
+import * as Styles from "./styles.js";
 
 function UserStepperForm() {
+  // ! Getting Data from Context API
+  const { userFormik } = useContext(FormContext);
+  const {
+    handleBlur,
+    values,
+    touched,
+    errors,
+    handleChange,
+    handleSubmit,
+  } = userFormik;
+  const yupFunctions = {
+    handleBlur,
+    values,
+    touched,
+    errors,
+    handleChange,
+    handleSubmit,
+  };
+
+  // ! Component Logic
   const steps = ["Personal Information", "Emergency Contact", "Documents"];
   const navigate = useNavigate();
   const [activeSteps, setActiveStep] = useState(0);
@@ -29,35 +52,60 @@ function UserStepperForm() {
       setActiveStep((prevState) => prevState + 1);
     }
   };
+  const BTN = styled(Button)`
+    padding: 10px 25px;
+    background-color: #ff6600;
+    color: #fff;
+    font-weight: 600;
+    margin-right: 10px;
+    font-size: 18px;
+    text-align: center;
+  `;
+  const BTN2 = styled(Button)`
+    padding: 10px 25px;
+    background-color: #ff6600;
+    color: #fff;
+    text-align: center;
+
+    margin-left: 10px;
+    font-weight: 600;
+    font-size: 18px;
+  `;
+
   return (
     <>
-      <Box>
-        <Stepper activeStep={activeSteps}>
+      <Styles.Container>
+        <Styles.Title style={{ textAlign: "center" }}>
+          HOSTEL ACCOMMODATION APPLICATION FORM
+        </Styles.Title>
+        <Stepper activeStep={activeSteps} alternativeLabel>
           {steps.map((steps) => (
-            <Step>
-              <StepLabel>{steps}</StepLabel>
+            <Step sx={{ color: "red" }}>
+              <StepLabel sx={{ color: "red" }}>{steps}</StepLabel>
             </Step>
           ))}
         </Stepper>
-      </Box>
-      {activeSteps}
+      </Styles.Container>
+
       <Box>
-        {activeSteps === 0 && <UserPersonalInfo />}
-        {activeSteps === 1 && <EmergencyContact />}
-        {activeSteps === 2 && <UserDocuments />}
+        {activeSteps === 0 && <UserPersonalInfo yupFunctions={yupFunctions} />}
+        {activeSteps === 1 && <EmergencyContact yupFunctions={yupFunctions} />}
+        {activeSteps === 2 && <UserDocuments yupFunctions={yupFunctions} />}
       </Box>
-      <Box>
-        <Button
-          variant='outlined'
-          color='primary'
-          disabled={activeSteps === 0 && true}
-          onClick={previousStep}
-        >
+      <Box
+        component='span'
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <BTN disabled={activeSteps === 0 && true} onClick={previousStep}>
           Previous Step
-        </Button>
-        <Button variant='outlined' color='primary' onClick={nextStep}>
+        </BTN>
+        <BTN2 onClick={nextStep}>
           {activeSteps >= 2 ? "Submit Form" : "Next"}
-        </Button>
+        </BTN2>
       </Box>
     </>
   );

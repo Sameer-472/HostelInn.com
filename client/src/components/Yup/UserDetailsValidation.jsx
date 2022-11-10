@@ -1,25 +1,88 @@
-import * as Yup from 'yup';
+import * as Yup from "yup";
 
 export const UserDetailsValidation = Yup.object({
   firstName: Yup.string()
-    .min(4)
-    .max(20)
-    .required('Please Enter minimum 4 letters'),
+    .min(4, "Please enter minimum 4 letters")
+    .max(20, "Please enter maximum 4 letters")
+    .required("Please Enter First Name"),
   lastName: Yup.string()
-    .min(4)
-    .max(20)
-    .required('Please Enter minimum 4 letters'),
-  email: Yup.string().email().required('Please Enter Valid Email'),
-  gender: Yup.string().min(4).required('Please Select'),
-  houseNumber: Yup.string().min(2).required('Please Enter House Number'),
-  street: Yup.string().min(4).required('Please Enter Street Name'),
-  area: Yup.string().min(4).required('Please Enter Area Name'),
-  city: Yup.string().min(4).required('Please Enter City Name'),
-  province: Yup.string().min(4).required('Please Enter Your Province'),
-  occupation: Yup.string().min(4).required('Please Enter Your Occupation'),
+    .min(4, "Please enter minimum 4 letters")
+    .max(20, "Please enter maximum 4 letters")
+    .required("Please Enter Last Name"),
+  guardianFullName: Yup.string()
+    .min(4, "Please enter minimum 4 letters")
+    .max(20, "Please enter maximum 20 letters")
+    .required("Please Enter Father`s name"),
+  guardianCNIC: Yup.string()
+    .min(13, "CNIC can contain only 13 digits")
+    .max(13, "Enter CNIC without dashes")
+    .required("Please Enter CNIC"),
+  guardianPhoneNumber: Yup.string()
+    .min(11, "Phone Number can contain only 11 digits")
+    .max(11, "Phone Number can contain only 11 digits")
+    .required("Please enter valid mobile number"),
+  email: Yup.string()
+    .email()
+    .required("Please Enter Valid Email"),
+  cnic: Yup.string()
+    .min(13, "CNIC can contain only 13 digits")
+    .max(13, "Enter CNIC without dashes")
+    .required("Please Enter CNIC"),
+  nationality: Yup.string()
+    .min(4, "Please enter minimum 4 letters")
+    .max(20, "Please enter maximum 20 letters")
+    .required("Please Enter your nationality"),
+  university: Yup.string().required("Please enter University name"),
+  programme: Yup.string().required("Please enter programme name"),
+  dateOfBirth: Yup.string().required("Please enter your date of birth"),
+  mobileNumber: Yup.string()
+    .min(11, "Phone Number can contain only 11 digits")
+    .max(11, "Phone Number can contain only 11 digits")
+    .required("Please enter valid mobile number"),
+  whatsappNumber: Yup.string()
+    .min(11, "Phone Number can contain only 11 digits")
+    .max(11, "Phone Number can contain only 11 digits")
+    .required("Please enter valid mobile number"),
+  permanentAddress: Yup.string()
+    .min(10, "Please enter at least 10 letters")
+    .required("Please enter your permanent address"),
+  religion: Yup.string()
+    .min(3, "Please enter at least 3 letters")
+    .required("Please select your religion"),
+  gender: Yup.string().required("Please select gender"),
+  occupation: Yup.string()
+    .min(4, "Please enter at least 4 letters ")
+    .required("Please enter your occupation occupation"),
   companyName: Yup.string(),
-  universityName: Yup.string().min(4).required('Please Enter Your University'),
-  criminalRecord: Yup.boolean().required('Please Select'),
-  contactNumber: Yup.string().min(11).required('Please Enter Your Contact Number'),
-  emergencyNumber: Yup.string().min(11).required('Please Enter Your Emergency Number'),
+  criminalRecord: Yup.boolean(),
+  accommodationType: Yup.string().required("Please select accommodation type"),
+
+  //emergency contact
+
+  name: Yup.string()
+    .min(4, "Please enter at least 4 letters")
+    .required("Please enter emergency contact name"),
+  relationship: Yup.string()
+    .min(4, "Please enter at least 4 letters")
+    .required("Please enter relation"),
+  mobileNumber: Yup.string()
+    .min(11, "Phone Number can contain only 11 digits")
+    .max(11, "Phone Number can contain only 11 digits")
+    .required("Please enter valid mobile number"),
+  whatsappNumber: Yup.string()
+    .min(11, "Phone Number can contain only 11 digits")
+    .max(11, "Phone Number can contain only 11 digits")
+    .required("Please enter valid mobile number"),
+  permanentAddress: Yup.string()
+    .min(10, "Please enter at least 10 letters")
+    .required("Please enter your permanent address"),
+
+  //For pics
+  profilePicture: Yup.string().required("Please upload your picture"),
+  cnicFrontPicture: Yup.string().required(
+    "Please upload your CNIC front picture"
+  ),
+  cnicBackPicture: Yup.string().required(
+    "Please upload your CNIC back picture"
+  ),
 });

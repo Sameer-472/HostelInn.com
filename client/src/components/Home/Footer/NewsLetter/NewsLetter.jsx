@@ -1,6 +1,6 @@
-import React from 'react';
-import MailBox from '../assets/MailBox.png';
-import SendIcon from '../assets/SendIcon.png';
+import React from "react";
+import MailBox from "../Assets/MailBox.png";
+import SendIcon from "../Assets/SendIcon.png";
 import {
   BoxMain,
   BoxContent,
@@ -10,7 +10,7 @@ import {
   SearchBox,
   SearchInputBase,
   StyledButton,
-} from './NewsLetterStyles';
+} from "./NewsLetterStyles";
 
 const NewsLetter = () => {
   return (
@@ -19,7 +19,7 @@ const NewsLetter = () => {
         <img
           src={MailBox}
           alt='Mail Box'
-          style={{ height: '5.5%', width: '5.5%' }}
+          style={{ height: "5.5%", width: "5.5%" }}
         />
         <TextBox>
           <TitleText>Subscribe to our newsletter</TitleText>
@@ -30,7 +30,7 @@ const NewsLetter = () => {
         <SearchBox>
           <SearchInputBase
             placeholder='Your email address'
-            inputProps={{ 'aria-label': 'search' }}
+            inputProps={{ "aria-label": "search" }}
           />
           <StyledButton variant='contained'>
             <img src={SendIcon} alt='Send' />
