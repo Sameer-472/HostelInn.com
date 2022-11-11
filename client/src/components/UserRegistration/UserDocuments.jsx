@@ -89,7 +89,14 @@ function UserDocuments({ yupFunctions }) {
           <FieldLabel>
             Upload your profile picture <sup style={{ color: 'red' }}>*</sup>
           </FieldLabel>
-          <UploadButton variant='contained'>Select File</UploadButton>
+          <UploadButton variant='contained' component='label'>
+            Upload File
+            <input
+              type='file'
+              hidden
+              onChange={(e) => console.log(e.target.files[0].name)}
+            />
+          </UploadButton>
         </InputContainer>
         <img src={require('./Assets/profile.png')} alt='Profile Preview' />
       </FormContainer>
@@ -99,7 +106,14 @@ function UserDocuments({ yupFunctions }) {
             Upload a front picture of your CNIC
             <sup style={{ color: 'red' }}>*</sup>
           </FieldLabel>
-          <UploadButton variant='contained'>Select File</UploadButton>
+          <UploadButton variant='contained' component='label'>
+            Select File
+            <input
+              type='file'
+              hidden
+              onChange={(e) => console.log(e.target.files[0].name)}
+            />
+          </UploadButton>
         </InputContainer>
         <img src={require('./Assets/cnicFront.png')} alt='Profile Preview' />
       </FormContainer>
@@ -109,7 +123,14 @@ function UserDocuments({ yupFunctions }) {
             Upload a back picture of your CNIC
             <sup style={{ color: 'red' }}>*</sup>
           </FieldLabel>
-          <UploadButton variant='contained'>Select File</UploadButton>
+          <UploadButton variant='contained' component="label">
+            Select File
+            <input
+              type='file'
+              hidden
+              onChange={(e) => console.log(e.target.files[0].name)}
+            />
+          </UploadButton>
         </InputContainer>
         <img src={require('./Assets/cnicBack.png')} alt='Profile Preview' />
       </FormContainer>
