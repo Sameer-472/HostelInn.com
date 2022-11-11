@@ -15,7 +15,9 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 app.get("/", (req, res) => {
     res.json({ message: "API Working" });
+    // res.render('verification');
   });
+
 app.use('/',router);
 dotenv.config();
 const username=process.env.DB_USERNAME;
