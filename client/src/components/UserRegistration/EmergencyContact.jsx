@@ -69,6 +69,7 @@ const NameInput = styled(TextField)`
 `;
 
 function EmergencyContact({ yupFunctions }) {
+  console.log(yupFunctions);
   return (
     <StyledFormGroup>
       <TitleBox>
