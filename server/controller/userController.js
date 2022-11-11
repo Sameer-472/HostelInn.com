@@ -66,7 +66,9 @@ export const loginUser = async (req, res) => {
       if (!compared) {
         return res.status(403).json({ message: "Password does not match" });
       }
-
+      if (!user.verified) {
+        return res.status(403).json({ message: "Please verify your password" });
+      }
       const token = jwt.sign(
         {
           userId: user._id,
@@ -132,10 +134,12 @@ export const verifyUser = async (req, res) => {
     });
 
     if (user) {
+      // await userSchema.updateOne(user.verified , {$set: true})
       user.verified = true;
-      res
-        .status(200)
-        .json({ message: "User has been confirm the email", user });
+      await user.save();
+      // res.status(200).sendFile(path.join(__dirname+'/index.html'))
+      res.render("verification")
+      // res.status(200).json({message: "email has been verified"});
     }
   } catch (error) {
     res.status(403).json({ message: "confirmation code is not exist" });
