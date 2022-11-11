@@ -73,11 +73,11 @@ function UserStepperForm() {
   `;
 
   return (
-    <>
-      <Styles.Container>
-        <Styles.Title style={{ textAlign: "center" }}>
-          HOSTEL ACCOMMODATION APPLICATION FORM
-        </Styles.Title>
+    <Box sx={{backgroundColor: "#FED8BF"}}>
+        <Styles.Container>
+          <Styles.Title style={{ textAlign: "center" }}>
+            HOSTEL ACCOMMODATION APPLICATION FORM
+          </Styles.Title>
         <Stepper activeStep={activeSteps} alternativeLabel>
           {steps.map((steps) => (
             <Step sx={{ color: "red" }}>
@@ -86,7 +86,6 @@ function UserStepperForm() {
           ))}
         </Stepper>
       </Styles.Container>
-
       <Box>
         {activeSteps === 0 && <UserPersonalInfo yupFunctions={yupFunctions} />}
         {activeSteps === 1 && <EmergencyContact yupFunctions={yupFunctions} />}
@@ -107,7 +106,7 @@ function UserStepperForm() {
           {activeSteps >= 2 ? "Submit Form" : "Next"}
         </BTN2>
       </Box>
-    </>
+    </Box>
   );
 }
 
