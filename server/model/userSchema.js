@@ -4,18 +4,15 @@ const userSchema = mongoose.Schema(
   {
     name: {
       type: String,
-      required: [true, 'Please Provide a Name'],
       unique: [false],
     },
     email: {
       type: String,
-      required: [true, 'Please provide an Email!'],
       unique: [true, 'Email Exist'],
     },
 
     password: {
       type: String,
-      required: [true, 'Please provide a password!'],
       unique: false,
     },
     verified: {
@@ -25,6 +22,73 @@ const userSchema = mongoose.Schema(
     confirmationCode: {
       type: String,
       required: false,
+    },
+    firstName: {
+      type: String,
+    },
+    lastName: {
+      type: String,
+    },
+    fatherName: {
+      type: String,
+    },
+    guardianPhoneNumber: {
+      type: String,
+    },
+    cnic: {
+      type: String,
+      unique: [true, "CNIC exists"],
+    },
+    institute: {
+      type: String,
+    },
+    program: {
+      type: String,
+    },
+    dateOfBirth: {
+      type: String,
+    },
+    mobileNumber: {
+      type: String,
+    },
+    whatsappNumber: {
+      type: String,
+    },
+    permanentAddress: {
+      type: String,
+    },
+    religion: {
+      type: String,
+    },
+    gender: {
+      type: String,
+    },
+    occupation: {
+      type: String,
+    },
+
+    companyName: String,
+    criminalRecord: Boolean,
+    
+    // emergency Number
+     personName: {
+      type: String,
+    },
+    relationship: {
+      type: String,
+    },
+    permanentAddress: {
+      type: String,
+    },
+    profilePicture: {
+      type: String,
+    },
+
+    cnicFrontPicture: {
+      type: String,
+    },
+    cnicBackPicture: {
+      type: String,
     },
   },
   { timestamps: true }
