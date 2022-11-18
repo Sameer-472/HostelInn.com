@@ -18,7 +18,7 @@ function App() {
   return (
     <DataProvider>
       <BrowserRouter>
-        {/* <Navbar /> */}
+        <Navbar />
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/hostelRegistration' element={<StepperForm />}></Route>
@@ -30,7 +30,7 @@ function App() {
           <Route path='/home' element={<Home />}></Route>
           <Route path='/forget-password' element={<Forget />}></Route>
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </BrowserRouter>
     </DataProvider>
   );

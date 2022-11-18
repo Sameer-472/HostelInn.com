@@ -99,27 +99,27 @@ export const loginUser = async (req, res) => {
   }
 };
 
-// ! User Details Controller
+// ! User Details Profile
 
 export const UserDetails = async (req, res) => {
   const user = req.body;
   try {
-    let userExists = await userDetailsSchema.findOne({
-      email: user.email,
+    let userExists = await userSchema.findOne({
+      cnic:  user.cnic,
     });
 
     if (userExists) {
       return res.status(403).json({
-        message: "User Details already exits",
+        message: "CNIC already exits",
       });
     }
 
-    let newUser = new userDetailsSchema(user);
+    let newUser = new userSchema(user);
 
     if (newUser) {
       await newUser.save();
       res.status(200).json({
-        msg: "User added successfully",
+        message: "User added Successfully",
       });
     }
   } catch (error) {

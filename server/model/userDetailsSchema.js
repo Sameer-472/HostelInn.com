@@ -33,10 +33,6 @@ const userDetailsSchema = mongoose.Schema(
     guardianPhoneNumber: {
       type: String,
     },
-    email: {
-      type: String,
-      unique: [true, "Email Exist"],
-    },
     cnic: {
       type: String,
       unique: [true, "CNIC exists"],
