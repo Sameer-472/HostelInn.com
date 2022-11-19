@@ -495,7 +495,7 @@ function UserPersonalInfo({ yupFunctions }) {
               value={values.criminalRecord}
             >
               <FormControlLabel
-                value='yes'
+                value={true}
                 control={
                   <Radio
                     sx={{
@@ -509,7 +509,7 @@ function UserPersonalInfo({ yupFunctions }) {
                 label='Yes'
               ></FormControlLabel>
               <FormControlLabel
-                value='no'
+                value={false}
                 control={
                   <Radio
                     sx={{

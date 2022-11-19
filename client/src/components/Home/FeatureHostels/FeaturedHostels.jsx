@@ -1,18 +1,18 @@
-import React from 'react';
-import CardComponent from './Card/CardComponent';
-import { featuredHostelsData } from './featuredHostelData';
-import StripImage from './Assets/RectangleStrip130.png';
+import React from "react";
+import CardComponent from "./Card/CardComponent";
+import { featuredHostelsData } from "./featuredHostelData";
+import StripImage from "./Assets/RectangleStrip130.png";
 import {
   MainBox,
   TitleText,
   DescriptionText,
   CardContainter,
-} from './FeaturedHostelsStyles';
+} from "./FeaturedHostelsStyles";
 
 const FeaturedHostels = () => {
   return (
     <MainBox>
-      <img
+      {/* <img
         src={StripImage}
         alt=''
         style={{
@@ -20,7 +20,7 @@ const FeaturedHostels = () => {
           top: 0,
           left: 0,
         }}
-      />
+      /> */}
       <TitleText variant='h2' component='div'>
         Featured Hostels
       </TitleText>
@@ -42,7 +42,7 @@ const FeaturedHostels = () => {
         src={StripImage}
         alt=''
         style={{
-          position: 'absolute',
+          position: "absolute",
           bottom: 0,
           right: 0,
         }}
