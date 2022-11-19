@@ -69,7 +69,9 @@ export const loginUser = async (req, res) => {
       if (!compared) {
         return res.status(403).json({ message: "Password does not match" });
       }
-
+      if (!user.verified) {
+        return res.status(403).json({ message: "Please verify your password" });
+      }
       const token = jwt.sign(
         {
           userId: user._id,
@@ -97,27 +99,27 @@ export const loginUser = async (req, res) => {
   }
 };
 
-// ! User Details Controller
+// ! User Details Profile
 
 export const UserDetails = async (req, res) => {
   const user = req.body;
   try {
-    let userExists = await userDetailsSchema.findOne({
-      email: user.email,
+    let userExists = await userSchema.findOne({
+      cnic:  user.cnic,
     });
 
     if (userExists) {
       return res.status(403).json({
-        message: "User Details already exits",
+        message: "CNIC already exits",
       });
     }
 
-    let newUser = new userDetailsSchema(user);
+    let newUser = new userSchema(user);
 
     if (newUser) {
       await newUser.save();
       res.status(200).json({
-        msg: "User added successfully",
+        message: "User added Successfully",
       });
     }
   } catch (error) {
@@ -135,10 +137,12 @@ export const verifyUser = async (req, res) => {
     });
 
     if (user) {
+      // await userSchema.updateOne(user.verified , {$set: true})
       user.verified = true;
-      res
-        .status(200)
-        .json({ message: "User has been confirm the email", user });
+      await user.save();
+      // res.status(200).sendFile(path.join(__dirname+'/index.html'))
+      res.render("verification")
+      // res.status(200).json({message: "email has been verified"});
     }
   } catch (error) {
     res.status(403).json({ message: "confirmation code is not exist" });

@@ -8,6 +8,8 @@ import FindYourHome from "./FindYourHome/FindYourHome";
 import { MainBody } from "./MainBody/MainBody";
 import FeaturedHostels from "./FeatureHostels/FeaturedHostels"
 import { Reviews } from "@mui/icons-material";
+import ActionAlerts from "../Alert/Alert";
+// import ActionAlerts from "../Alert/Alert";
 function Home() {
   return (
     <>
