@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Box,
   FormGroup,
@@ -6,7 +6,7 @@ import {
   styled,
   Typography,
   TextField,
-} from '@mui/material';
+} from "@mui/material";
 
 const StyledFormGroup = styled(FormGroup)`
   padding: 2% 8%;
@@ -35,7 +35,7 @@ const Title = styled(Typography)`
   font-size: 2rem;
   color: #4d148c;
   font-weight: 700;
-  font-family: 'League Spartan', sans-serif;
+  font-family: "League Spartan", sans-serif;
   padding-left: 2.5rem;
   padding-top: 0.5rem;
 `;
@@ -59,14 +59,14 @@ const InputContainer = styled(Box)`
 `;
 
 const FieldLabel = styled(Typography)`
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 500;
   font-size: 1rem;
 `;
 
 const UploadButton = styled(Button)`
   background-color: #4d148c;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
   font-size: 0.8rem;
   width: 25%;
@@ -74,8 +74,20 @@ const UploadButton = styled(Button)`
     background-color: #4d008c;
   }
 `;
-
+const ErrorMsgText = styled(Typography)`
+  font-size: 12;
+  color: red;
+`;
 function UserDocuments({ yupFunctions }) {
+  const {
+    handleBlur,
+    values,
+    touched,
+    errors,
+    handleChange,
+    handleSubmit,
+  } = yupFunctions;
+  console.log(values);
   return (
     <StyledFormGroup>
       <TitleBox>
@@ -87,52 +99,73 @@ function UserDocuments({ yupFunctions }) {
       <FormContainer>
         <InputContainer>
           <FieldLabel>
-            Upload your profile picture <sup style={{ color: 'red' }}>*</sup>
+            Upload your profile picture <sup style={{ color: "red" }}>*</sup>
           </FieldLabel>
           <UploadButton variant='contained' component='label'>
             Upload File
             <input
               type='file'
               hidden
-              onChange={(e) => console.log(e.target.files[0].name)}
+              // onChange={(e) => console.log(e.target.files[0].name)}
+              name='profilePicture'
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={values.profilePicture}
             />
           </UploadButton>
+          {touched.profilePicture && errors.profilePicture ? (
+            <ErrorMsgText>{errors.profilePicture}</ErrorMsgText>
+          ) : null}
         </InputContainer>
-        <img src={require('./Assets/profile.png')} alt='Profile Preview' />
+        <img src={require("./Assets/profile.png")} alt='Profile Preview' />
       </FormContainer>
       <FormContainer>
         <InputContainer>
           <FieldLabel>
             Upload a front picture of your CNIC
-            <sup style={{ color: 'red' }}>*</sup>
+            <sup style={{ color: "red" }}>*</sup>
           </FieldLabel>
           <UploadButton variant='contained' component='label'>
             Select File
             <input
               type='file'
               hidden
-              onChange={(e) => console.log(e.target.files[0].name)}
+              // onChange={(e) => console.log(e.target.files[0].name)}
+              name='cnicFrontPicture'
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={values.cnicFrontPicture}
             />
           </UploadButton>
+          {touched.cnicFrontPicture && errors.cnicFrontPicture ? (
+            <ErrorMsgText>{errors.cnicFrontPicture}</ErrorMsgText>
+          ) : null}
         </InputContainer>
-        <img src={require('./Assets/cnicFront.png')} alt='Profile Preview' />
+        <img src={require("./Assets/cnicFront.png")} alt='Profile Preview' />
       </FormContainer>
       <FormContainer>
         <InputContainer>
           <FieldLabel>
             Upload a back picture of your CNIC
-            <sup style={{ color: 'red' }}>*</sup>
+            <sup style={{ color: "red" }}>*</sup>
           </FieldLabel>
-          <UploadButton variant='contained' component="label">
+          <UploadButton variant='contained' component='label'>
             Select File
             <input
               type='file'
               hidden
-              onChange={(e) => console.log(e.target.files[0].name)}
+              // onChange={(e) => console.log(e.target.files[0].name)}
+              name='cnicFrontPicture'
+              onBlur={handleBlur}
+              onChange={handleChange}
+              value={values.cnicBackPicture}
             />
           </UploadButton>
+          {touched.cnicBackPicture && errors.cnicBackPicture ? (
+            <ErrorMsgText>{errors.cnicBackPicture}</ErrorMsgText>
+          ) : null}
         </InputContainer>
-        <img src={require('./Assets/cnicBack.png')} alt='Profile Preview' />
+        <img src={require("./Assets/cnicBack.png")} alt='Profile Preview' />
       </FormContainer>
     </StyledFormGroup>
   );

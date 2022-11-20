@@ -8,7 +8,7 @@ import { hostelOwnerValidation } from "../components/Yup/HostelOwnerValidation";
 
 export const FormContext = createContext(null);
 const userFormDetails = {
-  fistName: "",
+  firstName: "",
   lastName: "",
   guardianFullName: "",
   guardianCNIC: "",
@@ -26,13 +26,14 @@ const userFormDetails = {
   gender: "",
   occupation: "",
   companyName: "",
-  criminalRecord: "",
+  criminalRecord: Boolean,
   accommodationType: "",
-  name: "",
-  relationship: "",
-  mobileNumber: "",
-  whatsappNumber: "",
-  permanentAddress: "",
+
+  EmergencyContactName: "",
+  EmergencyRelationship: "",
+  EmergencyMobileNumber: "",
+  EmergencyWhatsappNumber: "",
+  EmergencyPermanentAddress: "",
 
   profilePicture: "",
   cnicFrontPicture: "",
@@ -42,14 +43,6 @@ const userFormDetails = {
 function DataProvider({ children }) {
   const [hostelForm, setHostelForm] = useState(hostelFormDetails);
   const [userForm, setUserForm] = useState(userFormDetails);
-  // export const {
-  //   handleBlur,
-  //   values,
-  //   touched,
-  //   errors,
-  //   handleChange,
-  //   handleSubmit,
-  // }
   const hostelFormik = useFormik({
     initialValues: hostelForm,
     validationSchema: hostelOwnerValidation,
@@ -92,7 +85,7 @@ function DataProvider({ children }) {
     },
   });
   const userFormik = useFormik({
-    initialValues: userForm,
+    initialValues: userFormDetails,
     validationSchema: UserDetailsValidation,
     validateOnChange: true,
     onSubmit: async (values, action) => {

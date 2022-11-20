@@ -53,31 +53,29 @@ function UserStepperForm() {
     }
   };
   const BTN = styled(Button)`
-    padding: 10px 25px;
+    padding: 5px 20px;
     background-color: #ff6600;
     color: #fff;
-    font-weight: 600;
+
     margin-right: 10px;
     font-size: 18px;
     text-align: center;
   `;
   const BTN2 = styled(Button)`
-    padding: 10px 25px;
+    padding: 5px 20px;
     background-color: #ff6600;
     color: #fff;
     text-align: center;
-
     margin-left: 10px;
-    font-weight: 600;
     font-size: 18px;
   `;
 
   return (
-    <Box sx={{backgroundColor: "#FED8BF"}}>
-        <Styles.Container>
-          <Styles.Title style={{ textAlign: "center" }}>
-            HOSTEL ACCOMMODATION APPLICATION FORM
-          </Styles.Title>
+    <Box sx={{ backgroundColor: "#FED8BF" }}>
+      <Styles.Container>
+        <Styles.Title style={{ textAlign: "center" }}>
+          HOSTEL ACCOMMODATION APPLICATION FORM
+        </Styles.Title>
         <Stepper activeStep={activeSteps} alternativeLabel>
           {steps.map((steps) => (
             <Step sx={{ color: "red" }}>
