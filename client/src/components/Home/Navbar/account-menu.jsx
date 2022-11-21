@@ -11,8 +11,19 @@ import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
+import { useSelector , useDispatch } from "react-redux";
+import { logout } from '../../../Redux/Actions/auth';
+import { useNavigate } from 'react-router-dom';
 
 export default function AccountMenu() {
+  // fetching the user details from the redux 
+  const result = useSelector((state)=> state);
+  const user = result.auth.user.user;
+  //
+
+  // console.log(user.name.charAt(0));
+
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -21,6 +32,14 @@ export default function AccountMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const logOut = async()=>{
+    dispatch(logout());
+    navigate(0);
+    console.log("hello world")
+  }
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
@@ -85,7 +104,7 @@ export default function AccountMenu() {
           </ListItemIcon>
           Settings
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={logOut}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>

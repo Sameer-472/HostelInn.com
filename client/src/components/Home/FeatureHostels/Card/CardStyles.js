@@ -14,10 +14,14 @@ import {
 
 export const CardMain = styled(Card)`
   display: flex;
-  max-width: 412px;
-  margin: 0 15px 0 15px;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 100%;
+  margin: 0 5px 0 5px;
   height: 249px;
   border-radius: 12px;
+  /* transform: rotate(90deg); */
+  /* transform-origin: right top; */
 `;
 
 export const CardImage = styled(CardMedia)`
@@ -74,8 +78,9 @@ export const RatingButton = styled(Button)`
 `;
 
 export const PriceCard = styled(CardContent)`
-  display: flex;
-  position: absolute;
+  /* display: flex; */
+  background-color: antiquewhite;
+  /* position: absolute; */
   bottom: 0;
   right: 0;
 `;
@@ -96,7 +101,7 @@ export const CurrencyText = styled(Typography)`
 `;
 
 export const PriceText = styled(Typography)`
-  font-size: 20px;
+  font-size: 1.5rem;
   font-weight: 700;
   font-family: 'League Spartan', sans-serif;
   margin-left: 5px;

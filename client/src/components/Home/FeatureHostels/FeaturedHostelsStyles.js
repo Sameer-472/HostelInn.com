@@ -7,6 +7,8 @@ export const MainBox = styled(Box)`
   padding: 15rem 5rem 15rem 5rem;
   position: relative;
   max-width: 1352px;
+  /* overflow-x: scroll; */
+  /* background-color: red; */
 `;
 
 export const TitleText = styled(Typography)`
@@ -23,7 +25,12 @@ export const DescriptionText = styled(Typography)`
 `;
 
 export const CardContainter = styled(Box)`
-  display: flex;
-  justify-content: space-between;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
   margin: 3rem 0 3rem 0;
-`;
+  width: 100%;
+  &::-webkit-scrollbar {
+    display: none;
+  }`
