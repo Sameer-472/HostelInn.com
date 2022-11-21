@@ -7,63 +7,19 @@ import {
   Typography,
   TextField,
 } from "@mui/material";
-
-const StyledFormGroup = styled(FormGroup)`
-  padding: 2% 8%;
-`;
-
-const TitleBox = styled(Box)`
-  height: 108px;
-  background-color: white;
-  border-radius: 10px;
-`;
-
-const ColoredDiv = styled(Box)`
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  background-color: #ffb686;
-  width: 100%;
-  height: 28%;
-`;
-
-const TitleContainer = styled(Box)`
-  border-bottom: 1px solid #c8c8c8;
-  margin: 0.5rem;
-`;
-
-const Title = styled(Typography)`
-  font-size: 2rem;
-  color: #4d148c;
-  font-weight: 700;
-  font-family: "League Spartan", sans-serif;
-  padding-left: 2.5rem;
-  padding-top: 0.5rem;
-`;
-
-const FormContainer = styled(FormGroup)`
-  margin-top: 1rem;
-  background-color: white;
-  border-radius: 10px;
-  height: 100px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 2rem;
-`;
-
-const InputContainer = styled(Box)`
-  display: flex;
-  flex-direction: column;
-  width: 45%;
-  justify-content: space-between;
-`;
-
-const FieldLabel = styled(Typography)`
-  font-family: "Lato", sans-serif;
-  font-weight: 500;
-  font-size: 1rem;
-`;
-
+import {
+  StyledFormGroup,
+  TitleBox,
+  TitleContainer,
+  ColoredDiv,
+  Title,
+  FormContainer,
+  InputContainer,
+  AddressInputContainer,
+  FieldLabel,
+  NameInput,
+  ErrorMsgText,
+} from "./styles";
 const UploadButton = styled(Button)`
   background-color: #4d148c;
   font-family: "Inter", sans-serif;
@@ -73,11 +29,12 @@ const UploadButton = styled(Button)`
   &:hover {
     background-color: #4d008c;
   }
+  @media screen and (max-width: 750px) {
+    width: 50%;
+    margin-top: 20px;
+  }
 `;
-const ErrorMsgText = styled(Typography)`
-  font-size: 12;
-  color: red;
-`;
+
 function UserDocuments({ yupFunctions }) {
   const {
     handleBlur,
