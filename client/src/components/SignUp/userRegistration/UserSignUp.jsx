@@ -117,6 +117,7 @@ const UserSignUp = ({
       }
     },
   });
+  console.log(values.name);
 
   return (
     <>

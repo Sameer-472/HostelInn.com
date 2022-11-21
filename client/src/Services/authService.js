@@ -30,6 +30,8 @@ export const Login=async(endpoint,payload)=>{
     }
 }
 
-export const Logout=()=>{
-    localStorage.removeItem("user");
+export const Logout=async()=>{
+    console.log("Logout invoked form services")
+    const user = localStorage.removeItem("user");
+    return user;
 }

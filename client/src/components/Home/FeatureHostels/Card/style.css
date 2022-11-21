@@ -1,0 +1,153 @@
+.component-15-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.01);
+    width: 350px;
+    height: 211.53px;
+  }
+  .rectangle-div1 {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: 10.19px;
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.01);
+  }
+  .group-div1 {
+    position: absolute;
+    height: 28.06%;
+    width: 51.94%;
+    top: 18.47%;
+    right: 0;
+    bottom: 53.47%;
+    left: 48.06%;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.01);
+  }
+
+  .km-from-university-of-sindh,
+.stargate-girls-hostel {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  display: inline-block;
+}
+
+.stargate-girls-hostel {
+    height: 24.33%;
+    top: 0;
+    font-size: 15.29px;
+  }
+  .km-from-university-of-sindh {
+    height: 22.9%;
+    top: 24.33%;
+    font-family: Lato;
+    color: #606060;
+  }
+  .rectangle-div2 {
+    height: 32.7%;
+    width: 26.13%;
+    top: 67.3%;
+    right: 73.86%;
+    bottom: 0;
+    left: 0.01%;
+    border-radius: 2.55px;
+    background-color: #4d148c;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.01);
+  }
+  .div,
+  .rectangle-div2,
+  .star-div {
+    position: absolute;
+  }
+
+  .div {
+    height: 25.76%;
+    width: 28.97%;
+    top: 71.56%;
+    left: 12.15%;
+    font-weight: 600;
+    font-family: Inter;
+    color: #fff;
+    display: inline-block;
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0.01);
+  }
+  .star-div {
+    height: 24.52%;
+    width: 8%;
+    top: 72.21%;
+    right: 89.86%;
+    bottom: 3.27%;
+    left: 2.14%;
+    background-color: #ffd600;
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0.01);
+  }
+  .group-div1 {
+    position: absolute;
+    height: 28.06%;
+    width: 51.94%;
+    top: 18.47%;
+    right: 0;
+    bottom: 53.47%;
+    left: 48.06%;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.01);
+  }
+
+  .from-div {
+    position: absolute;
+    height: 4.02%;
+    width: 35.13%;
+    top: 88.35%;
+    left: 59.71%;
+    color: #606060;
+    display: inline-block;
+  }
+
+  .pkrs12000-div {
+    position: absolute;
+    height: 8.84%;
+    width: 41.67%;
+    top: 84.74%;
+    left: 66.26%;
+    color: #ff6b00;
+    display: inline-block;
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0.01);
+    font-size: 13.59px;
+  }
+
+  .span {
+    font-size: 20.39px;
+    font-family: Inter;
+  }
+  .span1 {
+    font-weight: 800;
+  }
+
+  .heart-icon,
+.mask-group-icon {
+  position: absolute;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.mask-group-icon {
+  height: 100%;
+  width: 41.27%;
+  top: 0;
+  right: 58.73%;
+  bottom: 0;
+  left: 0;
+  object-fit: cover;
+}
+.heart-icon {
+  height: 8.68%;
+  width: 5.93%;
+  top: 7.73%;
+  right: 3.07%;
+  bottom: 83.58%;
+  left: 91%;
+}

@@ -59,21 +59,21 @@ export const UserDetailsValidation = Yup.object({
 
   //emergency contact
 
-  name: Yup.string()
+  EmergencyContactName: Yup.string()
     .min(4, "Please enter at least 4 letters")
     .required("Please enter emergency contact name"),
-  relationship: Yup.string()
+  EmergencyRelationship: Yup.string()
     .min(4, "Please enter at least 4 letters")
     .required("Please enter relation"),
-  mobileNumber: Yup.string()
+  EmergencyMobileNumber: Yup.string()
     .min(11, "Phone Number can contain only 11 digits")
     .max(11, "Phone Number can contain only 11 digits")
     .required("Please enter valid mobile number"),
-  whatsappNumber: Yup.string()
+  EmergencyWhatsappNumber: Yup.string()
     .min(11, "Phone Number can contain only 11 digits")
     .max(11, "Phone Number can contain only 11 digits")
     .required("Please enter valid mobile number"),
-  permanentAddress: Yup.string()
+  EmergencyPermanentAddress: Yup.string()
     .min(10, "Please enter at least 10 letters")
     .required("Please enter your permanent address"),
 

@@ -27,14 +27,12 @@ const Image = styled("img")(({ theme }) => ({
   height: 550,
   width: "100%",
   objectFit: "cover",
-  //   [theme.breakpoints.down("md")]: {
-  //     objectFit: "cover",
-  //     height: 180,
-  //   },
+  [theme.breakpoints.down("md")]: {
+    objectFit: "cover",
+    height: 210,
+  },
 }));
-const Component = styled(Box)`
-  height: 550px;
-`;
+const Component = styled(Box)``;
 
 function MultiCarousel() {
   return (

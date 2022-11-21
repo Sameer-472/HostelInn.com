@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   CardMain,
   CardImage,
@@ -13,9 +13,10 @@ import {
   CurrencyText,
   PriceCard,
   FromText,
-} from './CardStyles';
+} from "./CardStyles";
 
-import { Star as StarIcon } from '@mui/icons-material';
+import "./style.css"
+import { Star as StarIcon } from "@mui/icons-material";
 
 const CardComponent = ({ name, distance, rating, startingFrom }) => {
   const [isFavourite, setIsFavourite] = React.useState(false);
