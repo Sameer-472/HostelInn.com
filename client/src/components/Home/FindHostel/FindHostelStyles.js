@@ -1,5 +1,5 @@
-import { Box, styled, Typography, InputBase, Button } from '@mui/material';
-import { Search } from '@mui/icons-material';
+import { Box, styled, Typography, InputBase, Button } from "@mui/material";
+import { Search } from "@mui/icons-material";
 
 export const BoxMain = styled(Box)`
   display: flex;
@@ -7,13 +7,20 @@ export const BoxMain = styled(Box)`
   height: 550px;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  @media (max-width: 600px) {
+    height: 420px;
+  }
 `;
 
 export const LabelText = styled(Typography)`
   font-size: 32px;
   font-weight: 700;
-  font-family: 'League Spartan', sans-serif;
+  font-family: "League Spartan", sans-serif;
   color: #ff6600;
+  @media (max-width: 600px) {
+    text-align: center;
+  }
 `;
 
 export const SearchBox = styled(Box)`
@@ -44,7 +51,7 @@ export const SearchIcon = styled(Search)`
 export const SearchInputBase = styled(InputBase)`
   margin: 0 24px 0 24px;
   width: 100%;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 400;
   font-size: 16px;
 `;
@@ -53,7 +60,7 @@ export const GoButton = styled(Button)`
   background-color: #ff6600;
   height: 2.5rem;
   width: 13.5rem;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 600;
   text-transform: none;
   border-radius: 10px;
