@@ -1,0 +1,16 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    /* display: none; */
+    /* opacity: 0; */
+    -webkit-appearance: none;
+    }
+
+.css-1gv0vcd-MuiSlider-track{
+    background-color: #606060;
+    border: 3px solid #606060; 
+}    
+   

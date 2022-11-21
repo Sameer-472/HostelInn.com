@@ -14,13 +14,15 @@ import Footer from "./components/Home/Footer/Footer";
 import StepperForm from "./components/HostelRegistration/HostelStepperForm";
 import DataProvider from "./ContextAPI/DataProvider";
 import UserStepperForm from "./components/UserRegistration/UserStepperForm";
+import Explore from "./components/Explore/Explore";
 function App() {
   return (
     <DataProvider>
       <BrowserRouter>
-        {/* <Navbar /> */}
+        <Navbar />
         <Routes>
           <Route path='/' element={<Home />}></Route>
+          <Route path="/explore" element={ <Explore/>}> </Route>
           <Route path='/hostelRegistration' element={<StepperForm />}></Route>
           <Route path='/userRegistration' element={<UserStepperForm />}></Route>
 
@@ -30,7 +32,7 @@ function App() {
           <Route path='/home' element={<Home />}></Route>
           <Route path='/forget-password' element={<Forget />}></Route>
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </BrowserRouter>
     </DataProvider>
   );

@@ -1,5 +1,5 @@
-import React from 'react';
-import { TitleMain, RelativeFindHostel } from './FindYourHomeStyles';
+import React from "react";
+import { TitleMain, RelativeFindHostel } from "./FindYourHomeStyles";
 
 const FindYourHome = () => {
   return (
