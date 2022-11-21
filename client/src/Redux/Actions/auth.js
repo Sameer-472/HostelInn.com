@@ -27,6 +27,7 @@ export const register = (endpoint, payload) => async (dispatch) => {
 };
 
 export const login = (endpoint, payload) => async (dispatch) => {
+  console.log("login function invoked")
   const response = await Login(endpoint, payload);
   if (response.status === 200) {
     dispatch({
@@ -43,8 +44,11 @@ export const login = (endpoint, payload) => async (dispatch) => {
   }
 };
 
-export const logout = () => (dispatch) => {
+export const logout = () =>async (dispatch) => {
+  console.log("logout function invoked")
+  const user = await Logout();
   dispatch({
     type: LOGOUT,
+    payload: {user}
   });
 };

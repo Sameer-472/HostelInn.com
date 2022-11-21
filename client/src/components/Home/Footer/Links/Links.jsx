@@ -13,6 +13,12 @@ const OrangeText = styled(Typography)`
 const Component = styled(Box)`
   display: flex;
   justify-content: space-evenly;
+  @media screen and (max-width: 600px){
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 `;
 const ImageWrapper = styled(Box)`
   display: flex;
@@ -22,17 +28,8 @@ const ImageWrapper = styled(Box)`
     border-radius: 10px;
     font-size: 30px;
     cursor: pointer;
-    /* margin-top: 30px; */
   }
 `;
-// const Image = styled("img")({
-//   //   height: 30,
-//   //   width: 30,
-//   borderRadius: 10,
-//   margin: "10px 10px 0px 0px",
-//   color: "#4d148c",
-//   backgroundColor: "#4d148c",
-// });
 
 const NavigateText = styled(Typography)`
   color: #606060;

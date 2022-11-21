@@ -13,6 +13,7 @@ import UserSignUp from "./../../SignUp/userRegistration/UserSignUp";
 import UserSignIn from "./../../SignIn/UserSignIn";
 import AccountMenu from "./account-menu";
 import DrawerFile from "./DrawerFiles/DrawerFile";
+import { useSelector } from "react-redux";
 
 const Image = styled("img")({
   fontSize: 80,
@@ -65,6 +66,8 @@ const Btn = styled(Button)`
   }
 `;
 function Navbar() {
+  const result = useSelector((state)=> state);
+  console.log("this is result from navbar", result.auth);
   const theme = useTheme();
 
   const isTrue = useMediaQuery("(max-width:770px)");
@@ -98,8 +101,8 @@ function Navbar() {
               <NavLink to='/contact-us'> Contact us </NavLink>
               <NavLink to='/about-us'> About us </NavLink>
             </LinkWrapper>
-            <RightWrapper>
-              <Btn
+            <RightWrapper>{
+                !result.auth.isLogginIn && !result.auth.user ? <Btn
                 onClick={() => {
                   setSignUpOpen(true);
                   setRenderSignUp(true);
@@ -107,9 +110,8 @@ function Navbar() {
                 variant='text'
               >
                 Signup/Login
-              </Btn>
-
-              <AccountMenu />
+              </Btn> : <AccountMenu />
+              }              
             </RightWrapper>
           </Toolbar>
         </AppBar>

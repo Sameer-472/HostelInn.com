@@ -37,6 +37,15 @@ const FeaturedHostels = () => {
             key={hostel.name}
           />
         ))}
+        {featuredHostelsData.map((hostel) => (
+          <CardComponent
+            name={hostel.name}
+            distance={hostel.distance}
+            rating={hostel.rating}
+            startingFrom={hostel.startingFrom}
+            key={hostel.name}
+          />
+        ))}
       </CardContainter>
       <img
         src={StripImage}
