@@ -9,7 +9,6 @@ import {
   Button,
   TextField,
   Box,
-  InputBase,
   Typography,
   Alert,
   styled,
@@ -186,7 +185,7 @@ const UserSignIn = ({
   };
 
   const result = useSelector((state) => state);
-  // console.log(result);
+  console.log("this is the result ",result);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -214,7 +213,6 @@ const UserSignIn = ({
           password: `${values.password}`,
         })
       );
-      // console.log(result)
       const statusCode = result.status;
       console.log(statusCode);
 
@@ -222,6 +220,7 @@ const UserSignIn = ({
       console.log(result, "after dispatch method");
       if (statusCode === 200) {
         console.log("UserLogin Login Successful");
+        navigate(0);
         setError(false);
         setOpen(true);
         handleClose();
