@@ -5,7 +5,7 @@ import Img3 from "./Assets/Card3.png";
 import { Card1, Card2, Card3, Flex, Image1, Image2, Image3 } from "./style";
 import { Stepper } from "./Stepper";
 
-export const ChooseAnimation = () => {
+const ChooseAnimation = () => {
   return (
     <>
       <div>
@@ -49,3 +49,5 @@ export const ChooseAnimation = () => {
     </>
   );
 };
+
+export default ChooseAnimation
