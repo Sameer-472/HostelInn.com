@@ -102,7 +102,7 @@ function Navbar() {
               <NavLink to='/about-us'> About us </NavLink>
             </LinkWrapper>
             <RightWrapper>{
-                !result.auth.isLogginIn && !result.auth.user ? <Btn
+                result.auth.isLoggedIn && result.auth.user ? <AccountMenu />  : <Btn
                 onClick={() => {
                   setSignUpOpen(true);
                   setRenderSignUp(true);
@@ -110,7 +110,7 @@ function Navbar() {
                 variant='text'
               >
                 Signup/Login
-              </Btn> : <AccountMenu />
+              </Btn>
               }              
             </RightWrapper>
           </Toolbar>
