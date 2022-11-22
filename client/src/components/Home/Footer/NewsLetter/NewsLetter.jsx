@@ -10,17 +10,14 @@ import {
   SearchBox,
   SearchInputBase,
   StyledButton,
+  Image,
 } from "./NewsLetterStyles";
 
 const NewsLetter = () => {
   return (
     <BoxMain>
       <BoxContent>
-        <img
-          src={MailBox}
-          alt='Mail Box'
-          style={{ height: "5.5%", width: "5.5%" }}
-        />
+        <Image src={MailBox} alt='Mail Box' />
         <TextBox>
           <TitleText>Subscribe to our newsletter</TitleText>
           <DescText>

@@ -1,4 +1,4 @@
-import { Box, styled } from '@mui/material';
+import { Box, styled } from "@mui/material";
 
 export const StyledBox = styled(Box)`
   background-color: #ab8bcd;
@@ -7,7 +7,10 @@ export const StyledBox = styled(Box)`
   justify-content: center;
   align-items: center;
   color: white;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 300;
   font-size: 1.25rem;
+  @media screen and (max-width: 750px) {
+    margin-top: 10px;
+  }
 `;

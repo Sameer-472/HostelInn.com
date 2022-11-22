@@ -73,9 +73,9 @@ function UserStepperForm() {
   return (
     <Box sx={{ backgroundColor: "#FED8BF" }}>
       <Styles.Container>
-        <Styles.Title style={{ textAlign: "center" }}>
+        <Styles.TitleHeader style={{ textAlign: "center" }}>
           HOSTEL ACCOMMODATION APPLICATION FORM
-        </Styles.Title>
+        </Styles.TitleHeader>
         <Stepper activeStep={activeSteps} alternativeLabel>
           {steps.map((steps) => (
             <Step sx={{ color: "red" }}>
@@ -95,6 +95,8 @@ function UserStepperForm() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          paddingBottom: 20,
+          paddingTop: 10,
         }}
       >
         <BTN disabled={activeSteps === 0 && true} onClick={previousStep}>
