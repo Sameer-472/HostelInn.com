@@ -33,4 +33,5 @@ export const CardContainter = styled(Box)`
   width: 100%;
   &::-webkit-scrollbar {
     display: none;
-  }`
+  }
+`;

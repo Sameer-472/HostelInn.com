@@ -1,13 +1,13 @@
-import React from "react";
-import CardComponent from "./Card/CardComponent";
-import { featuredHostelsData } from "./featuredHostelData";
-import StripImage from "./Assets/RectangleStrip130.png";
+import React from 'react';
+import CardComponent from './Card/CardComponent';
+import { featuredHostelsData } from './featuredHostelData';
+import StripImage from './Assets/RectangleStrip130.png';
 import {
   MainBox,
   TitleText,
   DescriptionText,
   CardContainter,
-} from "./FeaturedHostelsStyles";
+} from './FeaturedHostelsStyles';
 
 const FeaturedHostels = () => {
   return (
