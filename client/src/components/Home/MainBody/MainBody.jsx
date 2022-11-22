@@ -10,7 +10,7 @@ import { Image , Circle1 , Circle2 , Circle3 , Circle4 , Circle5 , Circle6} from
 
 
 
-const MainBody = () => {
+export const MainBody = () => {
   return (
     <div>
       <Image>
@@ -37,6 +37,3 @@ const MainBody = () => {
     </div>
   )
 }
-
-export default MainBody
-

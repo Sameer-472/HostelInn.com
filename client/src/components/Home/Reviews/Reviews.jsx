@@ -3,7 +3,7 @@ import CardComponent from './Card/CardComponent';
 import { reviewsData } from './reviewsData';
 import { BoxMain, TitleText, OrangeText, CardContainer } from './ReviewsStyles';
 
-const Reviews = () => {
+export const Reviews = () => {
   return (
     <BoxMain>
       <img
@@ -44,5 +44,3 @@ const Reviews = () => {
     </BoxMain>
   );
 };
-
-export default Reviews;

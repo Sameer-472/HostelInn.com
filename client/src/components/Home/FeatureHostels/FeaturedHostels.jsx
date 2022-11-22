@@ -12,7 +12,7 @@ import {
 const FeaturedHostels = () => {
   return (
     <MainBox>
-      <img
+      {/* <img
         src={StripImage}
         alt=''
         style={{
@@ -20,7 +20,7 @@ const FeaturedHostels = () => {
           top: 0,
           left: 0,
         }}
-      />
+      /> */}
       <TitleText variant='h2' component='div'>
         Featured Hostels
       </TitleText>
