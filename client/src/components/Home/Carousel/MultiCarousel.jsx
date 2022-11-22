@@ -24,10 +24,10 @@ const responsive = {
 };
 
 const Image = styled("img")(({ theme }) => ({
-  height: 550,
+  height: 500,
   width: "100%",
   objectFit: "cover",
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.down(670)]: {
     objectFit: "cover",
     height: 210,
   },
