@@ -20,12 +20,19 @@ export const CardMain = styled(Card)`
   margin: 0 5px 0 5px;
   height: 249px;
   border-radius: 12px;
+  @media screen and (max-width: 600px) {
+    /* max-width: 10px; */
+  height: 200px;
+  }
   /* transform: rotate(90deg); */
   /* transform-origin: right top; */
 `;
 
 export const CardImage = styled(CardMedia)`
   width: 200px;
+  @media screen and (max-width: 600px) {
+    width: 100px;
+  }
 `;
 
 export const BoxFlex = styled(Box)`
@@ -38,6 +45,10 @@ export const FlexCardContent = styled(CardContent)`
   display: flex;
   flex-direction: column;
   width: 200px;
+  @media screen and (max-width: 600px) {
+    /* max-width: 10px; */
+  width: 180px;
+  }
 `;
 
 export const AlignedFavoriteBorderIcon = styled(FavoriteBorderIcon)`
@@ -56,6 +67,10 @@ export const HostelNameText = styled(Typography)`
   font-weight: 700;
   color: #4d148c;
   font-family: 'League Spartan', sans-serif;
+  @media screen and (max-width: 600px) {
+   font-size: 15px;
+  font-weight: 700;
+  }
 `;
 
 export const DistanceText = styled(Typography)`
@@ -75,12 +90,13 @@ export const RatingButton = styled(Button)`
     background-color: #4d148c;
     cursor: default;
   }
+  @media screen and (max-width: 600px) {
+   width: 40px;
+   font-size: 12px;
+  }
 `;
 
 export const PriceCard = styled(CardContent)`
-  /* display: flex; */
-  background-color: antiquewhite;
-  /* position: absolute; */
   bottom: 0;
   right: 0;
 `;

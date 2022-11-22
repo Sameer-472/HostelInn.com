@@ -12,15 +12,6 @@ import {
 const FeaturedHostels = () => {
   return (
     <MainBox>
-      {/* <img
-        src={StripImage}
-        alt=''
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-        }}
-      /> */}
       <TitleText variant='h2' component='div'>
         Featured Hostels
       </TitleText>
@@ -47,7 +38,7 @@ const FeaturedHostels = () => {
           />
         ))}
       </CardContainter>
-      <img
+      {/* <img
         src={StripImage}
         alt=''
         style={{
@@ -55,7 +46,7 @@ const FeaturedHostels = () => {
           bottom: 0,
           right: 0,
         }}
-      />
+      /> */}
     </MainBox>
   );
 };

@@ -42,8 +42,8 @@ const CardComponent = ({ name, distance, rating, startingFrom }) => {
             {distance}
           </DistanceText>
           <RatingButton
-            variant='raised'
-            startIcon={<StarIcon sx={{ color: '#FFD600' }} />}
+            variant=''
+            startIcon={<StarIcon fontSize="small" sx={{ color: '#FFD600' }} />}
           >
             {rating}
           </RatingButton>

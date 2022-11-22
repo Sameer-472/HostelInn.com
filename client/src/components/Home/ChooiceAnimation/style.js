@@ -60,22 +60,24 @@ const Card1 = styled.div`
   position: relative;
   display: inline;
   top: 20px;
+  height: fit-content;
   animation: ${Animation1} 1s ease-in-out infinite alternate;
-  /* width: 100px; */
 `;
 const Image1 = styled.img`
   width: 200px;
   height: 350px;
   @media screen and (max-width: 600px) {
-    width: 200px;
+    width: 160px;
     height: 300px;
+    left: -36px;
+    position: relative;
   }
 `;
 const Image2 = styled.img`
   width: 200px;
   height: 350px;
   @media screen and (max-width: 600px) {
-    width: 200px;
+    width: 160px;
     height: 300px;
   }
 `;
@@ -89,7 +91,6 @@ const Image3 = styled.img`
 const Card2 = styled.div`
   margin: 10px;
   position: relative;
-  left: 1.7rem;
   top: 100px;
   width: fit-content;
   z-index: 2;
@@ -101,47 +102,5 @@ const Card3 = styled.div`
   position: relative;
   animation: ${Animation3} 1s ease-in-out infinite alternate-reverse;
 `;
-// const Card1 = styled.div`
-//     position: relative;
-//     display: inline;
-//     top: 20px;
-//     animation: ${Animation1} 1s ease-in-out infinite alternate;
-// `
-// const Card2 = styled.div`
-//     margin: 10px;
-//     position: relative;
-//     left: 1.7rem;
-//     top: 100px;
-//     width: fit-content;
-//     z-index: 2;
-//     height: fit-content;
-//     border-radius: 12%;
-//     animation: ${Animation2} 3s infinite ;
-// `
-// const Card3 = styled.div`
-//     position: relative;
-//   animation: ${Animation3} 1s ease-in-out infinite alternate-reverse;
-
-// `
 
 export { Flex, Card1, Card2, Card3, Image1, Image2, Image3 };
-
-// const ColumnText = styled("img")(({theme})=>({
-//     fontSize: '14px',
-//     verticalAlign: 'baseline',
-
-//    ' & > td' : {
-//         fontSize: '14px',
-//         marginTop: '10px',
-//         border:'none',
-//     },
-//     [theme.breakpoints.down('md')]:{
-//     display:'flex',
-//     flexDirection:'column',
-//     },
-//     [theme.breakpoints.down('xs')]:{
-//         ' & > td ':{
-//             width:'250px',
-//         }
-// },
-// }))

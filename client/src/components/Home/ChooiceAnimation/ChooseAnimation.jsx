@@ -36,18 +36,16 @@ export const ChooseAnimation = () => {
             </span>
           </div>
         </Flex>
-        {/* <Flex style={{marginTop: -55 , height: '43rem'}}> */}
         <div
           style={{
             display: "flex",
             flexDirection: "row",
-            height: "43rem",
+            height: "40rem",
             justifyContent: "center",
           }}
         >
           <Card1>
             <Image1 src={Img1} alt='Card1' />
-            {/* width={247} height={438}   */}
           </Card1>
           <Card2>
             <Image2 src={Img2} alt='Card2' />
@@ -55,7 +53,6 @@ export const ChooseAnimation = () => {
           <Card3 left='650px' top='200px'>
             <Image3 src={Img3} alt='Card3' width={247} height={438} />
           </Card3>
-          {/* </Flex> */}
         </div>
       </div>
     </>
