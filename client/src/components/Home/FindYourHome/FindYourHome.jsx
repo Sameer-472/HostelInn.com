@@ -4,7 +4,7 @@ import { TitleMain, RelativeFindHostel } from "./FindYourHomeStyles";
 const FindYourHome = () => {
   return (
     <>
-      <TitleMain>Find your home away from home </TitleMain>
+      <TitleMain> Find your home away from home </TitleMain>
       <RelativeFindHostel />
     </>
   );
