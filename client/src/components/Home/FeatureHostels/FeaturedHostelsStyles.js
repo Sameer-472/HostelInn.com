@@ -6,7 +6,7 @@ export const MainBox = styled(Box)`
   height: 450px;
   padding: 15rem 1rem 15rem 1rem;
   /* position: relative; */
-  max-width: 1352px;
+  max-width: 1500px;
   /* overflow-x: scroll; */
   /* background-color: red; */
 `;

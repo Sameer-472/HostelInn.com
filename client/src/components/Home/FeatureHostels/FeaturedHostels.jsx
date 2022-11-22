@@ -38,15 +38,6 @@ const FeaturedHostels = () => {
           />
         ))}
       </CardContainter>
-      {/* <img
-        src={StripImage}
-        alt=''
-        style={{
-          position: "absolute",
-          bottom: 0,
-          right: 0,
-        }}
-      /> */}
     </MainBox>
   );
 };
