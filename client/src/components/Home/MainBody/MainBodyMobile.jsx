@@ -47,7 +47,7 @@ function MainBodyMobile() {
         <FlexBoxWrapper>
           <FlexContainer>
             <LeftBox>
-              <img width={"120px"} src={Frame5} alt="frame-5" />
+              <img width={"100px"} src={Frame5} alt="frame-5" />
             </LeftBox>
             <RightBox>
               <RighBoxttitleText component="h3" variant="h3">
@@ -63,7 +63,7 @@ function MainBodyMobile() {
         <FlexBoxWrapper>
           <FlexContainer>
             <LeftBox sx={{ order: 2 }}>
-              <img width={"120px"} src={Frame3} alt="frame-3" />
+              <img width={"100px"} src={Frame3} alt="frame-3" />
             </LeftBox>
             <RightBox sx={{ order: 1 }}>
               <RighBoxttitleText component="h3" variant="h3">
@@ -79,7 +79,7 @@ function MainBodyMobile() {
         <FlexBoxWrapper>
           <FlexContainer>
             <LeftBox>
-              <img width={"120px"} src={Frame2} alt="frame-2" />
+              <img width={"100px"} src={Frame2} alt="frame-2" />
             </LeftBox>
             <RightBox>
               <RighBoxttitleText component="h3" variant="h3">
@@ -95,7 +95,7 @@ function MainBodyMobile() {
         <FlexBoxWrapper>
           <FlexContainer>
             <LeftBox sx={{ order: 2 }}>
-              <img width={"120px"} src={Frame4} alt="frame-4" />
+              <img width={"100px"} src={Frame4} alt="frame-4" />
             </LeftBox>
             <RightBox sx={{ order: 1 }}>
               <RighBoxttitleText component="h3" variant="h3">
@@ -111,7 +111,7 @@ function MainBodyMobile() {
         <FlexBoxWrapper>
           <FlexContainer>
             <LeftBox>
-              <img width={"120px"} src={Frame6} alt="frame-6" />
+              <img width={"100px"} src={Frame6} alt="frame-6" />
             </LeftBox>
             <RightBox>
               <RighBoxttitleText component="h3" variant="h3">
@@ -127,7 +127,7 @@ function MainBodyMobile() {
         <FlexBoxWrapper>
           <FlexContainer>
             <LeftBox sx={{ order: 2 }}>
-              <img width={"120px"} src={Frame1} alt="frame-1" />
+              <img width={"100px"} src={Frame1} alt="frame-1" />
             </LeftBox>
             <RightBox sx={{ order: 1 }}>
               <RighBoxttitleText component="h3" variant="h3">

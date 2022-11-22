@@ -46,8 +46,7 @@ export const SalePercentageBox = styled(Box)`
 export const SalePercentageText = styled(Typography)`
   color: whitesmoke;
   text-transform: uppercase;
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 0.6rem;
 `;
 
 export const MainBodyContainer = styled(Box)`
@@ -56,6 +55,8 @@ export const MainBodyContainer = styled(Box)`
   background-size: cover;
   background-position: center;
   padding: 0 1em;
+  padding-bottom: 3em;
+  padding-top: 1em;
 `;
 
 export const MainHeadingText = styled(Typography)`
@@ -65,11 +66,12 @@ export const MainHeadingText = styled(Typography)`
   font-size: 1.5rem;
   font-weight: bold;
   padding-top: 0.5em;
+  margin-bottom: 1em;
 `;
 
 export const FlexBoxWrapper = styled(Box)`
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: .5em 0.5em;
+  padding: 1em 0.5em;
   background-color: whitesmoke;
   margin: 0.8em 0;
   border-radius: 15px;
@@ -87,7 +89,7 @@ export const LeftBox = styled(Box)`
 `;
 
 export const RightBox = styled(Box)`
-  width: 58%;
+  width: 70%;
 `;
 
 export const RighBoxttitleText = styled(Typography)`
