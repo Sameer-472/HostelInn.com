@@ -15,6 +15,7 @@ import StepperForm from "./components/HostelRegistration/HostelStepperForm";
 import DataProvider from "./ContextAPI/DataProvider";
 import UserStepperForm from "./components/UserRegistration/UserStepperForm";
 import Explore from "./components/Explore/Explore";
+import SideBar from "./components/MyAccount/SideBar/SideBar";
 function App() {
   return (
     <DataProvider>
@@ -30,6 +31,7 @@ function App() {
           <Route path='/ownerSignUp' element={<OwnerRegistration />}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/home' element={<Home />}></Route>
+          <Route path='/profile' element={<SideBar />}></Route>
           <Route path='/forget-password' element={<Forget />}></Route>
         </Routes>
         <Footer />

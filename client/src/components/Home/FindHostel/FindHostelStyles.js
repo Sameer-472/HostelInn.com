@@ -7,8 +7,9 @@ export const BoxMain = styled(Box)`
   height: 550px;
   justify-content: center;
   align-items: center;
+  text-align: center;
   @media (max-width: 600px) {
-    height: 206px;
+    height: 420px;
   }
 `;
 
@@ -18,7 +19,7 @@ export const LabelText = styled(Typography)`
   font-family: "League Spartan", sans-serif;
   color: #ff6600;
   @media (max-width: 600px) {
-    font-size: 14px;
+    text-align: center;
   }
 `;
 

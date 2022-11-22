@@ -4,8 +4,8 @@ import BackgroundImage from './Assets/Rectangle130.png';
 export const MainBox = styled(Box)`
   background: url(${BackgroundImage}) no-repeat;
   height: 450px;
-  padding: 15rem 5rem 15rem 5rem;
-  position: relative;
+  padding: 15rem 1rem 15rem 1rem;
+  /* position: relative; */
   max-width: 1352px;
   /* overflow-x: scroll; */
   /* background-color: red; */

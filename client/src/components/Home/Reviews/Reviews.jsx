@@ -1,22 +1,22 @@
-import React from 'react';
-import CardComponent from './Card/CardComponent';
-import { reviewsData } from './reviewsData';
-import { BoxMain, TitleText, OrangeText, CardContainer } from './ReviewsStyles';
+import React from "react";
+import CardComponent from "./Card/CardComponent";
+import { reviewsData } from "./reviewsData";
+import { BoxMain, TitleText, OrangeText, CardContainer } from "./ReviewsStyles";
 
-const Reviews = () => {
+export const Reviews = () => {
   return (
     <BoxMain>
       <img
-        src={require('./Assets/RectangleStrip130.png')}
+        src={require("./Assets/RectangleStrip130.png")}
         alt=''
         style={{
-          position: 'absolute',
+          position: "absolute",
           top: -25,
           left: 0,
         }}
       />
       <TitleText variant='h1' component='div'>
-        Find verified hostels with{' '}
+        Find verified hostels with
         <OrangeText variant='h1' component='span'>
           honest reviews.
         </OrangeText>
@@ -33,10 +33,10 @@ const Reviews = () => {
         ))}
       </CardContainer>
       <img
-        src={require('./Assets/RectangleStrip130.png')}
+        src={require("./Assets/RectangleStrip130.png")}
         alt=''
         style={{
-          position: 'absolute',
+          position: "absolute",
           bottom: -25,
           right: 0,
         }}
@@ -44,5 +44,3 @@ const Reviews = () => {
     </BoxMain>
   );
 };
-
-export default Reviews;
