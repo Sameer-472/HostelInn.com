@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, TextField, Typography, Select } from "@mui/material";
 import styled from "@emotion/styled";
 import ShapesPng from "./Assets/shapes.png";
 
@@ -57,6 +57,11 @@ export const ProfileButton = styled(Button)`
   border-radius: 5px;
   text-transform: uppercase;
   margin-bottom: 0.5em;
+  font-family: "Inter", sans-serif;
+  &:hover {
+    background-color: #ff6600;
+    cursor: pointer;
+  }
 `;
 
 export const imgStyles = {
@@ -65,3 +70,119 @@ export const imgStyles = {
   height: "auto",
   objectFit: "cover",
 };
+
+export const UpdateFormContainer = styled(Box)`
+  width: 85%;
+  margin: 0 auto;
+`;
+
+export const FirstBoxContainer = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* padding: .5em; */
+`;
+
+export const LabelTextField = styled(Typography)`
+  font-size: 24px;
+  font-weight: 700;
+  color: #606060;
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  margin-bottom: 0.5em;
+`;
+
+export const InputFieldsBox = styled(Box)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em 0;
+`;
+
+export const EmailFieldBox = styled(Box)`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* margin-left: .5em; */
+`;
+
+export const UniversityBox = styled(Box)`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+export const EmailInputBox = styled(TextField)`
+  width: 100%;
+`;
+
+export const UniversityFieldInput = styled(TextField)`
+  width: 100%;
+`;
+
+export const FirstInputBox = styled(Box)`
+  display: Flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 45%;
+`;
+
+export const SecondInputBox = styled(Box)`
+  display: Flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 45%;
+`;
+
+export const FirstNameInputField = styled(TextField)`
+  width: 100%;
+`;
+
+export const LastNameInputField = styled(TextField)`
+  width: 100%;
+`;
+
+export const CountrySelectField = styled(Select)`
+  width: 100%;
+`;
+
+export const GenderSelectBox = styled(Select)`
+  width: 100%;
+`;
+
+export const ButtonWrapper = styled(Box)`
+  width: 100%;
+  margin: 2em 0;
+`;
+
+export const ButtonsContainer = styled(Box)`
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin-left: auto;
+`;
+export const UpdateButton = styled(Button)`
+  width: 200px;
+  height: 40px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+  background-color: #ff6600;
+  text-transform: uppercase;
+  border-radius: 10px;
+`;
+
+export const CancelButton = styled(Button)`
+  width: 200px;
+  height: 40px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+  background-color: #b7b7b7;
+  text-transform: uppercase;
+  border-radius: 10px;
+`;
