@@ -173,6 +173,10 @@ export const UpdateButton = styled(Button)`
   background-color: #ff6600;
   text-transform: uppercase;
   border-radius: 10px;
+
+  &:hover {
+    background-color: #ff6600;
+  }
 `;
 
 export const CancelButton = styled(Button)`
@@ -185,4 +189,7 @@ export const CancelButton = styled(Button)`
   background-color: #b7b7b7;
   text-transform: uppercase;
   border-radius: 10px;
+  &:hover {
+    background-color: #b7b7b7;
+  }
 `;
