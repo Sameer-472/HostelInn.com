@@ -155,6 +155,7 @@ export const GenderSelectBox = styled(Select)`
 export const ButtonWrapper = styled(Box)`
   width: 100%;
   margin: 2em 0;
+  margin-top: 4em;
 `;
 
 export const ButtonsContainer = styled(Box)`
