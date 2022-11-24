@@ -79,6 +79,10 @@ const Absolute = styled(Box)(({ theme }) => ({
     marginTop: "-42.5%",
     // backgroundColor: "red",
   },
+  [theme.breakpoints.down(1100)]: {
+    marginTop: "-34.5%",
+    // backgroundColor: "red",
+  },
 }));
 const Title = styled(Box)(({ theme }) => ({
   textAlign: "center",

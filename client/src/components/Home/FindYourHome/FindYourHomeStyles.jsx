@@ -11,9 +11,8 @@ export const TitleMain = styled(Typography)`
   font-weight: 800;
   font-size: 64px;
   text-align: center;
-  /* line-height: 60px; */
-  /* left: 50%; */
-  /* transform: translateX(-50%); */
+  line-height: 60px;
+
   @media (max-width: 600px) {
     text-align: center;
     font-weight: 600;
