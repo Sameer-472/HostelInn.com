@@ -2,6 +2,9 @@ import mongoose from 'mongoose';
 
 const userSchema = mongoose.Schema(
   {
+    userId: {
+      type: String
+    },
     name: {
       type: String,
       unique: [false],
@@ -36,8 +39,11 @@ const userSchema = mongoose.Schema(
       type: String,
     },
     cnic: {
-      type: String,
+      type: Number,
       unique: [true, "CNIC exists"],
+    },
+    nationality:{
+      type: String
     },
     institute: {
       type: String,
@@ -46,13 +52,13 @@ const userSchema = mongoose.Schema(
       type: String,
     },
     dateOfBirth: {
-      type: String,
+      type: Date,
     },
     mobileNumber: {
-      type: String,
+      type: Number,
     },
     whatsappNumber: {
-      type: String,
+      type: Number,
     },
     permanentAddress: {
       type: String,
@@ -67,8 +73,12 @@ const userSchema = mongoose.Schema(
       type: String,
     },
 
-    companyName: String,
-    criminalRecord: Boolean,
+    companyName: {
+      type: String
+    },
+    criminalRecord:{
+      type: String
+    },
     
     // emergency Number
      personName: {
@@ -79,6 +89,9 @@ const userSchema = mongoose.Schema(
     },
     permanentAddress: {
       type: String,
+    },
+    accomodationType:{
+      type: String
     },
     profilePicture: {
       type: String,

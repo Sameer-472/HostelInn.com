@@ -15,6 +15,7 @@ import EmergencyContact from "./EmergencyContact";
 import UserDocuments from "./UserDocuments";
 import { FormContext } from "../../ContextAPI/DataProvider";
 import * as Styles from "./styles.js";
+import Footer from "../Home/Footer/Footer";
 
 function UserStepperForm() {
   // ! Getting Data from Context API
@@ -71,24 +72,50 @@ function UserStepperForm() {
   `;
 
   return (
-    <Box sx={{ backgroundColor: "#FED8BF" }}>
-      <Styles.Container>
-        <Styles.TitleHeader style={{ textAlign: "center" }}>
-          HOSTEL ACCOMMODATION APPLICATION FORM
-        </Styles.TitleHeader>
-        <Stepper activeStep={activeSteps} alternativeLabel>
-          {steps.map((steps) => (
-            <Step sx={{ color: "red" }}>
-              <StepLabel sx={{ color: "red" }}>{steps}</StepLabel>
-            </Step>
-          ))}
-        </Stepper>
-      </Styles.Container>
-      <Box>
-        {activeSteps === 0 && <UserPersonalInfo yupFunctions={yupFunctions} />}
-        {activeSteps === 1 && <EmergencyContact yupFunctions={yupFunctions} />}
-        {activeSteps === 2 && <UserDocuments yupFunctions={yupFunctions} />}
+    <>
+      <Box sx={{ backgroundColor: "#FED8BF" }}>
+        <Styles.Container>
+          <Styles.TitleHeader style={{ textAlign: "center" }}>
+            HOSTEL ACCOMMODATION APPLICATION FORM
+          </Styles.TitleHeader>
+          <Stepper activeStep={activeSteps} alternativeLabel>
+            {steps.map((steps) => (
+              <Step sx={{ color: "red" }}>
+                <StepLabel sx={{ color: "red" }}>{steps}</StepLabel>
+              </Step>
+            ))}
+          </Stepper>
+        </Styles.Container>
+        <Box>
+          {activeSteps === 0 && (
+            <UserPersonalInfo yupFunctions={yupFunctions} />
+          )}
+          {activeSteps === 1 && (
+            <EmergencyContact yupFunctions={yupFunctions} />
+          )}
+          {activeSteps === 2 && <UserDocuments yupFunctions={yupFunctions} />}
+        </Box>
+        <Box
+          component='span'
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            paddingBottom: 20,
+            paddingTop: 10,
+          }}
+        >
+          <BTN disabled={activeSteps === 0 && true} onClick={previousStep}>
+            Previous Step
+          </BTN>
+          <BTN2 onClick={nextStep}>
+            {activeSteps >= 2 ? "Submit Form" : "Next"}
+          </BTN2>
+        </Box>
       </Box>
+
+
+      {/* buttons previous next and submit   */}
       <Box
         component='span'
         style={{
@@ -100,13 +127,15 @@ function UserStepperForm() {
         }}
       >
         <BTN disabled={activeSteps === 0 && true} onClick={previousStep}>
-          Previous Step
+          Previous 
         </BTN>
         <BTN2 onClick={nextStep}>
           {activeSteps >= 2 ? "Submit Form" : "Next"}
         </BTN2>
       </Box>
     </Box>
+      <Footer/>
+    </>
   );
 }
 
