@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   BoxMain,
   LabelText,
@@ -7,7 +7,7 @@ import {
   SearchIcon,
   SearchInputBase,
   GoButton,
-} from './FindHostelStyles';
+} from "./FindHostelStyles";
 
 const FindHostel = () => {
   return (
@@ -18,11 +18,11 @@ const FindHostel = () => {
           <SearchIcon />
         </SearchIconWrapper>
         <SearchInputBase
-          placeholder='Enter Location'
-          inputProps={{ 'aria-label': 'search' }}
+          placeholder="Enter Location"
+          inputProps={{ "aria-label": "search" }}
         />
       </SearchBox>
-      <GoButton variant='contained'>Let's go</GoButton>
+      <GoButton variant="contained">Let's go</GoButton>
     </BoxMain>
   );
 };

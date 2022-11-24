@@ -6,7 +6,6 @@ export const RelativeFindHostel = styled(FindHostel)`
 `;
 
 export const TitleMain = styled(Typography)`
-  /* position: absolute; */
   width: fit-content;
   font-family: "League Spartan", sans-serif;
   font-weight: 800;
