@@ -28,6 +28,9 @@ export const ProfileContainer = styled(Box)`
     height: 200px;
     filter: grayscale(1);
   }
+  @media(max-width:600px){
+    margin-bottom: 6em;
+  }
 `;
 
 export const ProfileSectionBox = styled(Box)`
@@ -44,6 +47,10 @@ export const ProfileImgBox = styled(Box)`
   height: 230px;
   border-radius: 50%;
   border: 4px solid #ffb686;
+  @media(max-width:600px){
+    width: 200px;
+    height: 200px;
+  }
 `;
 
 export const ProfileButton = styled(Button)`
@@ -57,17 +64,21 @@ export const ProfileButton = styled(Button)`
   border-radius: 5px;
   text-transform: uppercase;
   margin-bottom: 0.5em;
+  font-weight: bold;
   font-family: "Inter", sans-serif;
   &:hover {
     background-color: #ff6600;
     cursor: pointer;
+  }
+  @media (max-width:600px){
+    width:163px;
   }
 `;
 
 export const imgStyles = {
   maxWidth: "100%",
   borderRadius: "50%",
-  height: "auto",
+  height: "100%",
   objectFit: "cover",
 };
 
@@ -90,6 +101,9 @@ export const LabelTextField = styled(Typography)`
   font-family: "Lato", sans-serif;
   margin: 0;
   margin-bottom: 0.5em;
+  @media (max-width:600px){
+    font-size: 20px;
+  }
 `;
 
 export const InputFieldsBox = styled(Box)`
@@ -156,6 +170,9 @@ export const ButtonWrapper = styled(Box)`
   width: 100%;
   margin: 2em 0;
   margin-top: 4em;
+  @media(max-width:600px){
+    margin-top: 2em;
+  }
 `;
 
 export const ButtonsContainer = styled(Box)`
@@ -163,6 +180,11 @@ export const ButtonsContainer = styled(Box)`
   justify-content: space-between;
   width: 50%;
   margin-left: auto;
+  @media (max-width:600px){
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 `;
 export const UpdateButton = styled(Button)`
   width: 200px;
@@ -178,6 +200,9 @@ export const UpdateButton = styled(Button)`
   &:hover {
     background-color: #ff6600;
   }
+  @media (max-width:600px){
+    width: 140px;
+  }
 `;
 
 export const CancelButton = styled(Button)`
@@ -192,5 +217,8 @@ export const CancelButton = styled(Button)`
   border-radius: 10px;
   &:hover {
     background-color: #b7b7b7;
+  }
+  @media(max-width:600px){
+    width: 140px;
   }
 `;

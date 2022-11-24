@@ -17,6 +17,7 @@ import UserStepperForm from "./components/UserRegistration/UserStepperForm";
 import Explore from "./components/Explore/Explore";
 import SideBar from "./components/MyAccount/SideBar/SideBar";
 import Profile from "./components/MyAccount/Profile/Profile";
+import Accomodation from "./components/MyAccount/Accomodation/Accomodation";
 function App() {
   return (
     <DataProvider>
@@ -35,7 +36,7 @@ function App() {
           <Route path='/profile' element={<SideBar />}></Route>
           <Route path='/forget-password' element={<Forget />}></Route>
           <Route path='/userProfile' element={<Profile/>}></Route>
-
+          <Route path="/userAccomodation" element={<Accomodation/>}></Route>
         </Routes>
         <Footer />
       </BrowserRouter>
