@@ -9,7 +9,7 @@ const addressSchema = mongoose.Schema({
 const roomSchema = mongoose.Schema({
   roomType: String,
   price: Number,
-  noOfRooms: Number,
+  noOfVacancies: Number
 });
 
 const facilitiesSchema = mongoose.Schema({
@@ -29,6 +29,7 @@ const facilitiesSchema = mongoose.Schema({
 });
 
 const hostelSchema = mongoose.Schema({
+  userId: String,
   hostelName: String,
   hostelAddress: addressSchema,
   hostelPics: [String],

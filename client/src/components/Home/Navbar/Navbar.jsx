@@ -57,16 +57,30 @@ const Btn = styled(Button)`
   height: 35px;
   width: 155px;
   margin-right: 10px;
-
-  hover: {
-    background-color: #4d148c;
+:hover {
+    background-color: #8a17d6;
   }
-  active: {
+:active {
+    background-color: #ff6600;
+  }
+`;
+const Btn2 = styled(Button)`
+  background-color: #edaa0e;
+  color: white;
+  text-transform: none;
+  font-size: 14px;
+  height: 35px;
+  width: 155px;
+  margin-right: 10px;
+:hover {
+    background-color: #ee9222;
+  }
+:active {
     background-color: #ff6600;
   }
 `;
 function Navbar() {
-  const result = useSelector((state)=> state);
+  const result = useSelector((state) => state);
   console.log("this is result from navbar", result.auth);
   const theme = useTheme();
 
@@ -84,7 +98,7 @@ function Navbar() {
       {isTrue ? (
         <DrawerFile />
       ) : (
-        <AppBar position='sticky'>
+        <AppBar position="sticky">
           <Toolbar
             style={{
               backgroundColor: "white",
@@ -92,26 +106,34 @@ function Navbar() {
               textAlign: "center",
             }}
           >
-            <Link to='/' style={{ maxHeight: 80 }}>
-              <Image src={require("./assets/hostelin-logo.png")} alt='logo' />
+            <Link to="/" style={{ maxHeight: 80 }}>
+              <Image src={require("./assets/hostelin-logo.png")} alt="logo" />
             </Link>
             <LinkWrapper>
-              <NavLink to='/'> Home </NavLink>
-              <NavLink to='/explore'> Explore </NavLink>
-              <NavLink to='/contact-us'> Contact us </NavLink>
-              <NavLink to='/about-us'> About us </NavLink>
+              <NavLink to="/"> Home </NavLink>
+              <NavLink to="/explore"> Explore </NavLink>
+              <NavLink to="/contact-us"> Contact us </NavLink>
+              <NavLink to="/about-us"> About us </NavLink>
             </LinkWrapper>
-            <RightWrapper>{
-                result.auth.isLoggedIn && result.auth.user ? <AccountMenu />  : <Btn
-                onClick={() => {
-                  setSignUpOpen(true);
-                  setRenderSignUp(true);
-                }}
-                variant='text'
-              >
-                Signup/Login
-              </Btn>
-              }              
+            <RightWrapper>
+              {result.auth.isLoggedIn && result.auth.user ? (
+                <AccountMenu />
+              ) : (
+                <>
+                <Btn2 sx={{backgroundColor: 'orange' , color: 'black'}}>
+                  Register Your Hostel
+                </Btn2>
+                  <Btn
+                    onClick={() => {
+                      setSignUpOpen(true);
+                      setRenderSignUp(true);
+                    }}
+                    variant="text"
+                  >
+                    Signup/Login
+                  </Btn>
+                </>
+              )}
             </RightWrapper>
           </Toolbar>
         </AppBar>

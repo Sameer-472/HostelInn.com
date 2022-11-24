@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 import hostelSchema from "./HostelSchema.js";
 
-const ownerAddressSchema = mongoose.Schema({
-  city: String,
-  street: String,
-  houseNO: Number,
-});
+// const ownerAddressSchema = mongoose.Schema({
+//   city: String,
+//   street: String,
+//   houseNO: Number,
+// });
 
 const hostelOwnerDetails = mongoose.Schema(
   {
@@ -34,23 +34,51 @@ const hostelOwnerDetails = mongoose.Schema(
       // unique: [false],
     },
 
-    number: {
-      type: Number,
-      // require: [true, "please [provide your number"],
-    },
     cnic: {
       type: Number,
-      // require: [true, "please provide your CNIC"],
     },
-    profilePic: String,
+    nationality:{
+      type: String
+    },
+    dateOfBirth:{
+      type: Date
+    },
+    mobileNumber: {
+      type: Number,
+    },
 
-    address: ownerAddressSchema,
+    whatsappNumber: {
+      type: Number,
+    },
+    
+
+    religion:{
+      type: String
+    },
+
+    gender: {
+      type: String
+    },
+    profilePic: {
+      type: String
+    },
+    nicFrontPic: {
+      type: String
+    },
+    nicBack: {
+      type: String
+    },
+
+    address: {
+      type: String
+    },
 
     hostelRegistered: [hostelSchema],
 
-    noOfHostelRegister: Number,
-
-    role: String,
+    listOfUsers:{
+      type: Array,
+      default: []
+    },
 
     verified: {
       type: Boolean,

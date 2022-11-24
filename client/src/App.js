@@ -14,6 +14,7 @@ import Footer from "./components/Home/Footer/Footer";
 import StepperForm from "./components/HostelRegistration/HostelStepperForm";
 import DataProvider from "./ContextAPI/DataProvider";
 import UserStepperForm from "./components/UserRegistration/UserStepperForm";
+import Explore from "./components/Explore/Explore";
 import SideBar from "./components/MyAccount/SideBar/SideBar";
 import Dashboard from "./components/MyAccount/Dashboard/Dashboard";
 import Accomodation from "./components/MyAccount/Accomodation/Accomodation";
@@ -23,9 +24,9 @@ function App() {
   return (
     <DataProvider>
       <BrowserRouter>
-        <Navbar />
         <Routes>
           <Route path='/' element={<Home />}></Route>
+          <Route path="/explore" element={ <Explore/>}> </Route>
           <Route path='/hostelRegistration' element={<StepperForm />}></Route>
           <Route path='/userRegistration' element={<UserStepperForm />}></Route>
 
