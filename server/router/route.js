@@ -12,6 +12,7 @@ import {
 } from '../controller/userController.js';
 import { verifyFG,forgetPassword,updatePassword } from '../controller/forgetPasswordController.js';
 import { RegisterNewHostel } from "../controller/hostelRegistrationController.js";
+import { accomodateHostel } from "../controller/accomodateHostel.js";
 
 // import { verifyEmail } from '../controller/verifyEmail.js';
 const router = express.Router();
@@ -20,22 +21,21 @@ const router = express.Router();
 
 // ? For Hostel
 
-router.post("/register/hostelOwner", signUpOwner);
 // ? For User
-router.post("/register/user", signUpUser);
 
-router.post("/user/details", UserDetails);
 
 // !  Login Routes
-// ? For HostelOwner
+// ? For HostelOwner 
 router.post("/loginOwner", loginOwner);
+router.post("/register/hostelOwner", signUpOwner);
+router.put("/registerNewHostel/:id" , RegisterNewHostel); // this is working fine,
 
 // ? For User
-
 router.post("/loginUser", loginUser);
-
+router.post("/register/user", signUpUser);
+router.put("/user/details", UserDetails);
+router.put("/user/accomodateHostel/:id" , accomodateHostel);
 // !verify the email
-
 router.get("/register/user/confirm:confirmationCode", verifyUser);
 router.get("/register/hostelOwner/confirm:confirmationCode", verifyOwner);
 
@@ -44,7 +44,5 @@ router.post('/forget-password',forgetPassword)
 router.get('/verify-forget-password/:id/:token',verifyFG)
 router.post('/verify-forget-password/:id/:token',updatePassword)
 
-
-router.post("/registerNewHostel" , RegisterNewHostel);
 
 export default router;

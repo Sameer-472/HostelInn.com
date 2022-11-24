@@ -89,6 +89,8 @@ function UserStepperForm() {
         {activeSteps === 1 && <EmergencyContact yupFunctions={yupFunctions} />}
         {activeSteps === 2 && <UserDocuments yupFunctions={yupFunctions} />}
       </Box>
+
+      {/* buttons previous next and submit   */}
       <Box
         component='span'
         style={{
@@ -100,7 +102,7 @@ function UserStepperForm() {
         }}
       >
         <BTN disabled={activeSteps === 0 && true} onClick={previousStep}>
-          Previous Step
+          Previous 
         </BTN>
         <BTN2 onClick={nextStep}>
           {activeSteps >= 2 ? "Submit Form" : "Next"}

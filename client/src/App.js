@@ -20,7 +20,6 @@ function App() {
   return (
     <DataProvider>
       <BrowserRouter>
-        <Navbar />
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path="/explore" element={ <Explore/>}> </Route>
