@@ -15,6 +15,10 @@ import StepperForm from "./components/HostelRegistration/HostelStepperForm";
 import DataProvider from "./ContextAPI/DataProvider";
 import UserStepperForm from "./components/UserRegistration/UserStepperForm";
 import SideBar from "./components/MyAccount/SideBar/SideBar";
+import Dashboard from "./components/MyAccount/Dashboard/Dashboard";
+import Accomodation from "./components/MyAccount/Accomodation/Accomodation";
+import Profile from "./components/MyAccount/Profile/Profile";
+import ProfileSetup from "./components/HostelRegistration/ProfileSetup/ProfileSetup";
 function App() {
   return (
     <DataProvider>
@@ -28,11 +32,14 @@ function App() {
           <Route path='/user/details' element={<UserDetails />}></Route>
           <Route path='/ownerSignUp' element={<OwnerRegistration />}></Route>
           <Route path='/login' element={<Login />}></Route>
-          <Route path='/home' element={<Home />}></Route>
-          <Route path='/profile' element={<SideBar />}></Route>
+          <Route path='/profile' element={<SideBar />}>
+            <Route path='dashboard' element={<Dashboard />} />
+            <Route path='accommodation' element={<Accomodation />} />
+            <Route path='profile' element={<Profile />} />
+          </Route>
           <Route path='/forget-password' element={<Forget />}></Route>
+          <Route path='/profileSetup' element={<ProfileSetup />}></Route>
         </Routes>
-        <Footer />
       </BrowserRouter>
     </DataProvider>
   );
