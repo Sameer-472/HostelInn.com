@@ -18,7 +18,7 @@ import { useNavigate, Link } from "react-router-dom";
 export default function AccountMenu() {
   // fetching the user details from the redux
   const result = useSelector((state) => state);
-  const user = result.auth.user.user;
+  const user = result.auth.user;
   //
   console.log("hello from accoount");
 

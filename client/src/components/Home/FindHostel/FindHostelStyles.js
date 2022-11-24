@@ -32,6 +32,12 @@ export const SearchBox = styled(Box)`
   border-radius: 100px;
   box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.15);
   margin: 50px 0 50px 0;
+  @media (max-width: 600px) {
+    width: 95%;
+    height: 36px;
+    margin-top: 10px;
+    margin-bottom: 16px;
+  }
 `;
 
 export const SearchIconWrapper = styled(Box)`
