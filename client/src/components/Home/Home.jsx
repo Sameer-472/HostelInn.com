@@ -8,11 +8,11 @@ import FindYourHome from "./FindYourHome/FindYourHome";
 import { MainBody } from "./MainBody/MainBody";
 import FeaturedHostels from "./FeatureHostels/FeaturedHostels"
 import { Reviews } from './Reviews/Reviews';
-import ActionAlerts from "../Alert/Alert";
-// import ActionAlerts from "../Alert/Alert";
+import Navbar from "./Navbar/Navbar";
 function Home() {
   return (
     <>
+        <Navbar/>
       <MultiCarousel />
       <MainBody />
       <FindHostel />

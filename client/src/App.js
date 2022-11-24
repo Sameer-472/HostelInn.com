@@ -19,7 +19,6 @@ function App() {
   return (
     <DataProvider>
       <BrowserRouter>
-        <Navbar />
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/hostelRegistration' element={<StepperForm />}></Route>
