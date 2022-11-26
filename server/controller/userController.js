@@ -1,5 +1,4 @@
 import userSchema from "../model/userSchema.js";
-import userDetailsSchema from "../model/userDetailsSchema.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { sendMailForUser } from "../services/mail.js";

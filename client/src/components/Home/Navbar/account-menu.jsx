@@ -18,7 +18,7 @@ import { useNavigate, Link } from "react-router-dom";
 export default function AccountMenu() {
   // fetching the user details from the redux
   const result = useSelector((state) => state);
-  const user = result.auth.user.user;
+  const user = result.auth.user;
   //
   console.log("hello from accoount");
 
@@ -43,14 +43,14 @@ export default function AccountMenu() {
   return (
     <React.Fragment>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
-      <p style={{ color: "#4d148c", marginRight: "10px" }}>{user.name}</p>
-        <Tooltip title="Account settings">
+        <p style={{ color: "#4d148c", marginRight: "10px" }}>{user.name}</p>
+        <Tooltip title='Account settings'>
           <IconButton
             onClick={handleClick}
-            size="small"
+            size='small'
             sx={{ ml: 2 }}
             aria-controls={open ? "account-menu" : undefined}
-            aria-haspopup="true"
+            aria-haspopup='true'
             aria-expanded={open ? "true" : undefined}
           >
             <Avatar sx={{ width: 32, height: 32 }}>
@@ -61,7 +61,7 @@ export default function AccountMenu() {
       </Box>
       <Menu
         anchorEl={anchorEl}
-        id="account-menu"
+        id='account-menu'
         open={open}
         onClose={handleClose}
         onClick={handleClose}
@@ -94,13 +94,19 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <Link to="/profile " style={{textDecoration: 'none' , color: '#4d148c'}}>
+        <Link
+          to='/profile '
+          style={{ textDecoration: "none", color: "#4d148c" }}
+        >
           <MenuItem>
             <Avatar />
             Profile
           </MenuItem>
         </Link>
-        <Link to='/profile' style={{textDecoration: 'none' , color: '#4d148c'}}>
+        <Link
+          to='/profile'
+          style={{ textDecoration: "none", color: "#4d148c" }}
+        >
           <MenuItem>
             <Avatar /> Dashboard
           </MenuItem>
@@ -108,7 +114,7 @@ export default function AccountMenu() {
         <Divider />
         <MenuItem onClick={logOut}>
           <ListItemIcon>
-            <Logout fontSize="small" />
+            <Logout fontSize='small' />
           </ListItemIcon>
           Logout
         </MenuItem>
