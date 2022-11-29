@@ -20,14 +20,8 @@ import Footer from "../Home/Footer/Footer";
 function UserStepperForm() {
   // ! Getting Data from Context API
   const { userFormik } = useContext(FormContext);
-  const {
-    handleBlur,
-    values,
-    touched,
-    errors,
-    handleChange,
-    handleSubmit,
-  } = userFormik;
+  const { handleBlur, values, touched, errors, handleChange, handleSubmit } =
+    userFormik;
   const yupFunctions = {
     handleBlur,
     values,
@@ -96,7 +90,7 @@ function UserStepperForm() {
           {activeSteps === 2 && <UserDocuments yupFunctions={yupFunctions} />}
         </Box>
         <Box
-          component='span'
+          component="span"
           style={{
             display: "flex",
             justifyContent: "center",
@@ -114,10 +108,9 @@ function UserStepperForm() {
         </Box>
       </Box>
 
-
       {/* buttons previous next and submit   */}
       <Box
-        component='span'
+        component="span"
         style={{
           display: "flex",
           justifyContent: "center",
@@ -127,14 +120,13 @@ function UserStepperForm() {
         }}
       >
         <BTN disabled={activeSteps === 0 && true} onClick={previousStep}>
-          Previous 
+          Previous
         </BTN>
         <BTN2 onClick={nextStep}>
           {activeSteps >= 2 ? "Submit Form" : "Next"}
         </BTN2>
       </Box>
-    </Box>
-      <Footer/>
+      <Footer />
     </>
   );
 }
