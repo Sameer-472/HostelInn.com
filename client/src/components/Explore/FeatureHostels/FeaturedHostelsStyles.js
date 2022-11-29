@@ -27,7 +27,7 @@ export const DescriptionText = styled(Typography)`
 export const CardContainter = styled(Box)`
   display: flex;
   justify-content: space-between;
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
   margin-bottom: 2em;
   /* margin: 3rem 0 3rem 0; */
@@ -38,7 +38,7 @@ export const FeaturedTitleText = styled(Typography)`
   font-size: 24px;
   font-weight: bold;
   margin: 1em 0;
-  margin-left: 3.5em;
+  margin-left: 5.8em;
 `;
 
 export const MainHostelContainer = styled(Box)`
@@ -46,7 +46,7 @@ export const MainHostelContainer = styled(Box)`
   align-items: center;
   margin-bottom: 2em;
   border-radius: 15px;
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
   margin-bottom: 2em;
 `;
