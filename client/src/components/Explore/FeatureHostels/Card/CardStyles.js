@@ -21,19 +21,24 @@ export const CardMain = styled(Card)`
 `;
 
 export const CardImage = styled(CardMedia)`
-  width: 200px;
+  /* width: 140px;
+   */
+   width: 35%;
 `;
 
 export const BoxFlex = styled(Box)`
   display: flex;
   flex-direction: column;
   position: relative;
+  width: 60%;
 `;
 
 export const FlexCardContent = styled(CardContent)`
   display: flex;
   flex-direction: column;
-  width: 200px;
+  /* width: 200px; */
+  width: 110%;
+  box-sizing: border-box;
 `;
 
 export const AlignedFavoriteBorderIcon = styled(FavoriteBorderIcon)`
