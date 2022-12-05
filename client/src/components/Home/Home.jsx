@@ -1,7 +1,11 @@
 import React from "react";
 import BookNow from "./BookNow/BookNow";
 import MultiCarousel from "./Carousel/MultiCarousel";
+<<<<<<< HEAD
 import Footer from "./Footer/Footer";
+=======
+ import Footer from "./Footer/Footer";
+>>>>>>> main
 import { ChooseAnimation } from "./ChooiceAnimation/ChooseAnimation";
 import FindHostel from "./FindHostel/FindHostel";
 import FindYourHome from "./FindYourHome/FindYourHome";
