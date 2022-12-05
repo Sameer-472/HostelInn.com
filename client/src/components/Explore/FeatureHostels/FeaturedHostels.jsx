@@ -94,34 +94,32 @@ const FeaturedHostels = () => {
           <MainHostelContainer
             sx={{ boxShadow: " rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
           >
-      
-        
-        
-                <Carousel
-                className="carousel"
-                  responsive={responsive}
-                  ssr={true}
-                  infinite={true}
-                  autoPlay={true}
-                  autoPlaySpeed={1500}
-                  transitionDuration={2000}
-                  // removeArrowOnDeviceType={["desktop", "tablet", "mobile"]}
-                  // deviceType={this.props.deviceType}
-                  dotListClass="custom-dot-list-style"
-                  itemClass="carousel-item-padding-40-px"
-                >
-                      {/* <SliderCountBox>1/8</SliderCountBox> */}
-              {/* <NextSliderIconBox>
-                <img src={NextIcon} alt="next-slider-icon" />
-              </NextSliderIconBox>
-              <PrevSliderIconBox>
-                <img src={PrevIcon} alt="prev-slider-icon" />
-              </PrevSliderIconBox> */}
-                  {hostelsArray.map(hostel => (
-                 <img style={{width:"100%",height:"100%",borderRadius:"15px",objectFit:"cover"}} src={hostel.image} alt={hostel.image} />
-                 ))}
-                </Carousel>
-         
+            <Carousel
+              className="carousel"
+              responsive={responsive}
+              ssr={true}
+              infinite={true}
+              autoPlay={true}
+              autoPlaySpeed={1500}
+              transitionDuration={2000}
+              // removeArrowOnDeviceType={["desktop", "tablet", "mobile"]}
+              // deviceType={this.props.deviceType}
+              dotListClass="custom-dot-list-style"
+              itemClass="carousel-item-padding-40-px"
+            >
+              {hostelsArray.map((hostel) => (
+                <img
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: "15px",
+                    objectFit: "cover",
+                  }}
+                  src={hostel.image}
+                  alt={hostel.image}
+                />
+              ))}
+            </Carousel>
 
             <MainHostelContainerDetails>
               <HostelTitleText variant="h1">

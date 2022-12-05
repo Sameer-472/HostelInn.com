@@ -39,7 +39,7 @@ export const FeaturedTitleText = styled(Typography)`
   font-size: 24px;
   font-weight: bold;
   margin: 1em 0;
-  margin-left: 3.8em;
+  margin-left: 1.8em;
 `;
 
 export const MainHostelContainer = styled(Box)`
