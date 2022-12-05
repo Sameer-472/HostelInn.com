@@ -19,7 +19,7 @@ export const TitleText = styled(Typography)`
   color: #606060;
   font-family: 'League Spartan', sans-serif;
   @media screen and (max-width: 630px) {
-    font-size: 40px;
+    font-size: 22px;
   }
 `;
 
@@ -29,7 +29,8 @@ export const OrangeText = styled(Typography)`
   color: #ff6600;
   font-family: 'League Spartan', sans-serif;
   @media screen and (max-width: 630px) {
-    font-size: 40px;
+    display: block;
+    font-size: 22px;
   }
 `;
 

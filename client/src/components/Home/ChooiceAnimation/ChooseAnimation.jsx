@@ -2,7 +2,7 @@ import React from "react";
 import Img1 from "./Assets/Card1.png";
 import Img2 from "./Assets/Card2.png";
 import Img3 from "./Assets/Card3.png";
-import { Card1, Card2, Card3, Flex, Image1, Image2, Image3 } from "./style";
+import { Card1, Card2, Card3, Flex, Image1, Image2, Image3,SpanText,ChoiceText } from "./style";
 import { Stepper } from "./Stepper";
 
 export const ChooseAnimation = () => {
@@ -11,23 +11,8 @@ export const ChooseAnimation = () => {
       <div>
         <Flex>
           <div style={{ marginTop: 20 }}>
-            <span
-              style={{
-                fontSize: "3rem",
-                fontWeight: "bolder",
-              }}
-            >
-              All by your
-            </span>
-            <span
-              style={{
-                fontSize: 40,
-                fontWeight: "bolder",
-                color: "darkorange",
-              }}
-            >
-              CHOICE !
-            </span>
+          <SpanText>All by your</SpanText>
+           <ChoiceText>CHOICE!</ChoiceText>
             <br />
             <br />
             <span>

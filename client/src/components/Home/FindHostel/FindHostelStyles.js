@@ -9,19 +9,34 @@ export const BoxMain = styled(Box)`
   align-items: center;
   text-align: center;
   @media (max-width: 600px) {
-    height: 420px;
+    height: 120px;
+    margin-bottom: 4em;
   }
 `;
 
 export const LabelText = styled(Typography)`
   font-size: 32px;
   font-weight: 700;
-  font-family: "League Spartan", sans-serif;
+  font-family: 'League Spartan', sans-serif;
   color: #ff6600;
   @media (max-width: 600px) {
     text-align: center;
+    font-size: 22px;
+    margin-top: -1em;
   }
 `;
+
+export const Lablel2Text = styled(Typography)` 
+  font-size: 32px;
+  font-weight: 700;
+  font-family: 'League Spartan', sans-serif;
+  color: #ff6600;
+  @media (max-width: 600px) {
+    text-align: center;
+    font-size: 22px;
+    margin-top: -1em;
+  }
+`
 
 export const SearchBox = styled(Box)`
   width: 75%;
@@ -33,7 +48,7 @@ export const SearchBox = styled(Box)`
   box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.15);
   margin: 50px 0 50px 0;
   @media (max-width: 600px) {
-    width: 95%;
+    width: 90%;
     height: 36px;
     margin-top: 10px;
     margin-bottom: 16px;
