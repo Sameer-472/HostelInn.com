@@ -1,7 +1,7 @@
 import React from "react";
 import {
   BoxMain,
-  LabelText,
+  Lablel2Text,
   SearchBox,
   SearchIconWrapper,
   SearchIcon,
@@ -12,7 +12,7 @@ import {
 const FindHostel = () => {
   return (
     <BoxMain>
-      <LabelText>Search hostels of your choice!</LabelText>
+      <Lablel2Text>Search hostels of your choice!</Lablel2Text>
       <SearchBox>
         <SearchIconWrapper>
           <SearchIcon />

@@ -56,6 +56,26 @@ const Flex = styled.div`
   }
 `;
 
+export const SpanText = styled.span` 
+  font-size: 3rem;
+  font-weight: bolder;
+ @media (max-width: 650px){
+   font-size:22px;
+ }
+`
+
+export const ChoiceText = styled.span`
+ font-size: 40px;
+ font-weight: bolder;
+ color: darkorange;
+ @media(max-width:650px){
+  display: inline-block;
+  margin-left:.3em;
+   font-size: 22px;
+   font-weight: bold;
+ }
+`
+
 const Card1 = styled.div`
   position: relative;
   display: inline;
