@@ -72,8 +72,7 @@ function UserStepperForm() {
   `;
 
   return (
-    <>
-      <Box sx={{ backgroundColor: "#FED8BF" }}>
+     <Box sx={{ backgroundColor: "#FED8BF" }}>
         <Styles.Container>
           <Styles.TitleHeader style={{ textAlign: "center" }}>
             HOSTEL ACCOMMODATION APPLICATION FORM
@@ -95,6 +94,8 @@ function UserStepperForm() {
           )}
           {activeSteps === 2 && <UserDocuments yupFunctions={yupFunctions} />}
         </Box>
+
+        {/* buttons previous next and submit   */}
         <Box
           component='span'
           style={{
@@ -106,37 +107,14 @@ function UserStepperForm() {
           }}
         >
           <BTN disabled={activeSteps === 0 && true} onClick={previousStep}>
-            Previous Step
+            Previous
           </BTN>
           <BTN2 onClick={nextStep}>
             {activeSteps >= 2 ? "Submit Form" : "Next"}
           </BTN2>
         </Box>
       </Box>
-
-
-      {/* buttons previous next and submit   */}
-      <Box
-        component='span'
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          paddingBottom: 20,
-          paddingTop: 10,
-        }}
-      >
-        <BTN disabled={activeSteps === 0 && true} onClick={previousStep}>
-          Previous 
-        </BTN>
-        <BTN2 onClick={nextStep}>
-          {activeSteps >= 2 ? "Submit Form" : "Next"}
-        </BTN2>
-      </Box>
-    </Box>
-      <Footer/>
-    </>
-  );
+  )
 }
 
 export default UserStepperForm;
