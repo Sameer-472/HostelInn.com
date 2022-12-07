@@ -16,13 +16,13 @@ const FeaturedHostels = () => {
   return (
     <MainBox>
       <RectangleImageBox>
-        <img src={StripImage} alt="stripe-image" />
+        <img style={{height:"100%"}} src={StripImage} alt="stripe-image" />
       </RectangleImageBox>
 
       <BottomRectangleImageBox>
-        <img src={StripImage} alt="stripe-image" />
+        <img style={{height:"100%"}} src={StripImage} alt="stripe-image" />
       </BottomRectangleImageBox>
-      
+
       <TitleText variant='h2' component='div'>
         Featured Hostels
       </TitleText>

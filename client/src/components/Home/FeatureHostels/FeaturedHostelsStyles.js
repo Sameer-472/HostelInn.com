@@ -12,15 +12,25 @@ export const MainBox = styled(Box)`
 `;
 
 export const RectangleImageBox = styled(Box)`
-  position: absolute;
-  top: 8%;
-  right: 13%;
+  display: none;
+  @media (max-width: 650px) {
+    display: block;
+    position: absolute;
+    top: 10%;
+    right: 13%;
+    height: 114px;
+  }
 `;
 
 export const BottomRectangleImageBox = styled(Box)`
-  position: absolute;
-  bottom: -2%;
-  left: 13%;
+  display: none;
+  @media (max-width: 650px) {
+    display: block;
+    position: absolute;
+    bottom: 1%;
+    left: 13%;
+    height: 114px;
+  }
 `;
 
 export const TitleText = styled(Typography)`
