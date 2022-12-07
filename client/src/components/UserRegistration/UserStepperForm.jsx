@@ -108,32 +108,6 @@ function UserStepperForm() {
           </BTN2>
         </Box>
       </Box>
-<<<<<<< HEAD
-
-      {/* buttons previous next and submit   */}
-      <Box
-        component="span"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          paddingBottom: 20,
-          paddingTop: 10,
-        }}
-      >
-        <BTN disabled={activeSteps === 0 && true} onClick={previousStep}>
-          Previous
-        </BTN>
-        <BTN2 onClick={nextStep}>
-          {activeSteps >= 2 ? "Submit Form" : "Next"}
-        </BTN2>
-      </Box>
-      <Footer />
-    </>
-  );
-=======
-  )
->>>>>>> main
-}
+)}
 
 export default UserStepperForm;
