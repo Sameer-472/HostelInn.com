@@ -42,6 +42,7 @@ export const ColoredDiv = styled(Box)`
 export const TitleContainer = styled(Box)`
   border-bottom: 1px solid #c8c8c8;
   margin: 0.5rem;
+  text-align: center;
 `;
 
 export const Title = styled(Typography)`

@@ -20,13 +20,19 @@ import Dashboard from "./components/MyAccount/Dashboard/Dashboard";
 import Accomodation from "./components/MyAccount/Accomodation/Accomodation";
 import Profile from "./components/MyAccount/Profile/Profile";
 import ProfileSetup from "./components/HostelRegistration/ProfileSetup/ProfileSetup";
+import OwnerDashboard from "./components/OwnerDashboard/OwnerDashboard/OwnerDashboard";
+import OwnerHostels from "./components/OwnerDashboard/OwnerHostels/OwnerHostels";
+import OwnerBooking from "./components/OwnerDashboard/OwnerBooking/OwnerBooking";
+import OwnerProfile from "./components/OwnerDashboard/OwnerProfile/OwnerProfile";
+import OwnerSideBar from "./components/OwnerDashboard/OwnerSideBar/OwnerSideBar";
 function App() {
   return (
     <DataProvider>
       <BrowserRouter>
+        <Navbar />
         <Routes>
           <Route path='/' element={<Home />}></Route>
-          <Route path="/explore" element={ <Explore/>}> </Route>
+          <Route path='/explore' element={<Explore />}></Route>
           <Route path='/hostelRegistration' element={<StepperForm />}></Route>
           <Route path='/userRegistration' element={<UserStepperForm />}></Route>
 
@@ -34,9 +40,17 @@ function App() {
           <Route path='/ownerSignUp' element={<OwnerRegistration />}></Route>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/profile' element={<SideBar />}>
+            <Route index element={<Dashboard />} />
             <Route path='dashboard' element={<Dashboard />} />
             <Route path='accommodation' element={<Accomodation />} />
             <Route path='profile' element={<Profile />} />
+          </Route>
+          <Route path='/ownerDashboard' element={<OwnerSideBar />}>
+            <Route index element={<OwnerDashboard />} />
+            <Route path='dashboard' element={<OwnerDashboard />} />
+            <Route path='hostel' element={<OwnerHostels />} />
+            <Route path='booking' element={<OwnerBooking />} />
+            <Route path='profile' element={<OwnerProfile />} />
           </Route>
           <Route path='/forget-password' element={<Forget />}></Route>
           <Route path='/profileSetup' element={<ProfileSetup />}></Route>
