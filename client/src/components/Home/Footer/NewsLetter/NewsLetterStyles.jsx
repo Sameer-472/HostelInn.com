@@ -44,7 +44,7 @@ export const TextBox = styled(Box)`
 export const TitleText = styled(Typography)`
   font-family: "Inter", sans-serif;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.5rem;
   @media screen and (max-width: 600px) {
     font-family: "Inter", sans-serif;
     font-size: 22px;
@@ -57,7 +57,7 @@ export const TitleText = styled(Typography)`
 export const DescText = styled(Typography)`
   font-family: "Inter", sans-serif;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 12px;
   @media screen and (max-width: 600) {
     font-family: "Inter", sans-serif;
     font-size: 18px;

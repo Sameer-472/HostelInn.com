@@ -26,7 +26,7 @@ export const StripeImageBox = styled(Box)`
 export const BottomStripeImageBox = styled(Box)`
   display: block;
   position: absolute;
-  bottom:-11px;
+  bottom: -11px;
   left: 13%;
   @media (max-width: 650px) {
     height: 114px;
