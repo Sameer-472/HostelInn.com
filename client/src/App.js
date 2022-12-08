@@ -53,8 +53,8 @@ function App() {
             <Route path='profile' element={<OwnerProfile />} />
           </Route>
           <Route path='/forget-password' element={<Forget />}></Route>
-          <Route path='/userProfile' element={<Profile/>}></Route>
-          <Route path="/userAccomodation" element={<Accomodation/>}></Route>
+          <Route path='/userProfile' element={<Profile />}></Route>
+          <Route path='/userAccomodation' element={<Accomodation />}></Route>
           <Route path='/profileSetup' element={<ProfileSetup />}></Route>
         </Routes>
       </BrowserRouter>
