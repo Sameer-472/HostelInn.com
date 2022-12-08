@@ -35,7 +35,8 @@ function UserPersonalInfo({ yupFunctions }) {
     handleChange,
     handleSubmit,
   } = yupFunctions;
-  console.log(values);
+    console.log(values);
+
 
   return (
     <Box style={{ backgroundColor: "#fed8bf" }}>
@@ -224,7 +225,7 @@ function UserPersonalInfo({ yupFunctions }) {
             <NameInput
               id='standard-basic'
               variant='standard'
-              placeholder='Enter your CNIC'
+              placeholder='Enter your Programme'
               name='programme'
               onBlur={handleBlur}
               onChange={handleChange}

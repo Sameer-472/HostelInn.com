@@ -45,9 +45,10 @@ export const TitleText = styled(Typography)`
   font-family: "Inter", sans-serif;
   font-weight: 700;
   font-size: 2rem;
-  @media screen and (max-width: 600) {
+  @media screen and (max-width: 600px) {
     font-family: "Inter", sans-serif;
-    font-size: 18px;
+    font-size: 22px;
+    margin:1em 0;
     font-weight: 600;
     text-align: center;
   }

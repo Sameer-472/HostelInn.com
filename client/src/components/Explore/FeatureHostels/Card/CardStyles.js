@@ -21,19 +21,24 @@ export const CardMain = styled(Card)`
 `;
 
 export const CardImage = styled(CardMedia)`
-  width: 200px;
+  /* width: 140px;
+   */
+  width: 43%;
 `;
 
 export const BoxFlex = styled(Box)`
   display: flex;
   flex-direction: column;
   position: relative;
+  width: 55%;
 `;
 
 export const FlexCardContent = styled(CardContent)`
   display: flex;
   flex-direction: column;
-  width: 200px;
+  /* width: 200px; */
+  width: 110%;
+  box-sizing: border-box;
 `;
 
 export const AlignedFavoriteBorderIcon = styled(FavoriteBorderIcon)`
@@ -69,12 +74,13 @@ export const RatingButton = styled(Button)`
   border-radius: 3px;
   &:hover {
     background-color: #4d148c;
-    cursor: default;
+    cursor: pointer;
   }
 `;
 
 export const PriceCard = styled(CardContent)`
   display: flex;
+  align-items: center;
   position: absolute;
   bottom: 0;
   right: 0;
