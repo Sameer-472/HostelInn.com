@@ -19,8 +19,14 @@ import * as Styles from "./styles.js";
 function UserStepperForm() {
   // ! Getting Data from Context API
   const { userFormik } = useContext(FormContext);
-  const { handleBlur, values, touched, errors, handleChange, handleSubmit } =
-    userFormik;
+  const {
+    handleBlur,
+    values,
+    touched,
+    errors,
+    handleChange,
+    handleSubmit,
+  } = userFormik;
   const yupFunctions = {
     handleBlur,
     values,
@@ -87,7 +93,7 @@ function UserStepperForm() {
         {activeSteps === 2 && <UserDocuments yupFunctions={yupFunctions} />}
       </Box>
       <Box
-        component="span"
+        component='span'
         style={{
           display: "flex",
           justifyContent: "center",
@@ -103,9 +109,6 @@ function UserStepperForm() {
       </Box>
     </>
   );
-=======
-  )
->>>>>>> main
 }
 
 export default UserStepperForm;
