@@ -16,11 +16,11 @@ const FeaturedHostels = () => {
   return (
     <MainBox>
       <RectangleImageBox>
-        <img style={{height:"100%"}} src={StripImage} alt="stripe-image" />
+        <img style={{width:"100%",height:"100%"}} src={StripImage} alt="stripe-image" />
       </RectangleImageBox>
 
       <BottomRectangleImageBox>
-        <img style={{height:"100%"}} src={StripImage} alt="stripe-image" />
+        <img style={{width:"100%",height:"100%"}} src={StripImage} alt="stripe-image" />
       </BottomRectangleImageBox>
 
       <TitleText variant='h2' component='div'>

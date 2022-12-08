@@ -14,24 +14,23 @@ export const BoxMain = styled(Box)`
 `;
 
 export const StripeImageBox = styled(Box)`
-  display: none;
+  display: block;
+  position: absolute;
+  top: -59px;
+  right: 13%;
   @media (max-width: 650px) {
-    display: block;
-    position: absolute;
-    top: -59px;
-    right: 13%;
     height: 114px;
   }
 `;
 
 export const BottomStripeImageBox = styled(Box)`
-  display: none;
+  display: block;
+  position: absolute;
+  bottom:-11px;
+  left: 13%;
   @media (max-width: 650px) {
-    display: block;
-    position: absolute;
-    bottom: 67px;
-    left: 13%;
     height: 114px;
+    bottom: 67px;
   }
 `;
 
@@ -40,7 +39,7 @@ export const TitleText = styled(Typography)`
   font-weight: 700;
   color: #606060;
   font-family: "League Spartan", sans-serif;
-  margin-bottom: .3em;
+  margin-bottom: 0.3em;
   @media screen and (max-width: 630px) {
     font-size: 22px;
     margin-bottom: 0;

@@ -12,24 +12,28 @@ export const MainBox = styled(Box)`
 `;
 
 export const RectangleImageBox = styled(Box)`
-  display: none;
+  display: block;
+  position: absolute;
+  top: 1%;
+  right: 13%;
+  height: 180px;
+  width: 100%;
   @media (max-width: 650px) {
-    display: block;
-    position: absolute;
-    top: 10%;
-    right: 13%;
-    height: 114px;
+    top: 9%;
+    height: 120px;
   }
 `;
 
 export const BottomRectangleImageBox = styled(Box)`
-  display: none;
+  display: block;
+  position: absolute;
+  bottom: 1%;
+  left: 13%;
+  height: 174px;
+  width: 100%;
   @media (max-width: 650px) {
-    display: block;
-    position: absolute;
-    bottom: 1%;
-    left: 13%;
-    height: 114px;
+    height: 107px;
+    bottom: 0;
   }
 `;
 
