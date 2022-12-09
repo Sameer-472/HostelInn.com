@@ -66,53 +66,29 @@ function UserStepperForm() {
   `;
 
   return (
-     <Box sx={{ backgroundColor: "#FED8BF" }}>
-        <Styles.Container>
-          <Styles.TitleHeader style={{ textAlign: "center" }}>
-            HOSTEL ACCOMMODATION APPLICATION FORM
-          </Styles.TitleHeader>
-          <Stepper activeStep={activeSteps} alternativeLabel>
-            {steps.map((steps) => (
-              <Step sx={{ color: "red" }}>
-                <StepLabel sx={{ color: "red" }}>{steps}</StepLabel>
-              </Step>
-            ))}
-          </Stepper>
-        </Styles.Container>
-        <Box>
-          {activeSteps === 0 && (
-            <UserPersonalInfo yupFunctions={yupFunctions} />
-          )}
-          {activeSteps === 1 && (
-            <EmergencyContact yupFunctions={yupFunctions} />
-          )}
-          {activeSteps === 2 && <UserDocuments yupFunctions={yupFunctions} />}
-        </Box>
-
-        {/* buttons previous next and submit   */}
-        <Box
-          component="span"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            paddingBottom: 20,
-            paddingTop: 10,
-          }}
-        >
-          <BTN disabled={activeSteps === 0 && true} onClick={previousStep}>
-            Previous
-          </BTN>
-          <BTN2 onClick={nextStep}>
-            {activeSteps >= 2 ? "Submit Form" : "Next"}
-          </BTN2>
-        </Box>
+        <>
+         <Box sx={{ backgroundColor: "#FED8BF" }}>
+      <Styles.Container>
+        <Styles.TitleHeader style={{ textAlign: "center" }}>
+          HOSTEL ACCOMMODATION APPLICATION FORM
+        </Styles.TitleHeader>
+        <Stepper activeStep={activeSteps} alternativeLabel>
+          {steps.map((steps) => (
+            <Step sx={{ color: "red" }}>
+              <StepLabel sx={{ color: "red" }}>{steps}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+      </Styles.Container>
+      <Box>
+        {activeSteps === 0 && <UserPersonalInfo yupFunctions={yupFunctions} />}
+        {activeSteps === 1 && <EmergencyContact yupFunctions={yupFunctions} />}
+        {activeSteps === 2 && <UserDocuments yupFunctions={yupFunctions} />}
       </Box>
-<<<<<<< HEAD
 
       {/* buttons previous next and submit   */}
       <Box
-        component="span"
+        component='span'
         style={{
           display: "flex",
           justifyContent: "center",
@@ -122,18 +98,14 @@ function UserStepperForm() {
         }}
       >
         <BTN disabled={activeSteps === 0 && true} onClick={previousStep}>
-          Previous
+          Previous 
         </BTN>
         <BTN2 onClick={nextStep}>
           {activeSteps >= 2 ? "Submit Form" : "Next"}
         </BTN2>
       </Box>
-      <Footer />
+    </Box>
     </>
-  );
-=======
-  )
->>>>>>> main
 }
 
 export default UserStepperForm;
