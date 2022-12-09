@@ -57,12 +57,14 @@ export const login = (endpoint, payload) => async (dispatch) => {
 
   } catch (error) {
     console.log('Error',error.message)
-    console.log(error)
   }
 };
 
-export const logout = () => (dispatch) => {
+export const logout = () =>async (dispatch) => {
+  console.log("logout function invoked")
+  const user = await Logout();
   dispatch({
     type: LOGOUT,
+    payload: {user}
   });
 };

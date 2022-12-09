@@ -6,7 +6,7 @@ const URL = "http://localhost:8000";
 
 export const Register=async(endpoint,payload)=>{
     try {
-        const response = await axios.post(`${URL}/signUp/${endpoint}`,payload)
+        const response = await axios.post(`${URL}/register/${endpoint}`,payload)
         console.log(response)
         return response; 
     } catch (error) {
@@ -16,10 +16,10 @@ export const Register=async(endpoint,payload)=>{
 
 export const Login=async(endpoint,payload)=>{
     try {
-        const response =await axios.post(`${URL}${endpoint}`,payload)
+        const response =await axios.post(`${URL}${endpoint}`, payload)
         const data = response.data
-        console.log(data)
-        console.log(response)
+        // console.log(data)
+        // console.log(response)
         if(data.token){
             localStorage.setItem("user",JSON.stringify(data))
         }
@@ -30,6 +30,8 @@ export const Login=async(endpoint,payload)=>{
     }
 }
 
-export const Logout=()=>{
-    localStorage.removeItem("user");
+export const Logout=async()=>{
+    console.log("Logout invoked form services")
+    const user = localStorage.removeItem("user");
+    return user;
 }

@@ -53,6 +53,7 @@ function Registration() {
       validateOnChange: true,
       onSubmit: async(values, action) => {
         const { name, password, email } = values;
+
       const result= await dispatch(
           register("user", {
             email: `${email.toLowerCase()}`,
