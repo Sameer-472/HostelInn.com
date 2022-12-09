@@ -13,34 +13,50 @@ import {
 } from "./actionType";
 
 export const register = (endpoint, payload) => async (dispatch) => {
-  const response = await Register(endpoint, payload);
-  if (response.status === 200) {
-    dispatch({
-      type: REGISTER_SUCCESS,
-      payload: { user: response },
-    });
-    return response;
-  } else {
-    dispatch({ type: REGISTER_FAIL , payload: {user: response}});
-    return response;
+  try {
+    const response = await Register(endpoint, payload);
+    if(response.status === 200){
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: { user: response },
+      });
+      return response
+    }
+    else{
+      dispatch({
+        type: LOGIN_FAIL,
+        payload: {user: response}
+      });
+      return response;
+    }
+  } catch (error) {
+    console.log('Error',error.message)
+    dispatch({ type: REGISTER_FAIL });
   }
 };
 
 export const login = (endpoint, payload) => async (dispatch) => {
-  console.log("login function invoked")
-  const response = await Login(endpoint, payload);
-  if (response.status === 200) {
-    dispatch({
-      type: LOGIN_SUCCESS,
-      payload: { user: response },
-    });
-    return response
-  } else {
-    dispatch({
-      type: LOGIN_FAIL,
-      payload: {user: response}
-    });
-    return response
+  try {
+    const response = await Login(endpoint, payload);
+    console.log(response)
+
+    if(response.status === 200){
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: { user: response },
+      });
+      return response
+    }
+    else{
+      dispatch({
+        type: LOGIN_FAIL,
+        payload: {user: response}
+      });
+      return response;
+    }
+
+  } catch (error) {
+    console.log('Error',error.message)
   }
 };
 

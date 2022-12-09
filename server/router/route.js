@@ -15,6 +15,7 @@ import { RegisterNewHostel } from "../controller/hostelRegistrationController.js
 import { accomodateHostel } from "../controller/accomodateHostel.js";
 
 // import { verifyEmail } from '../controller/verifyEmail.js';
+
 const router = express.Router();
 
 // !  Sign Up Routes
@@ -22,7 +23,6 @@ const router = express.Router();
 // ? For Hostel
 
 // ? For User
-
 
 // !  Login Routes
 // ? For HostelOwner 
