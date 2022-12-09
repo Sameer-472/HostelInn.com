@@ -13,8 +13,8 @@ export const signUpOwner = async(req , res)=>{
             email:email
         });
         if(hostelOwner){
-            return res.status(400).json({
-                message: "User already exits"
+            return res.status(403).json({
+                message: "Owner already exits"
             })
         }
         
@@ -38,7 +38,10 @@ export const signUpOwner = async(req , res)=>{
 
         if(hostelOwner){
             const data = await hostelOwner.save()
-            res.status(201).json({msg: data})
+            res.status(200).json({
+              message:
+                "Owner has been successfully registered Please check your email",
+            });
             sendMailForOwner(hostelOwner.name , hostelOwner.email , token);
             console.log("Owner registered successfully please check your email for confirmation ")
         }
@@ -55,7 +58,7 @@ export const loginOwner=async(req,res)=>{
       const compared= await bcrypt.compare(req.body.password,OwnerUser.password);
       
       if(!compared){
-       return res.status(400).json({message:'Password does not match'});
+       return res.status(403).json({message:'Password does not match'});
       }
 
       const token=jwt.sign(
