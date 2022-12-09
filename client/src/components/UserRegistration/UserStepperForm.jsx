@@ -20,14 +20,8 @@ import Footer from "../Home/Footer/Footer";
 function UserStepperForm() {
   // ! Getting Data from Context API
   const { userFormik } = useContext(FormContext);
-  const {
-    handleBlur,
-    values,
-    touched,
-    errors,
-    handleChange,
-    handleSubmit,
-  } = userFormik;
+  const { handleBlur, values, touched, errors, handleChange, handleSubmit } =
+    userFormik;
   const yupFunctions = {
     handleBlur,
     values,
@@ -72,7 +66,7 @@ function UserStepperForm() {
   `;
 
   return (
-    <>
+        <>
          <Box sx={{ backgroundColor: "#FED8BF" }}>
       <Styles.Container>
         <Styles.TitleHeader style={{ textAlign: "center" }}>
@@ -112,7 +106,6 @@ function UserStepperForm() {
       </Box>
     </Box>
     </>
-  );
 }
 
 export default UserStepperForm;

@@ -51,8 +51,10 @@ function App() {
           </Route>
           <Route path='/ownerSignUp' element={<OwnerRegistration/>}></Route>
           <Route path='/OwnerSignIn' element={<OwnerSignIn/>}></Route>
-
-          <Route path=""/>
+          <Route path='/forget-password' element={<Forget />}></Route>
+          <Route path='/userProfile' element={<Profile/>}></Route>
+          <Route path="/userAccomodation" element={<Accomodation/>}></Route>
+          <Route path='/profileSetup' element={<ProfileSetup />}></Route>
         </Routes>
       </BrowserRouter>
     </DataProvider>

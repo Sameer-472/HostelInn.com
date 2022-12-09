@@ -57,6 +57,9 @@ export const MainBodyContainer = styled(Box)`
   padding: 0 1em;
   padding-bottom: 3em;
   padding-top: 1em;
+  @media (max-width: 650px) {
+    margin-bottom: 5em;
+  }
 `;
 
 export const MainHeadingText = styled(Typography)`

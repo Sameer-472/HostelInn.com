@@ -1,7 +1,8 @@
 import { Box, Typography, styled, Button } from "@mui/material";
 
 export const MainBoxWrapper = styled(Box)`
-  max-width: 1352px;
+  /* max-width: 1352px; */
+  max-width: 1200px;
   margin: 0 auto; ;
 `;
 
@@ -27,6 +28,8 @@ export const DescriptionText = styled(Typography)`
 export const CardContainter = styled(Box)`
   display: flex;
   justify-content: space-between;
+  width: 95%;
+  margin: 0 auto;
   margin-bottom: 2em;
   /* margin: 3rem 0 3rem 0; */
 `;
@@ -35,8 +38,8 @@ export const FeaturedTitleText = styled(Typography)`
   color: #ff6600;
   font-size: 24px;
   font-weight: bold;
-  margin-left: 1.5em;
   margin: 1em 0;
+  margin-left: 1.8em;
 `;
 
 export const MainHostelContainer = styled(Box)`
@@ -44,10 +47,13 @@ export const MainHostelContainer = styled(Box)`
   align-items: center;
   margin-bottom: 2em;
   border-radius: 15px;
+  width: 88%;
+  margin: 0 auto;
+  margin-bottom: 2em;
 `;
 
 export const MainHostelImageBox = styled(Box)`
-  width: 30%;
+  width: 37%;
   height: 250px;
   object-fit: cover;
   position: relative;
@@ -59,7 +65,7 @@ export const MainHostelContainerDetails = styled(Box)`
 `;
 
 export const MainHostelContainerPrice = styled(Box)`
-  width: 30%;
+  width: 25%;
   margin-right: 2em;
   border-left: 2px solid #ff6600;
 `;
@@ -200,8 +206,9 @@ export const PriceMainBox = styled(Box)`
   flex-direction: column;
   justify-content: flex-end;
   margin-top: 5em;
-  width: 70%;
-  margin-left: 10em;
+  width: 80%;
+  margin-left: 4em;
+
 `;
 
 export const S_CurrencyText = styled(Typography)`
