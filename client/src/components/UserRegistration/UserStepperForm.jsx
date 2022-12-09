@@ -105,7 +105,7 @@ function UserStepperForm() {
         </BTN2>
       </Box>
     </Box>
-    </>
+    </>)
 }
 
 export default UserStepperForm;
