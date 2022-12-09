@@ -1,7 +1,7 @@
 import React from "react";
 import BookNow from "./BookNow/BookNow";
 import MultiCarousel from "./Carousel/MultiCarousel";
- mport Footer from "./Footer/Footer";
+import Footer from "./Footer/Footer";
 import { ChooseAnimation } from "./ChooiceAnimation/ChooseAnimation";
 import FindHostel from "./FindHostel/FindHostel";
 import FindYourHome from "./FindYourHome/FindYourHome";
@@ -15,7 +15,7 @@ import MainBodyMobile from "./MainBody/MainBodyMobile";
 function Home() {
   return (
     <>
-        <Navbar/>
+      {/* <Navbar/> */}
       <MultiCarousel />
       <MainBody />
       <MainBodyMobile />
