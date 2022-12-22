@@ -1,7 +1,7 @@
-import React from 'react';
-import CardComponent from './Card/CardComponent';
-import { reviewsData } from './reviewsData';
-import { BoxMain, TitleText, OrangeText, CardContainer } from './ReviewsStyles';
+import React from "react";
+import CardComponent from "./Card/CardComponent";
+import { reviewsData } from "./reviewsData";
+import { BoxMain, TitleText, OrangeText, CardContainer } from "./ReviewsStyles";
 
 export const Reviews = () => {
   return (
@@ -9,18 +9,18 @@ export const Reviews = () => {
       <TitleText variant='h1' component='div'>
         Find verified hostels with
         <OrangeText variant='h1' component='span'>
-          {' '}
+          {" "}
           honest reviews.
         </OrangeText>
       </TitleText>
       <CardContainer>
-        {reviewsData.map((reviewer) => (
+        {reviewsData.map((reviewer, index) => (
           <CardComponent
             name={reviewer.name}
             profilePhoto={reviewer.profilePhoto}
             review={reviewer.review}
             rating={reviewer.rating}
-            key={reviewer.name}
+            key={index}
           />
         ))}
       </CardContainer>
