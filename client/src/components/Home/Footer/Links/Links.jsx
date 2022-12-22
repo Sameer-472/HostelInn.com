@@ -13,7 +13,7 @@ const OrangeText = styled(Typography)`
 const Component = styled(Box)`
   display: flex;
   justify-content: space-evenly;
-  @media screen and (max-width: 600px){
+  @media screen and (max-width: 700px) {
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;

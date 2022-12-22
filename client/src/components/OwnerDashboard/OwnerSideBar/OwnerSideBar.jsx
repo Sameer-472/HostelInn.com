@@ -1,7 +1,7 @@
 import * as React from "react";
-import { styled, useTheme } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import Box from "@mui/material/Box";
+import { Box, useTheme, useMediaQuery } from "@mui/material";
 // import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
@@ -92,7 +92,8 @@ export default function OwnerSideBar() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
+  const isTrue = useMediaQuery("(max-width:600px)");
+  // console.log(isTrue);
   return (
     <>
       <Box sx={{ display: "flex" }}>
@@ -124,11 +125,18 @@ export default function OwnerSideBar() {
           <Divider className='divider' />
           <OwnerNavList open={open} />
         </Drawer>
+        {isTrue ? null : (
+          <Box sx={{ flexGrow: 1 }}>
+            <Outlet />
+          </Box>
+        )}
+      </Box>
 
-        <Box sx={{ flexGrow: 1 }}>
+      {isTrue ? (
+        <Box sx={{ paddingLeft: 7.1, flexGrow: 1 }}>
           <Outlet />
         </Box>
-      </Box>
+      ) : null}
     </>
   );
 }
