@@ -11,10 +11,12 @@ import {
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import DrawerFile from "../../../components/Home/Navbar/DrawerFiles/DrawerFile";
-import AccountMenu from "../../../components/Home/Navbar/account-menu";
+// import AccountMenu from "../../../components/Home/Navbar/account-menu";
 import OwnerRegistration from "../../../components/SignUp/OwnerRegistration/ownerRegistration";
 import OwnerSignIn from "../../../components/SignIn/ownerSignIn/OwnerSignIn";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AccountMenu from "../Account-menu";
+
 
 
 const Image = styled("img")({

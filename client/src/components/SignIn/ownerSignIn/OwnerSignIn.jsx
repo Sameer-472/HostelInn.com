@@ -13,6 +13,7 @@ import {
   Alert,
   styled,
   Snackbar,
+  CircularProgress,
 } from "@mui/material";
 import { useFormik } from "formik";
 import MailIcon from "@mui/icons-material/Mail";
@@ -179,6 +180,7 @@ const OwnerSignIn = ({
   const [errorMsg, setErrorMsg] = React.useState("");
   const [error, setError] = React.useState(false);
   const [open, setOpen] = useState(false);
+  const [loading, setloading] = useState(false)
   const handleCloseAlert = () => {
     setOpen(false);
     return;
@@ -201,12 +203,14 @@ const OwnerSignIn = ({
       validateOnChange: true,
       onSubmit: async (values) => {
         const { email, password } = values;
+        setloading(true)
           const result = await dispatch(
-            login("/loginUser", {
+            login("/loginOwner", {
               email: `${values.email}`,
               password: `${values.password}`,
             })
           );
+          setloading(false)
           console.log(result);
         const statusCode = result.status;
         console.log(statusCode);
@@ -287,7 +291,8 @@ const OwnerSignIn = ({
           </Typography>
         )}
         <StyledBox>
-          <LoginButton onClick={handleSubmit}>Login</LoginButton>
+          {/* <LoginButton onClick={handleSubmit}> <CircularProgress sx={{color: 'white'}} size={20}/> </LoginButton> */}
+          {loading ? <LoginButton> <CircularProgress size={20} sx={{color: 'white'}}/></LoginButton>: <LoginButton onClick={handleSubmit}>Login</LoginButton>}
           <OrText>OR</OrText>
           <LoginWithGoogleButton>
             <GoogleIcon />
