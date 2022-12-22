@@ -35,8 +35,7 @@ function UserPersonalInfo({ yupFunctions }) {
     handleChange,
     handleSubmit,
   } = yupFunctions;
-    console.log(values);
-
+  console.log(values);
 
   return (
     <Box style={{ backgroundColor: "#fed8bf" }}>

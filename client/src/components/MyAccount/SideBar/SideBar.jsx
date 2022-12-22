@@ -1,14 +1,11 @@
 import * as React from "react";
-import { styled, useTheme } from "@mui/material/styles";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 // import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import MuiDrawer from "@mui/material/Drawer";
-
-import Divider from "@mui/material/Divider";
-
+import { Divider, useMediaQuery } from "@mui/material";
 import NavList from "./NavList";
 import { ArrowBack } from "@mui/icons-material";
 import { Outlet } from "react-router-dom";
@@ -92,7 +89,8 @@ export default function SideBar() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
+  const isTrue = useMediaQuery("(max-width:600px)");
+  // console.log(isTrue);
   return (
     <>
       <Box sx={{ display: "flex" }}>
@@ -124,11 +122,17 @@ export default function SideBar() {
           <Divider className='divider' />
           <NavList open={open} />
         </Drawer>
-
-        <Box sx={{ flexGrow: 1 }}>
+        {isTrue ? null : (
+          <Box sx={{ flexGrow: 1 }}>
+            <Outlet />
+          </Box>
+        )}
+      </Box>
+      {isTrue ? (
+        <Box sx={{ paddingLeft: 7, flexGrow: 1 }}>
           <Outlet />
         </Box>
-      </Box>
+      ) : null}
     </>
   );
 }

@@ -8,7 +8,7 @@ export const BoxMain = styled(Box)`
 
   height: 245px;
   padding: 0 5rem 0 5rem;
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     padding: 0 10px 0 10px;
     height: 350px;
     background-size: cover;
@@ -18,7 +18,7 @@ export const BoxMain = styled(Box)`
 export const Image = styled.img`
   height: 5.5%;
   width: 5.5%;
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     height: 12.5%;
     width: 12.5%;
   }
@@ -28,7 +28,7 @@ export const BoxContent = styled(Box)`
   display: flex;
   justify-content: space-between;
   padding-top: 2.5rem;
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -45,10 +45,10 @@ export const TitleText = styled(Typography)`
   font-family: "Inter", sans-serif;
   font-weight: 700;
   font-size: 2rem;
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     font-family: "Inter", sans-serif;
     font-size: 22px;
-    margin:1em 0;
+    margin: 1em 0;
     font-weight: 600;
     text-align: center;
   }
@@ -58,7 +58,7 @@ export const DescText = styled(Typography)`
   font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 1rem;
-  @media screen and (max-width: 600) {
+  @media screen and (max-width: 800) {
     font-family: "Inter", sans-serif;
     font-size: 18px;
   }
@@ -71,7 +71,7 @@ export const SearchBox = styled(Box)`
   align-items: center;
   border-radius: 100px;
   background-color: white;
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 800px) {
     margin-top: 10px;
     width: 90%;
     text-align: center;

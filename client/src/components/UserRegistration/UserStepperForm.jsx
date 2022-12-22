@@ -103,10 +103,18 @@ function UserStepperForm() {
         <BTN disabled={activeSteps === 0 && true} onClick={previousStep}>
           Previous Step
         </BTN>
-        <BTN2 onClick={nextStep}>
-          {activeSteps >= 2 ? "Submit Form" : "Next"}
-        </BTN2>
+        {activeSteps < 2 ? (
+          <BTN2 onClick={nextStep}>Next</BTN2>
+        ) : (
+          <BTN2 onClick={handleSubmit}>Submit</BTN2>
+        )}
       </Box>
+      {/* <BTN2 onClick={nextStep}>
+          {activeSteps >= 2 ? "Submit Form" : "Next"}
+        </BTN2> 
+      <BTN2 onSubmit={handleSubmit}>
+          {activeSteps >= 2 ? "Submit Form" : "Next"}
+        </BTN2> */}
     </>
   );
 }

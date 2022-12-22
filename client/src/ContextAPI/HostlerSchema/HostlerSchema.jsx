@@ -16,17 +16,13 @@ const Documents = {
 };
 
 export const hostelFormDetails = {
-  firstName: "",
-  lastName: "",
-  // guardianFullName: "",
-  // guardianCNIC: "",
-  // guardianPhoneNumber: "",
-  email: "",
-  cnic: "",
-  nationality: "",
-  // university: "",
-  // programme: "",
-  permanentAddress: "",
+  hostelName: "",
+  hostelOwnerName: "",
+  hostelEmailAddress: "",
+  hostelLocation: "",
+  hostelContactNumber: "",
+  shortDescription: "",
+
   dateOfBirth: "",
   mobileNumber: "",
   whatsappNumber: "",
