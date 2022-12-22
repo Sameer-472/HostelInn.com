@@ -22,6 +22,7 @@ import { SignUpSchema } from "../Yup/RegisterValidation";
 import MailIcon from "@mui/icons-material/Mail";
 import { useSelector, useDispatch } from "react-redux";
 import { register } from "../../Redux/Actions/auth";
+import {useNavigate} from 'react-router-dom';
 
 const FGroup = styled(FormGroup)`
   display: flex;
@@ -31,14 +32,11 @@ const FGroup = styled(FormGroup)`
 `;
 function Registration() {
   const [error, setError] = useState(false);
+  const navigate=useNavigate();
 
   const result = useSelector((state) => state);
 
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   dispatch()
-  // }, [])
 
   const initialValue = {
     name: "",
@@ -53,11 +51,12 @@ function Registration() {
       initialValues: initialValue,
       validationSchema: SignUpSchema,
       validateOnChange: true,
-      onSubmit: (values, action) => {
+      onSubmit: async(values, action) => {
         const { name, password, email } = values;
-        dispatch(
-          register("hostelOwner", {
-            email: `${email}`,
+
+      const result= await dispatch(
+          register("user", {
+            email: `${email.toLowerCase()}`,
             name: `${name}`,
             password: `${password}`,
           })
@@ -65,22 +64,26 @@ function Registration() {
         console.log(result);
         // ! Status Codes
         // 200 User added Successful 
-        //201 user already exist
+        //403 user already exist
 
         // result.user.status === 200 ? action.resetForm() : setError(true);
-        const statusCode=result.user.status;
-        if(statusCode===400){
-          console.log('code 400')
-          return;
-        }
-        else if( statusCode === 200){
+        const statusCode=result.status;
+        if(statusCode===200){
           action.resetForm();
           setError(false)
+          navigate('/login')
+          return;
+          
+        }
+        else if( statusCode === 403){
+
+          console.log('Email Already Exist')
+          setError(true)
           return;
         }
-        else if(statusCode===201){
+        else {
           setError(true);
-          console.log('error has occured');
+          console.log('Internal Server Error');
           return;
         }
         
