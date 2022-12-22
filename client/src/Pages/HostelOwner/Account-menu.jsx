@@ -12,13 +12,13 @@ import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../../../Redux/Actions/auth";
 import { useNavigate, Link } from "react-router-dom";
+import { logout } from "../../Redux/Actions/auth";
 
 export default function AccountMenu() {
   // fetching the user details from the redux
   const result = useSelector((state) => state);
-  const user = result.auth.user.user;
+  const user = result.auth.user.owner;
   //
   // console.log("hello from accoount", user.user);
 
@@ -43,7 +43,7 @@ export default function AccountMenu() {
   return (
     <React.Fragment>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
-        <p style={{ color: "#4d148c", marginRight: "10px" }}>{user.name}</p>
+        {/* <p style={{ color: "#4d148c", marginRight: "10px" }}>{user.name}</p> */}
         <Tooltip title='Account settings'>
           <IconButton
             onClick={handleClick}
@@ -54,7 +54,7 @@ export default function AccountMenu() {
             aria-expanded={open ? "true" : undefined}
           >
             <Avatar sx={{ width: 32, height: 32 }}>
-              {user.name.charAt(0)}
+              {/* {user.name.charAt(0)} */}
             </Avatar>
           </IconButton>
         </Tooltip>
@@ -94,23 +94,6 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <Link
-          to='/profile '
-          style={{ textDecoration: "none", color: "#4d148c" }}
-        >
-          <MenuItem>
-            <Avatar />
-            Profile
-          </MenuItem>
-        </Link>
-        <Link
-          to='/profile'
-          style={{ textDecoration: "none", color: "#4d148c" }}
-        >
-          <MenuItem>
-            <Avatar /> Dashboard
-          </MenuItem>
-        </Link>
         <Divider />
         <MenuItem onClick={logOut}>
           <ListItemIcon>

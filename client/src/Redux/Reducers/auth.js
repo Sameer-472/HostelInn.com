@@ -4,7 +4,7 @@ import {
     REGISTER_SUCCESS , REGISTER_FAIL , LOGIN_SUCCESS , LOGIN_FAIL , LOGOUT
 } from '../Actions/actionType'
 
-const user = JSON.parse(localStorage.getItem("user"));
+const user = JSON.parse(sessionStorage.getItem("user") || sessionStorage.getItem("owner"))  ;
 
 const initialState = user ? {isLoggedIn: true , user}: {isLoggedIn: false , user: null};
 
