@@ -15,7 +15,6 @@ import MainBodyMobile from "./MainBody/MainBodyMobile";
 function Home() {
   return (
     <>
-      {/* <Navbar /> */}
       <MultiCarousel />
       <MainBody />
       {/* <MainBodyMobile /> */}

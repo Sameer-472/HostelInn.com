@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {
   Button,
   AppBar,
@@ -8,14 +8,15 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import { Link, NavLink , useLocation} from "react-router-dom";
-import UserSignUp from "./../../SignUp/userRegistration/UserSignUp";
-import UserSignIn from "./../../SignIn/UserSignIn";
-import AccountMenu from "./account-menu";
-import DrawerFile from "./DrawerFiles/DrawerFile";
-import { useSelector , useDispatch} from "react-redux";
-import { useEffect } from "react";
-import { State } from "../../../Redux/Actions/state";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import DrawerFile from "../../../components/Home/Navbar/DrawerFiles/DrawerFile";
+// import AccountMenu from "../../../components/Home/Navbar/account-menu";
+import OwnerRegistration from "../../../components/SignUp/OwnerRegistration/ownerRegistration";
+import OwnerSignIn from "../../../components/SignIn/ownerSignIn/OwnerSignIn";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import AccountMenu from "../Account-menu";
+
 
 
 const Image = styled("img")({
@@ -82,31 +83,22 @@ const Btn2 = styled(Button)`
     background-color: #ff6600;
   }
 `;
-function Navbar(props) {
-  const {setRole} = props;
+function OwnerNavbar(props) {
+  const {setRole} = props
   const result = useSelector((state) => state);
   console.log("this is result from navbar", result.auth);
   const theme = useTheme();
-  let location = useLocation()
-  const dispatch =useDispatch();
 
+  const isTrue = useMediaQuery("(max-width:770px)");
+  // (theme.breakpoints.down(600));
+  console.log(isTrue);
+  let location = useLocation()
   useEffect(() => {
     // console.log("location changed" , location.pathname);
     if(location.pathname === '/'){
       setRole('user')
     }
-    else if(location.pathname === '/explore'){
-      setRole('user')
-    }
-    else if(location.pathname === '/about-us'){
-      setRole('user')
-    }
-    
   }, [location.pathname]);
-
-  const isTrue = useMediaQuery("(max-width:770px)");
-  // (theme.breakpoints.down(600));
-  console.log(isTrue);
 
   const [signUpOpen, setSignUpOpen] = React.useState(false);
   const [signInOpen, setSignInOpen] = React.useState(false);
@@ -130,9 +122,9 @@ function Navbar(props) {
               <Image src={require("./assets/hostelin-logo.png")} alt="logo" />
             </Link>
             <LinkWrapper>
-              <NavLink to="/"> Home </NavLink>
-              <NavLink to="/explore"> Explore </NavLink>
-              <NavLink to="/contact-us"> Contact us </NavLink>
+              <NavLink to="/"> Dashboard </NavLink>
+              {/* <NavLink to="/explore"> Explore </NavLink> */}
+              {/* <NavLink to="/contact-us"> Contact us </NavLink> */}
               <NavLink to="/about-us"> About us </NavLink>
             </LinkWrapper>
             <RightWrapper>
@@ -140,12 +132,12 @@ function Navbar(props) {
                 <AccountMenu />
               ) : (
                 <>
-                <Link to='/ownerSignUp'>
-                <Btn2 sx={{backgroundColor: 'orange' , color: 'black'}} onClick={()=> setRole('owner')}>
+                {/* <Link to='/ownerSignUp'>
+                <Btn2 sx={{backgroundColor: 'orange' , color: 'black'}} >
                   Register Your Hostel
                 </Btn2>
-                </Link>
-                  <Btn
+                </Link> */}
+                  {/* <Btn
                     onClick={() => {
                       setSignUpOpen(true);
                       setRenderSignUp(true);
@@ -153,34 +145,15 @@ function Navbar(props) {
                     variant="text"
                   >
                     Signup/Login
-                  </Btn>
+                  </Btn> */}
                 </>
               )}
             </RightWrapper>
           </Toolbar>
         </AppBar>
       )}
-      {renderSignUp && (
-        <UserSignUp
-          signUpOpen={signUpOpen}
-          setSignUpOpen={setSignUpOpen}
-          setRenderSignIn={setRenderSignIn}
-          setRenderSignUp={setRenderSignUp}
-          setSignInOpen={setSignInOpen}
-        />
-      )}
-
-      {renderSignIn && (
-        <UserSignIn
-          signInOpen={signInOpen}
-          setSignInOpen={setSignInOpen}
-          setSignUpOpen={setSignUpOpen}
-          setRenderSignIn={setRenderSignIn}
-          setRenderSignUp={setRenderSignUp}
-        />
-      )}
     </>
   );
 }
 
-export default Navbar;
+export default OwnerNavbar;
