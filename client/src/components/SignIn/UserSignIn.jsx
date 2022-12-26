@@ -13,6 +13,7 @@ import {
   Alert,
   styled,
   Snackbar,
+  CircularProgress
 } from "@mui/material";
 import { useFormik } from "formik";
 import { SignInSchema } from "../Yup/SignInValidation";
@@ -179,6 +180,8 @@ const UserSignIn = ({
   const [errorMsg, setErrorMsg] = React.useState("");
   const [error, setError] = React.useState(false);
   const [open, setOpen] = useState(false);
+  const [loading, setloading] = useState(false)
+
   const handleCloseAlert = () => {
     setOpen(false);
     return;
@@ -207,12 +210,15 @@ const UserSignIn = ({
     validateOnChange: true,
     onSubmit: async (values) => {
       const { email, password } = values;
+      setloading(true)
       const result = await dispatch(
         login("/loginUser", {
           email: `${values.email}`,
           password: `${values.password}`,
         })
       );
+      setloading(false)
+
       const statusCode = result.status;
       console.log(statusCode);
 
@@ -306,7 +312,8 @@ const UserSignIn = ({
                 </Typography>
               )}
               <StyledBox>
-                <LoginButton onClick={handleSubmit}>Login</LoginButton>
+                {/* <LoginButton onClick={handleSubmit}>Login</LoginButton> */}
+          {loading ? <LoginButton> <CircularProgress size={20} sx={{color: 'white'}}/></LoginButton>: <LoginButton onClick={handleSubmit}>Login</LoginButton>}
                 <OrText>OR</OrText>
                 <LoginWithGoogleButton>
                   <GoogleIcon />

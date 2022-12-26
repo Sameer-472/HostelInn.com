@@ -51,7 +51,6 @@ const RightWrapper = styled(Box)`
   text-align: center;
   align-items: center;
 `;
-
 const Btn = styled(Button)`
   background-color: #4d148c;
   color: white;
@@ -60,10 +59,10 @@ const Btn = styled(Button)`
   height: 35px;
   width: 155px;
   margin-right: 10px;
-:hover {
+  :hover {
     background-color: #8a17d6;
   }
-:active {
+  :active {
     background-color: #ff6600;
   }
 `;
@@ -75,10 +74,10 @@ const Btn2 = styled(Button)`
   height: 35px;
   width: 155px;
   margin-right: 10px;
-:hover {
+  :hover {
     background-color: #ee9222;
   }
-:active {
+  :active {
     background-color: #ff6600;
   }
 `;
@@ -118,7 +117,7 @@ function Navbar(props) {
       {isTrue ? (
         <DrawerFile />
       ) : (
-        <AppBar position="sticky">
+        <AppBar position='sticky'>
           <Toolbar
             style={{
               backgroundColor: "white",
@@ -126,31 +125,29 @@ function Navbar(props) {
               textAlign: "center",
             }}
           >
-            <Link to="/" style={{ maxHeight: 80 }}>
-              <Image src={require("./assets/hostelin-logo.png")} alt="logo" />
+            <Link to='/' style={{ maxHeight: 80 }}>
+              <Image src={require("./assets/hostelin-logo.png")} alt='logo' />
             </Link>
             <LinkWrapper>
-              <NavLink to="/"> Home </NavLink>
-              <NavLink to="/explore"> Explore </NavLink>
-              <NavLink to="/contact-us"> Contact us </NavLink>
-              <NavLink to="/about-us"> About us </NavLink>
+              <NavLink to='/'> Home </NavLink>
+              <NavLink to='/explore'> Explore </NavLink>
+              <NavLink to='/contact-us'> Contact us </NavLink>
+              <NavLink to='/about-us'> About us </NavLink>
             </LinkWrapper>
             <RightWrapper>
               {result.auth.isLoggedIn && result.auth.user ? (
                 <AccountMenu />
               ) : (
                 <>
-                <Link to='/ownerSignUp'>
-                <Btn2 sx={{backgroundColor: 'orange' , color: 'black'}} onClick={()=> setRole('owner')}>
-                  Register Your Hostel
-                </Btn2>
-                </Link>
+                  <Btn2 sx={{ backgroundColor: "orange", color: "black" }}>
+                    Register Your Hostel
+                  </Btn2>
                   <Btn
                     onClick={() => {
                       setSignUpOpen(true);
                       setRenderSignUp(true);
                     }}
-                    variant="text"
+                    variant='text'
                   >
                     Signup/Login
                   </Btn>

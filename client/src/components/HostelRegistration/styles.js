@@ -42,7 +42,6 @@ export const ColoredDiv = styled(Box)`
 export const TitleContainer = styled(Box)`
   border-bottom: 1px solid #c8c8c8;
   margin: 0.5rem;
-  text-align: center;
 `;
 
 export const Title = styled(Typography)`
@@ -102,8 +101,8 @@ export const FieldLabel = styled(Typography)`
 export const NameInput = styled(TextField)`
   font-family: "Lato", sans-serif;
   /* @media screen and (max-width: 750px) {
-      width: 270px;
-    } */
+    width: 270px;
+  } */
 `;
 export const ErrorMsgText = styled(Typography)`
   font-size: 12;

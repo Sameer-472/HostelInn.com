@@ -1,12 +1,15 @@
 import * as React from "react";
 import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import { Box, useTheme, useMediaQuery } from "@mui/material";
 // import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import MuiDrawer from "@mui/material/Drawer";
-import { Divider, useMediaQuery } from "@mui/material";
-import NavList from "./NavList";
+
+import Divider from "@mui/material/Divider";
+
+import OwnerNavList from "./OwnerNavList";
 import { ArrowBack } from "@mui/icons-material";
 import { Outlet } from "react-router-dom";
 
@@ -78,7 +81,7 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function SideBar() {
+export default function OwnerSideBar() {
   const [open, setOpen] = React.useState(false);
   console.log(open);
 
@@ -108,19 +111,19 @@ export default function SideBar() {
                   marginLeft: "auto",
                   marginRight: 15,
                   cursor: "pointer",
-                  color: "#FF6600",
+                  color: "#4D148C",
                 }}
                 onClick={handleDrawerClose}
               />
             ) : (
               <ArrowForwardIcon
-                style={{ color: "#FF6600", cursor: "pointer" }}
+                style={{ color: "#4D148C", cursor: "pointer" }}
                 onClick={handleDrawerOpen}
               />
             )}
           </DrawerHeader>
           <Divider className='divider' />
-          <NavList open={open} />
+          <OwnerNavList open={open} />
         </Drawer>
         {isTrue ? null : (
           <Box sx={{ flexGrow: 1 }}>
@@ -128,8 +131,9 @@ export default function SideBar() {
           </Box>
         )}
       </Box>
+
       {isTrue ? (
-        <Box sx={{ paddingLeft: 7, flexGrow: 1 }}>
+        <Box sx={{ paddingLeft: 7.1, flexGrow: 1 }}>
           <Outlet />
         </Box>
       ) : null}

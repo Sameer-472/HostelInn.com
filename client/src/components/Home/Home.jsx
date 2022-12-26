@@ -17,7 +17,7 @@ function Home() {
     <>
       <MultiCarousel />
       <MainBody />
-      <MainBodyMobile />
+      {/* <MainBodyMobile /> */}
       <FindHostel />
       <FeaturedHostels />
       <ChooseAnimation style={{ backgroundColor: "orange" }} />

@@ -89,6 +89,8 @@ function DataProvider({ children }) {
     validationSchema: UserDetailsValidation,
     validateOnChange: true,
     onSubmit: async (values, action) => {
+      console.log("hello");
+      console.log(values);
       // const { name, password, email } = values;
       // const result = await dispatch(
       // register(
