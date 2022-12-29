@@ -4,7 +4,7 @@ import { Search } from "@mui/icons-material";
 export const BoxMain = styled(Box)`
   display: flex;
   flex-direction: column;
-  height: 550px;
+  height: 188px;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -14,10 +14,20 @@ export const BoxMain = styled(Box)`
   }
 `;
 
+export const MarginBox = styled(Box)` 
+display: block;
+margin-top: 4em;
+width: 100%;
+@media(max-width:650px){
+  display: none;
+}
+`
+
 export const LabelText = styled(Typography)`
   font-size: 32px;
   font-weight: 700;
   font-family: 'League Spartan', sans-serif;
+  line-height: 0;
   color: #ff6600;
   @media (max-width: 600px) {
     text-align: center;
@@ -29,7 +39,9 @@ export const LabelText = styled(Typography)`
 export const Lablel2Text = styled(Typography)` 
   font-size: 32px;
   font-weight: 700;
+  line-height: 0;
   font-family: 'League Spartan', sans-serif;
+  margin-bottom: .6em;
   color: #ff6600;
   @media (max-width: 600px) {
     text-align: center;
@@ -39,14 +51,14 @@ export const Lablel2Text = styled(Typography)`
 `
 
 export const SearchBox = styled(Box)`
-  width: 75%;
-  height: 55px;
+  width: 70%;
+  height: 45px;
   display: flex;
   align-items: center;
   border: 1px solid #ffb686;
   border-radius: 100px;
   box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.15);
-  margin: 50px 0 50px 0;
+  margin: 10px auto 30px auto;
   @media (max-width: 600px) {
     width: 90%;
     height: 36px;

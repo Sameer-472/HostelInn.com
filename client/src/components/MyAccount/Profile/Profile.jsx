@@ -81,7 +81,7 @@ const Profile = () => {
           <EmailInputBox
             type="email"
             variant="standard"
-            placeholder="farazahmedk955@gmail.com"
+            placeholder="mayakhan@gmail.com"
           ></EmailInputBox>
         </EmailFieldBox>
 

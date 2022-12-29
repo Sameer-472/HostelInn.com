@@ -25,10 +25,7 @@ import OwnerNavbar from "./Pages/HostelOwner/Navbar/Navbar";
 import { State } from "./Redux/Actions/state";
 import { useSelector } from "react-redux";
 import OwnerSignIn from "./components/SignIn/ownerSignIn/OwnerSignIn";
-
-
-
-
+import Forget from "./components/SignIn/Forget"
 
 
 
@@ -71,7 +68,7 @@ function App() {
 
           <Route path='/ownerSignUp' element={<OwnerRegistration/>}></Route>
           <Route path='/OwnerSignIn' element={<OwnerSignIn/>}></Route>
-          {/* <Route path='/forget-password' element={<Forget />}></Route> */}
+          <Route path='/forget-password' element={<Forget />}></Route>
           <Route path='/userProfile' element={<Profile/>}></Route>
           <Route path="/userAccomodation" element={<Accomodation/>}></Route>
 

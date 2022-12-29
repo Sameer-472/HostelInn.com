@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import ActiveImgPng from "./Assets/activePng.png";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
+import CancelDialog from "./CancelDialog/CancelDialog"
 
 import {
   AccomodatoionWrapper,
@@ -109,9 +110,10 @@ function Accomodation() {
 
        {showMoreHostelDetails && <CancelAccomodationContainer>
           <CancelAccomodationTitle>Cancel accomodation</CancelAccomodationTitle>
-          <CancelAccomodationButton variant="standard">
+          {/* <CancelAccomodationButton variant="standard">
             Cancel
-          </CancelAccomodationButton>
+          </CancelAccomodationButton> */}
+          <CancelDialog/>
         </CancelAccomodationContainer>}
       </AccomodationContainer>
     </AccomodatoionWrapper>

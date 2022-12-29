@@ -7,11 +7,13 @@ import {
   SearchIcon,
   SearchInputBase,
   GoButton,
+  MarginBox
 } from "./FindHostelStyles";
 
 const FindHostel = () => {
   return (
     <BoxMain>
+      {/* <MarginBox> */}
       <Lablel2Text>Search hostels of your choice!</Lablel2Text>
       <SearchBox>
         <SearchIconWrapper>
@@ -23,6 +25,7 @@ const FindHostel = () => {
         />
       </SearchBox>
       <GoButton variant="contained">Let's go</GoButton>
+      {/* </MarginBox> */}
     </BoxMain>
   );
 };
