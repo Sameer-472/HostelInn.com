@@ -42,31 +42,33 @@ function Login() {
   };
   const navigate = useNavigate();
 
-  const handleLogin= async () =>{
-        //200 Login Successful
-        //201 Email Not Found
-        //202 Password Does not match
-        
-        const result = await dispatch(login("/loginUser" , {"email": `${values.email.toLowerCase()}`, "password": `${values.password}`}));
-    
-        const statusCode= result.status;
-        console.log(statusCode);
-        // ! result coming from useState
-        console.log(result, "after dispatch method")
-        if(statusCode===200){
-            console.log('Login Successful');
-            setError(false);
-            navigate('/home');
-        }
-        else if(statusCode===403){
-            console.log('Email Not Found');
-            setError(true);
-            return;
-        }
-        else if(statusCode===403){
-            console.log('Password Does not match');
-                setError(true)
-        }
+  const handleLogin = async () => {
+    //200 Login Successful
+    //201 Email Not Found
+    //202 Password Does not match
+
+    const result = await dispatch(
+      login("/loginUser", {
+        email: `${values.email.toLowerCase()}`,
+        password: `${values.password}`,
+      })
+    );
+
+    const statusCode = result.status;
+    console.log(statusCode);
+    // ! result coming from useState
+    console.log(result, "after dispatch method");
+    if (statusCode === 200) {
+      console.log("Login Successful");
+      setError(false);
+      navigate("/home");
+    } else if (statusCode === 403) {
+      console.log("Email Not Found");
+      setError(true);
+      return;
+    } else if (statusCode === 403) {
+      console.log("Password Does not match");
+      setError(true);
     }
   };
 
