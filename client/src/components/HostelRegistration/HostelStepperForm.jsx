@@ -10,7 +10,7 @@ import {
 import { useState } from "react";
 import PersonalInformation from "./PersonalInformation";
 import HostelRegistration from "./HostelRegistration";
-import Facilities from "./Facilities";
+import Facilities from "./Facility/Facilities";
 import { useNavigate } from "react-router-dom";
 import { FormContext } from "../../ContextAPI/DataProvider";
 

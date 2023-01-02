@@ -26,6 +26,7 @@ import { State } from "./Redux/Actions/state";
 import { useSelector } from "react-redux";
 import OwnerSignIn from "./components/SignIn/ownerSignIn/OwnerSignIn";
 import Forget from "./components/SignIn/Forget"
+import Facilities from "./components/HostelRegistration/Facility/Facilities";
 
 
 
@@ -73,6 +74,7 @@ function App() {
           <Route path="/userAccomodation" element={<Accomodation/>}></Route>
 
           <Route path='/profileSetup' element={<ProfileSetup />}></Route>
+          <Route path='/hostelRegistration/facilities' element={<Facilities />}></Route>
         </Routes>
       </BrowserRouter>
     </DataProvider>
