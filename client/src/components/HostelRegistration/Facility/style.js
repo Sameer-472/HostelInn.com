@@ -1,5 +1,6 @@
 // import styled from "@emotion/styled";
-import { Box, styled, TextField, Typography, Checkbox } from "@mui/material";
+import { Box, styled, TextField, Typography,Button } from "@mui/material";
+import Textarea from "@mui/joy/Textarea";
 
 export const FacilitesWrapper = styled(Box)`
   max-width: 1100px;
@@ -104,13 +105,14 @@ export const FacilityAvailableText = styled(Typography)`
   font-family: "Lato", sans-serif;
   font-size: 1rem;
   color: rgba(57, 57, 57, 1);
-  margin-top: 1em;
+  margin-top: 0.5em;
   margin-bottom: 0.5em;
 `;
 
 export const FacilityAvailableContainer = styled(Box)`
   width: 90%;
   margin-left: 1em;
+  padding: 1em 0;
 `;
 
 export const FreeContainer = styled(Box)`
@@ -148,13 +150,13 @@ export const ServiceContainer = styled(Box)`
   margin: 1em 0;
 `;
 
-export const ServiceAvailableBox = styled(Box)` 
+export const ServiceAvailableBox = styled(Box)`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 65%;
   margin-left: 0.5em;
-`
+`;
 
 export const FreeAvailableBox = styled(Box)`
   display: flex;
@@ -193,4 +195,89 @@ export const FacilityLabelText = styled(Typography)`
   font-weight: 700;
 `;
 
+export const PropertyTypeText = styled(Box)`
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(57, 57, 57, 1);
+  margin-top: 0.5em;
+`;
 
+export const PrivatePropertyContainer = styled(Box)`
+  display: flex;
+  align-items: center;
+  margin-top: 0.5em;
+`;
+
+export const RadioContainer = styled(Box)`
+  margin-left: 1em;
+  font-size: 0.8rem;
+  font-family: "Lato", sans-serif;
+`;
+
+export const InstitutionContainer = styled(Box)`
+  margin-top: 0.5em;
+  display: flex;
+  align-items: center;
+`;
+
+export const PropertyContainer = styled(Box)`
+  margin-left: 1em;
+  padding: 1em 0;
+`;
+
+export const HostelRuleContainer = styled(Box)`
+  width: 80%;
+  margin-left: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid rgba(200, 200, 200, 1);
+  padding: 1em 0;
+  margin-left: 1em;
+`;
+
+export const TextArea = styled(Textarea)`
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 0.9rem;
+  margin-top: 0.5em;
+`;
+
+export const ButtonsContainer = styled(Box)` 
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-top: 1em;
+`
+
+export const CancelButton = styled(Button)`
+display : flex ;
+justify-content: center;
+align-items: center;
+text-align: center;
+background-color:rgba(183, 183, 183, 1);
+color: rgba(255, 255, 255, 1);
+font-weight: 600;
+font-family:"Inter",sans-serif;
+width: 20%;
+&:hover{
+  background-color: rgba(183, 183, 183, 1);
+  cursor: pointer;
+}
+`
+
+export const SaveButton = styled(Button)` 
+width: 20%;
+display : flex ;
+justify-content: center;
+align-items: center;
+text-align: center;
+background-color:rgba(255, 102, 0, 1);
+color: rgba(255, 255, 255, 1);
+font-weight: 600;
+font-family:"Inter",sans-serif;
+&:hover{
+  background-color: #FF6600;
+  cursor: pointer;
+}
+`
