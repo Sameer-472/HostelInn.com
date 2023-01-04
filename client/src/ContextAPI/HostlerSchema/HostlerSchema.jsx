@@ -1,19 +1,22 @@
 // ! Used for Hostel Registration So that we can use it anywhere ...
 // ! as form divides into three components
 
-const EmergencyContact = {
-  name: "",
-  relationship: "",
-  mobileNumber: "",
-  whatsappNumber: "",
-  permanentAddress: "",
+const typesOfRoom = {
+  roomType: "",
+  price: Number,
+  availableVacancy: "",
+};
+const facilities = {
+  free: [],
+  general: [],
+  services: [],
 };
 
-const Documents = {
-  profilePicture: [String],
-  cnicFrontPicture: [String],
-  cnicBackPicture: [String],
-};
+// const Documents = {
+//   profilePicture: [String],
+//   cnicFrontPicture: [String],
+//   cnicBackPicture: [String],
+// };
 
 export const hostelFormDetails = {
   hostelName: "",
@@ -22,17 +25,11 @@ export const hostelFormDetails = {
   hostelLocation: "",
   hostelContactNumber: "",
   shortDescription: "",
+  numberOfRooms: Number,
+  typesOfRoom: [typesOfRoom],
+  facilities: facilities,
+  propertyType: "",
+  hostelRules: "",
+  images: [],
 
-  dateOfBirth: "",
-  mobileNumber: "",
-  whatsappNumber: "",
-  religion: "",
-  gender: "",
-  // occupation: "",
-  // companyName: "",
-  // medicalIllness: "",
-  // criminalRecord: Boolean,
-  // accommodationType: "",
-  // emergencyContact: [EmergencyContact],
-  documents: [Documents],
 };
