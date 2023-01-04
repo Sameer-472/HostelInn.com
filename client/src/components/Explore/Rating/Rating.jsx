@@ -45,9 +45,6 @@ function Rating() {
     setRangeValue(newValue);
   };
 
-
- 
-
   return (
     <SliderWrapper>
       <SliderBox>
@@ -60,7 +57,7 @@ function Rating() {
           {getText(rangeValue[0])}
         </LeftRangeButton>
         <Slider
-         size="large"
+          size="large"
           getAriaLabel={() => "range"}
           value={rangeValue}
           onChange={handleChange}
@@ -69,7 +66,7 @@ function Rating() {
           steps={100}
           min={0}
           max={50000}
-          marks = {marks}
+          marks={marks}
           sx={{
             color: "#FF6600",
           }}
