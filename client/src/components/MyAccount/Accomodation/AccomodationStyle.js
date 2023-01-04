@@ -228,7 +228,7 @@ export const CancelAccomodationTitle = styled(Box)`
 `;
 
 export const CancelAccomodationButton = styled(Button)`
-  width: 10%;
+  width: 100%;
   color: white;
   background-color: #ff0000;
   text-transform: uppercase;

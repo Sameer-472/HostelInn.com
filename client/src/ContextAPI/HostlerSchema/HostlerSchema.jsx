@@ -25,14 +25,11 @@ export const hostelFormDetails = {
   hostelLocation: "",
   hostelContactNumber: "",
   shortDescription: "",
-
   numberOfRooms: Number,
   typesOfRoom: [typesOfRoom],
   facilities: facilities,
   propertyType: "",
   hostelRules: "",
-
   images: [],
 
-  // documents: [Documents],
 };
