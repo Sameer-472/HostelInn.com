@@ -27,14 +27,8 @@ import {
 } from "./styles";
 
 function UserPersonalInfo({ yupFunctions }) {
-  const {
-    handleBlur,
-    values,
-    touched,
-    errors,
-    handleChange,
-    handleSubmit,
-  } = yupFunctions;
+  const { handleBlur, values, touched, errors, handleChange, handleSubmit } =
+    yupFunctions;
   console.log(values);
 
   return (

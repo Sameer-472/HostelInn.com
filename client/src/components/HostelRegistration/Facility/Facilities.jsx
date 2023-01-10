@@ -35,6 +35,7 @@ import {
   ButtonsContainer,
   CancelButton,
   SaveButton,
+  ErrorMsgText,
 } from "./style";
 
 import {
@@ -43,15 +44,25 @@ import {
   Checkbox,
   RadioGroup,
   Radio,
+  Box,
 } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CloseIcon from "@mui/icons-material/Close";
 import RectangleImage from "./Assets/Rectangle.png";
 import Footer from "../../Home/Footer/Footer";
+import { typesOfRoom } from "../../../ContextAPI/HostlerSchema/HostlerSchema";
 
-function Facilities({ yupFunctions }) {
+function Facilities({ hostelFormik }) {
+  const { handleBlur, values, touched, errors, handleChange, handleSubmit } =
+    hostelFormik;
   // properties for checkboxes
-  const [formData, setFormData] = useState({
+  const [roomTypes, setRoomTypes] = useState(typesOfRoom);
+  console.log(values);
+  const roomHandleChange = (e) => {
+    setRoomTypes({ ...roomTypes, [e.target.name]: e.target.value });
+    console.log(roomTypes);
+  };
+  const [rooms, setFormData] = useState({
     hostelName: "",
     SingleRoom: false,
     DoubleRoom: false,
@@ -63,8 +74,8 @@ function Facilities({ yupFunctions }) {
     institution: "",
     userInfo: "",
   });
-
-  const handleChange = (event) => {
+  console.log(handleChange);
+  const FarazhandleChange = (event) => {
     const { type, checked, name, value } = event.target;
     if (type === "checkbox") {
       setFormData((prevObj) => {
@@ -83,17 +94,15 @@ function Facilities({ yupFunctions }) {
     }
   };
 
-  console.log(formData);
-
   return (
     <>
       <FacilitesWrapper>
         <FacilityContainer>
           <FacilityRectangleImageBox>
-            <img width={"100%"} src={RectangleImage} alt="rectangle-image" />
+            <img width={"100%"} src={RectangleImage} alt='rectangle-image' />
           </FacilityRectangleImageBox>
           <FacilityInformationTextBox>
-            <FacilityInformationText variant="h2" component="h2">
+            <FacilityInformationText variant='h2' component='h2'>
               Hostel facilities information
             </FacilityInformationText>
           </FacilityInformationTextBox>
@@ -102,108 +111,89 @@ function Facilities({ yupFunctions }) {
         <FacilityContainer>
           <HostelAndNumberOfRoomContainer>
             <LabelTextField>
-              Number of rooms{" "}
+              Number of rooms
               <sup style={{ color: "rgba(255, 0, 0, 1)" }}>*</sup>
             </LabelTextField>
             <HostelNameField
-              type="text"
-              variant="standard"
-              placeholder="Enter hostel name"
-              name="hostelName"
+              // type='number'
+              variant='standard'
+              placeholder='Enter Number of rooms'
+              name='numberOfRooms'
+              onBlur={handleBlur}
               onChange={handleChange}
+              value={values.numberOfRooms}
             ></HostelNameField>
+            {touched.numberOfRooms && errors.numberOfRooms ? (
+              <>
+                <ErrorMsgText>{errors.numberOfRooms}</ErrorMsgText>
+              </>
+            ) : null}
           </HostelAndNumberOfRoomContainer>
         </FacilityContainer>
 
         <FacilityContainer>
-          <TypeCheckBoxContainer>
-            <TypeOfRoomText>Type of rooms</TypeOfRoomText>
-            <FormGroup sx={{ width: "80%" }}>
-              <PrivateBoxesContainer>
-                <PrivateText>Private:</PrivateText>
-                <CheckboxContainer>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        defaultChecked
-                        name="SingleRoom"
-                        onChange={handleChange}
-                        checked={formData.SingleRoom}
-                        color="default"
-                      />
-                    }
-                    label="Single room"
-                  />
-                </CheckboxContainer>
-              </PrivateBoxesContainer>
-
-              <SharedBoxContainer>
-                <PrivateText>Shared:</PrivateText>
-                <CheckboxContainer>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        defaultChecked
-                        onChange={handleChange}
-                        name="DoubleRoom"
-                        checked={formData.DoubleRoom}
-                        color="default"
-                      />
-                    }
-                    label="Double room"
-                  />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        defaultChecked
-                        onChange={handleChange}
-                        name="ThreeSharing"
-                        checked={formData.ThreeSharing}
-                        color="default"
-                      />
-                    }
-                    label="Three sharing"
-                  />{" "}
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        defaultChecked
-                        name="FourSharing"
-                        onChange={handleChange}
-                        checked={formData.FourSharing}
-                        color="default"
-                      />
-                    }
-                    label="four sharing"
-                  />{" "}
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        defaultChecked
-                        onChange={handleChange}
-                        name="female"
-                        checked={formData.female}
-                        color="default"
-                      />
-                    }
-                    label="female"
-                  />{" "}
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        defaultChecked
-                        name="male"
-                        onChange={handleChange}
-                        checked={formData.male}
-                        color="default"
-                      />
-                    }
-                    label="Male"
-                  />
-                </CheckboxContainer>
-              </SharedBoxContainer>
-            </FormGroup>
-          </TypeCheckBoxContainer>
+          <Box style={{ display: "flex" }}>
+            <HostelAndNumberOfRoomContainer>
+              <LabelTextField>
+                Room Type
+                <sup style={{ color: "rgba(255, 0, 0, 1)" }}>*</sup>
+              </LabelTextField>
+              <HostelNameField
+                // type='number'
+                variant='standard'
+                placeholder='Enter Number of rooms'
+                name='roomType'
+                // onBlur={handleBlur}
+                onChange={roomHandleChange}
+                value={roomTypes.roomType}
+              ></HostelNameField>
+              {/* {touched.typesOfRooms.roomType && errors.typesOfRooms.roomType ? (
+            <>
+              <ErrorMsgText>{errors.typesOfRooms.roomType}</ErrorMsgText>
+            </>
+          ) : null} */}
+            </HostelAndNumberOfRoomContainer>
+            <HostelAndNumberOfRoomContainer>
+              <LabelTextField>
+                Room Price
+                <sup style={{ color: "rgba(255, 0, 0, 1)" }}>*</sup>
+              </LabelTextField>
+              <HostelNameField
+                // type='number'
+                variant='standard'
+                placeholder='Enter Price of room'
+                name='price'
+                // onBlur={handleBlur}
+                onChange={roomHandleChange}
+                value={roomTypes.price}
+              ></HostelNameField>
+              {/* {touched.typesOfRooms.roomType && errors.typesOfRooms.roomType ? (
+            <>
+              <ErrorMsgText>{errors.typesOfRooms.roomType}</ErrorMsgText>
+            </>
+          ) : null} */}
+            </HostelAndNumberOfRoomContainer>
+          </Box>
+          <HostelAndNumberOfRoomContainer>
+            <LabelTextField>
+              Available Vacancy
+              <sup style={{ color: "rgba(255, 0, 0, 1)" }}>*</sup>
+            </LabelTextField>
+            <HostelNameField
+              // type='number'
+              variant='standard'
+              placeholder='Enter Available Vacancy'
+              name='availableVacancy'
+              // onBlur={handleBlur}
+              onChange={roomHandleChange}
+              value={roomTypes.availableVacancy}
+            ></HostelNameField>
+            {/* {touched.typesOfRooms.roomType && errors.typesOfRooms.roomType ? (
+            <>
+              <ErrorMsgText>{errors.typesOfRooms.roomType}</ErrorMsgText>
+            </>
+          ) : null} */}
+          </HostelAndNumberOfRoomContainer>
         </FacilityContainer>
 
         <FacilityContainer>
@@ -222,7 +212,7 @@ function Facilities({ yupFunctions }) {
                       color: "rgba(250, 250, 250, 1)",
                       ":hover": { cursor: "pointer" },
                     }}
-                    fontSize="small"
+                    fontSize='small'
                   />
                 </AvailableItemBox>
               </FreeAvailableBox>
@@ -242,7 +232,7 @@ function Facilities({ yupFunctions }) {
                       color: "rgba(250, 250, 250, 1)",
                       ":hover": { cursor: "pointer" },
                     }}
-                    fontSize="small"
+                    fontSize='small'
                   />
                 </AvailableItemBox>
                 <AvailableItemBox>
@@ -252,7 +242,7 @@ function Facilities({ yupFunctions }) {
                       color: "rgba(250, 250, 250, 1)",
                       ":hover": { cursor: "pointer" },
                     }}
-                    fontSize="small"
+                    fontSize='small'
                   />
                 </AvailableItemBox>
                 <AvailableItemBox>
@@ -262,7 +252,7 @@ function Facilities({ yupFunctions }) {
                       color: "rgba(250, 250, 250, 1)",
                       ":hover": { cursor: "pointer" },
                     }}
-                    fontSize="small"
+                    fontSize='small'
                   />
                 </AvailableItemBox>
               </GeneralAvailableBox>
@@ -282,7 +272,7 @@ function Facilities({ yupFunctions }) {
                       color: "rgba(250, 250, 250, 1)",
                       ":hover": { cursor: "pointer" },
                     }}
-                    fontSize="small"
+                    fontSize='small'
                   />
                 </AvailableItemBox>
                 <AvailableItemBox>
@@ -292,7 +282,7 @@ function Facilities({ yupFunctions }) {
                       color: "rgba(250, 250, 250, 1)",
                       ":hover": { cursor: "pointer" },
                     }}
-                    fontSize="small"
+                    fontSize='small'
                   />
                 </AvailableItemBox>
                 <AvailableItemBox>
@@ -302,7 +292,7 @@ function Facilities({ yupFunctions }) {
                       color: "rgba(250, 250, 250, 1)",
                       ":hover": { cursor: "pointer" },
                     }}
-                    fontSize="small"
+                    fontSize='small'
                   />
                 </AvailableItemBox>
               </ServiceAvailableBox>
@@ -325,38 +315,38 @@ function Facilities({ yupFunctions }) {
               <RadioContainer>
                 <RadioGroup
                   row
-                  aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="row-radio-buttons-group"
+                  aria-labelledby='demo-row-radio-buttons-group-label'
+                  name='row-radio-buttons-group'
                   sx={{ fontSize: ".8rem" }}
                 >
                   <FormControlLabel
                     sx={{ marginLeft: "1em" }}
                     onChange={handleChange}
-                    value="Apartment"
-                    name="catogry"
-                    control={<Radio size="small" color="default" />}
-                    label="Apartment"
+                    value='Apartment'
+                    name='catogry'
+                    control={<Radio size='small' color='default' />}
+                    label='Apartment'
                   />
                   <FormControlLabel
                     onChange={handleChange}
-                    value="House"
-                    name="catogry"
-                    control={<Radio size="small" color="default" />}
-                    label="House"
+                    value='House'
+                    name='catogry'
+                    control={<Radio size='small' color='default' />}
+                    label='House'
                   />
                   <FormControlLabel
                     onChange={handleChange}
-                    value="Shared rooms"
-                    name="catogry"
-                    control={<Radio size="small" color="default" />}
-                    label="Shared rooms"
+                    value='Shared rooms'
+                    name='catogry'
+                    control={<Radio size='small' color='default' />}
+                    label='Shared rooms'
                   />
                   <FormControlLabel
                     onChange={handleChange}
-                    value="Hostel"
-                    name="catogry"
-                    control={<Radio size="small" color="default" />}
-                    label="Hostel"
+                    value='Hostel'
+                    name='catogry'
+                    control={<Radio size='small' color='default' />}
+                    label='Hostel'
                   />
                 </RadioGroup>
               </RadioContainer>
@@ -367,17 +357,17 @@ function Facilities({ yupFunctions }) {
               <RadioContainer>
                 <RadioGroup
                   row
-                  aria-labelledby="demo-row-radio-buttons-group-label"
-                  name="row-radio-buttons-group"
+                  aria-labelledby='demo-row-radio-buttons-group-label'
+                  name='row-radio-buttons-group'
                   sx={{ fontFamily: "inherit" }}
                 >
                   <FormControlLabel
                     sx={{ marginLeft: ".1em" }}
                     onChange={handleChange}
-                    value="Campus"
-                    name="institution"
-                    control={<Radio size="small" color="default" />}
-                    label="Campus"
+                    value='Campus'
+                    name='institution'
+                    control={<Radio size='small' color='default' />}
+                    label='Campus'
                   />
                 </RadioGroup>
               </RadioContainer>
@@ -392,25 +382,23 @@ function Facilities({ yupFunctions }) {
               <sup style={{ color: "rgba(255, 0, 0, 1)" }}>*</sup>
             </LabelTextField>
             <TextArea
-              size="sm"
+              size='sm'
               minRows={2}
-              color="neutral"
+              color='neutral'
               onChange={handleChange}
-              name="userInfo"
-              placeholder="Write here..."
-              variant="neutral"
-              label="neutral"
+              name='userInfo'
+              placeholder='Write here...'
+              variant='neutral'
+              label='neutral'
             />
           </HostelRuleContainer>
         </FacilityContainer>
 
-        <ButtonsContainer>
-          <CancelButton variant="filled">Cancel</CancelButton>
-          <SaveButton variant="filled">Save</SaveButton>
-        </ButtonsContainer>
+        {/* <ButtonsContainer>
+          <CancelButton variant='filled'>Cancel</CancelButton>
+          <SaveButton variant='filled'>Save</SaveButton>
+        </ButtonsContainer> */}
       </FacilitesWrapper>
-
-      <Footer />
     </>
   );
 }

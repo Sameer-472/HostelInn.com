@@ -1,11 +1,6 @@
 // ! Used for Hostel Registration So that we can use it anywhere ...
 // ! as form divides into three components
 
-const typesOfRoom = {
-  roomType: "",
-  price: Number,
-  availableVacancy: "",
-};
 const facilities = {
   free: [],
   general: [],
@@ -17,6 +12,11 @@ const facilities = {
 //   cnicFrontPicture: [String],
 //   cnicBackPicture: [String],
 // };
+export const typesOfRoom = {
+  roomType: "",
+  price: Number,
+  availableVacancy: "",
+};
 
 export const hostelFormDetails = {
   hostelName: "",
@@ -25,11 +25,10 @@ export const hostelFormDetails = {
   hostelLocation: "",
   hostelContactNumber: "",
   shortDescription: "",
-  numberOfRooms: Number,
+  numberOfRooms: "",
   typesOfRoom: [typesOfRoom],
   facilities: facilities,
   propertyType: "",
   hostelRules: "",
   images: [],
-
 };

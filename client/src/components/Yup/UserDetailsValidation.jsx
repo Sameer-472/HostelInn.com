@@ -21,9 +21,7 @@ export const UserDetailsValidation = Yup.object({
     .min(11, "Phone Number can contain only 11 digits")
     .max(11, "Phone Number can contain only 11 digits")
     .required("Please enter valid mobile number"),
-  email: Yup.string()
-    .email()
-    .required("Please Enter Valid Email"),
+  email: Yup.string().email().required("Please Enter Valid Email"),
   cnic: Yup.string()
     .min(13, "CNIC can contain only 13 digits")
     .max(13, "Enter CNIC without dashes")

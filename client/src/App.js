@@ -1,6 +1,12 @@
 import "./App.css";
-import React, { useState , useEffect} from "react";
-import { BrowserRouter, Routes, Route, useMatches , useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useMatches,
+  useLocation,
+} from "react-router-dom";
 import Home from "./components/Home/Home.jsx";
 import UserDetails from "./components/UserDetails/UserDetails";
 import Navbar from "./components/Home/Navbar/Navbar";
@@ -25,23 +31,25 @@ import OwnerNavbar from "./Pages/HostelOwner/Navbar/Navbar";
 import { State } from "./Redux/Actions/state";
 import { useSelector } from "react-redux";
 import OwnerSignIn from "./components/SignIn/ownerSignIn/OwnerSignIn";
-import Forget from "./components/SignIn/Forget"
+import Forget from "./components/SignIn/Forget";
 import Facilities from "./components/HostelRegistration/Facility/Facilities";
 
-
-
-function App() {  
-  const result = useSelector((state)=> state);
+function App() {
+  const result = useSelector((state) => state);
   // const state = result.state;
 
-  const [role, setRole] = useState('owner');
+  const [role, setRole] = useState("owner");
   console.log(role);
   return (
     <DataProvider>
       <BrowserRouter>
-      {/* {!state ? <Navbar/>: <OwnerNavbar/>} */}
-      {role === 'user' ? <Navbar setRole = {setRole}/> : <OwnerNavbar setRole={setRole}/>}
-      {/* <OwnerNavbar/> */}
+        {/* {!state ? <Navbar/>: <OwnerNavbar/>} */}
+        {role === "user" ? (
+          <Navbar setRole={setRole} />
+        ) : (
+          <OwnerNavbar setRole={setRole} />
+        )}
+        {/* <OwnerNavbar/> */}
 
         <Routes>
           <Route path='/' element={<Home />}></Route>
@@ -67,14 +75,17 @@ function App() {
           <Route path='/userProfile' element={<Profile />}></Route>
           <Route path='/userAccomodation' element={<Accomodation />}></Route>
 
-          <Route path='/ownerSignUp' element={<OwnerRegistration/>}></Route>
-          <Route path='/OwnerSignIn' element={<OwnerSignIn/>}></Route>
+          <Route path='/ownerSignUp' element={<OwnerRegistration />}></Route>
+          <Route path='/OwnerSignIn' element={<OwnerSignIn />}></Route>
           <Route path='/forget-password' element={<Forget />}></Route>
-          <Route path='/userProfile' element={<Profile/>}></Route>
-          <Route path="/userAccomodation" element={<Accomodation/>}></Route>
+          <Route path='/userProfile' element={<Profile />}></Route>
+          <Route path='/userAccomodation' element={<Accomodation />}></Route>
 
           <Route path='/profileSetup' element={<ProfileSetup />}></Route>
-          <Route path='/hostelRegistration/facilities' element={<Facilities />}></Route>
+          <Route
+            path='/hostelRegistration/facilities'
+            element={<Facilities />}
+          ></Route>
         </Routes>
       </BrowserRouter>
     </DataProvider>
