@@ -176,13 +176,14 @@ export const AvailableItemBox = styled(Box)`
   width: 90%;
   background-color: rgba(71, 71, 71, 1);
   color: whitesmoke;
-  padding: 5px;
   border-radius: 50px;
   margin: 0 auto;
   justify-content: space-around;
   text-align: center;
   color: rgba(250, 250, 250, 1);
   margin-left: 1em;
+  max-height: 30px;
+  padding: 0px 5px;
 `;
 
 export const AvailableItemBoxText = styled(Typography)`
