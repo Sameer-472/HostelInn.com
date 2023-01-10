@@ -68,6 +68,7 @@ export const ChoiceText = styled.span`
  font-size: 40px;
  font-weight: bolder;
  color: darkorange;
+ margin-left: .2em;
  @media(max-width:650px){
   display: inline-block;
   margin-left:.3em;

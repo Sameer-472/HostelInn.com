@@ -1,51 +1,9 @@
-// import styled from '@emotion/styled';
-
-// export const Image = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   background-color: 'F8F2FF';
-//   position: relative;
-// `;
-
-// export const Circle1 = styled.div`
-//     position: relative;
-//     left: -40rem;
-//     top: -9rem;
-//     width: 9rem;
-// `
-// export const Circle2 = styled.div`
-//     background-color: red;
-//     position: relative;
-// `
-// export const Circle3 = styled.div`
-//     background-color: purple;
-//     position: relative;
-
-    
-// `
-// export const Circle4 = styled.div`
-//     background-color: orange;
-//     position: relative;
-    
-// `
-// export const Circle5 = styled.div`
-//     background-color: blue;  
-//     position: relative;
-
-// `
-// export const Circle6 = styled.div`
-//     background-color: beige;
-//     position: relative;
-
-    
-// `
-
-
 import styled from "@emotion/styled";
 import image from "./assets/img.png";
+import StripeImage from "./assets/rectangle.png"
 
 export const Image = styled.div`
+/* position: relative; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,19 +14,31 @@ export const Image = styled.div`
   background-position: center;
   height: 700px;
   width: 100%;
-  margin: 1em auto;
-  max-width: 1170px;
-  margin-top: 2em;
+  margin: 0 auto;
+  padding: 1em;
+  /* max-width: 1170px; */
+  /* margin-top: 2em; */
+  margin-bottom: 11em;
   display: none;
+  &::before {
+    content: "";
+    background-image: url(${StripeImage});
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1000;
+    width: 100%;
+    height: 1000px;
+  }
   @media (min-width:600px){
     display: block;
   }
- 
 `;
+
 
 export const Circle1 = styled.div`
   position: absolute;
-  top: -2%;
+  top: 4%;
   left: 31%;
 `;
 export const Circle2 = styled.div`
@@ -78,8 +48,8 @@ export const Circle2 = styled.div`
 `;
 export const Circle3 = styled.div`
   position: absolute;
-  top: 3%;
-  left: 65%;
+  top: 6%;
+    left: 67%;
 `;
 export const Circle4 = styled.div`
   position: absolute;

@@ -8,12 +8,15 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink , useLocation} from "react-router-dom";
 import UserSignUp from "./../../SignUp/userRegistration/UserSignUp";
 import UserSignIn from "./../../SignIn/UserSignIn";
 import AccountMenu from "./account-menu";
 import DrawerFile from "./DrawerFiles/DrawerFile";
-import { useSelector } from "react-redux";
+import { useSelector , useDispatch} from "react-redux";
+import { useEffect } from "react";
+import { State } from "../../../Redux/Actions/state";
+
 
 const Image = styled("img")({
   fontSize: 80,
@@ -78,10 +81,27 @@ const Btn2 = styled(Button)`
     background-color: #ff6600;
   }
 `;
-function Navbar() {
+function Navbar(props) {
+  const {setRole} = props;
   const result = useSelector((state) => state);
   console.log("this is result from navbar", result.auth);
   const theme = useTheme();
+  let location = useLocation()
+  const dispatch =useDispatch();
+
+  useEffect(() => {
+    // console.log("location changed" , location.pathname);
+    if(location.pathname === '/'){
+      setRole('user')
+    }
+    else if(location.pathname === '/explore'){
+      setRole('user')
+    }
+    else if(location.pathname === '/about-us'){
+      setRole('user')
+    }
+    
+  }, [location.pathname]);
 
   const isTrue = useMediaQuery("(max-width:770px)");
   // (theme.breakpoints.down(600));

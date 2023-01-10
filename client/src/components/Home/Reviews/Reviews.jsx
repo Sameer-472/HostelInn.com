@@ -1,14 +1,29 @@
 import React from "react";
 import CardComponent from "./Card/CardComponent";
 import { reviewsData } from "./reviewsData";
-import { BoxMain, TitleText, OrangeText, CardContainer } from "./ReviewsStyles";
+import {
+  BoxMain,
+  TitleText,
+  OrangeText,
+  CardContainer,
+  StripeImageBox,
+  BottomStripeImageBox,
+} from "./ReviewsStyles";
+import StripeImage from "./Assets/RectangleStrip130.png";
 
 export const Reviews = () => {
   return (
     <BoxMain>
-      <TitleText variant='h1' component='div'>
+      <StripeImageBox>
+        <img style={{ height: "100%" }} src={StripeImage} alt="stripe-image" />
+      </StripeImageBox>
+      <BottomStripeImageBox>
+        <img style={{ height: "100%" }} src={StripeImage} alt="stripe-image" />
+      </BottomStripeImageBox>
+      <TitleText variant="h1" component="div">
         Find verified hostels with
-        <OrangeText variant='h1' component='span'>
+          {" "}
+        <OrangeText variant="h1" component="span">
           {" "}
           honest reviews.
         </OrangeText>

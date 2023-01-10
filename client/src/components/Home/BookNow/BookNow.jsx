@@ -45,6 +45,7 @@ const Image = styled("img")(({ theme }) => ({
 const Container = styled(Box)`
   width: 70%;
   margin-left: auto;
+  margin-top: 45px;
   position: relative;
   min-height: 400px;
   max-height: 400px;
@@ -86,7 +87,7 @@ const Absolute = styled(Box)(({ theme }) => ({
 }));
 const Title = styled(Box)(({ theme }) => ({
   textAlign: "center",
-  margin: "15px 0px",
+  margin: "45px 0px",
   [theme.breakpoints.down("md")]: {
     // backgroundColor: "red",
   },
