@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useFormik } from "formik";
 import {
   Stepper,
   Step,
@@ -15,32 +16,38 @@ import HostelRegistration from "./HostelRegistration";
 import Facilities from "./Facility/Facilities";
 import { useNavigate } from "react-router-dom";
 import { FormContext } from "../../ContextAPI/DataProvider";
+import { hostelFormDetails } from "../../ContextAPI/HostlerSchema/HostlerSchema.jsx";
+import { hostelOwnerValidation } from "../Yup/HostelOwnerValidation.jsx";
 
 function HostelStepperForm() {
   // !Getting Data from Context API
-  const { hostelFormik, userForm } = useContext(FormContext);
+  // const { hostelFormik, userForm } = useContext(FormContext);
   // const jsonUser = JSON.stringify(userForm);
 
   // console.log(jsonUser);
   // console.log(hostelFormik);
+  const [hostelForm, setHostelForm] = useState(hostelFormDetails);
 
-  const {
-    handleBlur,
-    values,
-    touched,
-    errors,
-    handleChange,
-    handleSubmit,
-  } = hostelFormik;
+  const hostelFormik = useFormik({
+    initialValues: hostelFormDetails,
+    validationSchema: hostelOwnerValidation,
+    validateOnChange: true,
+    onSubmit: async (values, action) => {
+      console.log(values);
+    },
+  });
 
-  const yupFunctions = {
-    handleBlur,
-    values,
-    touched,
-    errors,
-    handleChange,
-    handleSubmit,
-  };
+  const { handleBlur, values, touched, errors, handleChange, handleSubmit } =
+    hostelFormik;
+
+  // const yupFunctions = {
+  //   handleBlur,
+  //   values,
+  //   touched,
+  //   errors,
+  //   handleChange,
+  //   handleSubmit,
+  // };
 
   // !Component Logic
   const steps = ["Personal Information", "Hostel Registration", "Facilities"];
@@ -93,12 +100,10 @@ function HostelStepperForm() {
       </Styles.Container>
       <Box>
         {activeSteps === 0 && (
-          <PersonalInformation yupFunctions={yupFunctions} />
+          <PersonalInformation hostelFormik={hostelFormik} />
         )}
-        {activeSteps === 1 && (
-          <HostelRegistration yupFunctions={yupFunctions} />
-        )}
-        {activeSteps === 2 && <Facilities yupFunctions={yupFunctions} />}
+        {activeSteps === 1 && <Facilities hostelFormik={hostelFormik} />}
+        {activeSteps === 2 && <Facilities hostelFormik={hostelFormik} />}
       </Box>
       <Box
         component='span'
@@ -106,6 +111,7 @@ function HostelStepperForm() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          paddingBottom: 30,
         }}
       >
         <BTN disabled={activeSteps === 0 && true} onClick={previousStep}>

@@ -22,8 +22,8 @@ const typesOfRoom = Yup.object({
 
 const facilities = Yup.object({
   roomType: Yup.string().required("Please room type"),
-  general: [Yup.string().required("Please enter General facilities")],
-  services: [Yup.string().required("Please Enter Services")],
+  general: Yup.array().required("This field is required "),
+  services: Yup.array().required("This field is required "),
 });
 
 export const hostelOwnerValidation = Yup.object({
@@ -33,9 +33,7 @@ export const hostelOwnerValidation = Yup.object({
   hostelOwnerName: Yup.string()
     .min(4, "Please enter minimum 4 characters")
     .required("Please enter your name"),
-  hostelEmailAddress: Yup.string()
-    .email()
-    .required("Please enter valid email"),
+  hostelEmailAddress: Yup.string().email().required("Please enter valid email"),
   hostelLocation: Yup.string()
     .min(4, "Please enter minimum 4 characters")
     .required("Please enter your name"),
@@ -46,12 +44,13 @@ export const hostelOwnerValidation = Yup.object({
   shortDescription: Yup.string().required(
     "Please enter short description of your hostel"
   ),
-  numberOfRooms: Yup.string().required("Please enter total number of rooms"),
-  typesOfRoom: [typesOfRoom],
+  numberOfRooms: Yup.number()
+  .required("Please enter total number of rooms"),
+  typesOfRoom: Yup.array().of(typesOfRoom).required("This field is required"),
   facilities: facilities,
   propertyType: Yup.string().required("Please enter property type"),
   hostelRules: Yup.string()
     .min(4, "Please enter minimum 20 Letters")
     .required("Please enter hostel rules"),
-  images: [Yup.string().required("Please enter hostel pics")],
+  images: Yup.array().required("Images are required"),
 });

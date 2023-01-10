@@ -11,7 +11,6 @@ import {
 
 export const Container = styled(Box)`
   /* text-align: center; */
-  background-color: #fed8bf;
 `;
 export const TitleHeader = styled(Typography)`
   padding-top: 40px;

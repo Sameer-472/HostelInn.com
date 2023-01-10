@@ -1,6 +1,6 @@
 // import styled from "@emotion/styled";
-import { Box, styled, TextField, Typography,Button } from "@mui/material";
-import Textarea from "@mui/joy/Textarea";
+import { Box, styled, TextField, Typography, Button } from "@mui/material";
+import { Textarea } from "@mui/joy";
 
 export const FacilitesWrapper = styled(Box)`
   max-width: 1100px;
@@ -88,6 +88,10 @@ export const PrivateText = styled(Typography)`
   color: rgba(255, 102, 0, 1);
   font-family: "Lato", sans-serif;
   font-weight: 700;
+`;
+export const ErrorMsgText = styled(Typography)`
+  font-size: 12;
+  color: red;
 `;
 
 export const SharedText = styled(Typography)`
@@ -243,41 +247,41 @@ export const TextArea = styled(Textarea)`
   margin-top: 0.5em;
 `;
 
-export const ButtonsContainer = styled(Box)` 
- display: flex;
- justify-content: space-between;
- align-items: center;
- margin-top: 1em;
-`
+export const ButtonsContainer = styled(Box)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1em;
+`;
 
 export const CancelButton = styled(Button)`
-display : flex ;
-justify-content: center;
-align-items: center;
-text-align: center;
-background-color:rgba(183, 183, 183, 1);
-color: rgba(255, 255, 255, 1);
-font-weight: 600;
-font-family:"Inter",sans-serif;
-width: 20%;
-&:hover{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   background-color: rgba(183, 183, 183, 1);
-  cursor: pointer;
-}
-`
+  color: rgba(255, 255, 255, 1);
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  width: 20%;
+  &:hover {
+    background-color: rgba(183, 183, 183, 1);
+    cursor: pointer;
+  }
+`;
 
-export const SaveButton = styled(Button)` 
-width: 20%;
-display : flex ;
-justify-content: center;
-align-items: center;
-text-align: center;
-background-color:rgba(255, 102, 0, 1);
-color: rgba(255, 255, 255, 1);
-font-weight: 600;
-font-family:"Inter",sans-serif;
-&:hover{
-  background-color: #FF6600;
-  cursor: pointer;
-}
-`
+export const SaveButton = styled(Button)`
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(255, 102, 0, 1);
+  color: rgba(255, 255, 255, 1);
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  &:hover {
+    background-color: #ff6600;
+    cursor: pointer;
+  }
+`;
