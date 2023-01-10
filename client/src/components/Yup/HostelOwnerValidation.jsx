@@ -44,13 +44,12 @@ export const hostelOwnerValidation = Yup.object({
   shortDescription: Yup.string().required(
     "Please enter short description of your hostel"
   ),
-  numberOfRooms: Yup.number()
-  .required("Please enter total number of rooms"),
+  numberOfRooms: Yup.number().required("Please enter total number of rooms"),
   typesOfRoom: Yup.array().of(typesOfRoom).required("This field is required"),
   facilities: facilities,
   propertyType: Yup.string().required("Please enter property type"),
   hostelRules: Yup.string()
-    .min(4, "Please enter minimum 20 Letters")
+    .min(20, "Please enter minimum 20 Letters")
     .required("Please enter hostel rules"),
   images: Yup.array().required("Images are required"),
 });
