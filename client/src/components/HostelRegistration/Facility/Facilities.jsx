@@ -39,12 +39,18 @@ import {
 } from "./style";
 
 import {
+  Select,
+  TextField,
+  MenuItem,
+  InputLabel,
+  FormControl,
   FormGroup,
   FormControlLabel,
   Checkbox,
   RadioGroup,
   Radio,
   Box,
+  IconButton,
 } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import CloseIcon from "@mui/icons-material/Close";
@@ -74,7 +80,6 @@ function Facilities({ hostelFormik }) {
     institution: "",
     userInfo: "",
   });
-  console.log(handleChange);
   const FarazhandleChange = (event) => {
     const { type, checked, name, value } = event.target;
     if (type === "checkbox") {
@@ -93,7 +98,66 @@ function Facilities({ hostelFormik }) {
       });
     }
   };
+  const roomTypeHandleChange = (e) => {
+    setRoomTypes({ ...roomTypes, [e.target.name]: e.target.value });
+  };
+  console.log(roomTypes);
+  //!Free
 
+  const [free, setFree] = useState([]);
+
+  const handleKeyDown = (e) => {
+    if (e.key !== "Enter") return;
+    console.log(e.key);
+    const value = e.target.value;
+    console.log(value);
+    if (!value.trim()) return;
+    setFree([...free, value]);
+    // setUpValues([ ...QuestionValues, [...tagsArray] : value ]);
+    // console.log(QuestionValues);
+    // setUpValues([...values.tags, value]);
+    e.target.value = "";
+  };
+  const removeFree = (index) => {
+    setFree(free.filter((el, i) => i !== index));
+  };
+
+  // ! general
+  const [general, setGeneral] = useState([]);
+
+  const handleKeyDownGeneral = (e) => {
+    if (e.key !== "Enter") return;
+    console.log(e.key);
+    const value = e.target.value;
+    console.log(value);
+    if (!value.trim()) return;
+    setGeneral([...general, value]);
+    // setUpValues([ ...QuestionValues, [...tagsArray] : value ]);
+    // console.log(QuestionValues);
+    // setUpValues([...values.tags, value]);
+    e.target.value = "";
+  };
+  const removeGeneral = (index) => {
+    setGeneral(general.filter((el, i) => i !== index));
+  };
+  // ! Services
+  const [service, setService] = useState([]);
+
+  const handleKeyDownService = (e) => {
+    if (e.key !== "Enter") return;
+    console.log(e.key);
+    const value = e.target.value;
+    console.log(value);
+    if (!value.trim()) return;
+    setService([...service, value]);
+    // setUpValues([ ...QuestionValues, [...tagsArray] : value ]);
+    // console.log(QuestionValues);
+    // setUpValues([...values.tags, value]);
+    e.target.value = "";
+  };
+  const removeService = (index) => {
+    setService(service.filter((el, i) => i !== index));
+  };
   return (
     <>
       <FacilitesWrapper>
@@ -133,26 +197,24 @@ function Facilities({ hostelFormik }) {
 
         <FacilityContainer>
           <Box style={{ display: "flex" }}>
-            <HostelAndNumberOfRoomContainer>
-              <LabelTextField>
-                Room Type
-                <sup style={{ color: "rgba(255, 0, 0, 1)" }}>*</sup>
-              </LabelTextField>
-              <HostelNameField
-                // type='number'
-                variant='standard'
-                placeholder='Enter Number of rooms'
-                name='roomType'
-                // onBlur={handleBlur}
-                onChange={roomHandleChange}
+            <FormControl style={{ width: "100%", margin: "30px 10px" }}>
+              <InputLabel id='demo-simple-select-label'>
+                Select Type of room
+              </InputLabel>
+              <Select
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
                 value={roomTypes.roomType}
-              ></HostelNameField>
-              {/* {touched.typesOfRooms.roomType && errors.typesOfRooms.roomType ? (
-            <>
-              <ErrorMsgText>{errors.typesOfRooms.roomType}</ErrorMsgText>
-            </>
-          ) : null} */}
-            </HostelAndNumberOfRoomContainer>
+                label='Select Type of room'
+                onChange={roomTypeHandleChange}
+                name='roomType'
+              >
+                <MenuItem value={"singleRoom"}>Single room</MenuItem>
+                <MenuItem value={"doubleSharing"}>Double Sharing</MenuItem>
+                <MenuItem value={"tripleSharing"}>Triple Sharing</MenuItem>
+                <MenuItem value={"quadruple"}>Quadruple Room</MenuItem>
+              </Select>
+            </FormControl>
             <HostelAndNumberOfRoomContainer>
               <LabelTextField>
                 Room Price
@@ -203,103 +265,97 @@ function Facilities({ hostelFormik }) {
               <sup style={{ color: "rgba(255, 0, 0, 1)" }}>*</sup>
             </FacilityAvailableText>
             <FreeContainer>
-              <FacilityLabelText>Free:</FacilityLabelText>
-              <FreeAvailableBox>
-                <AvailableItemBox>
-                  <AvailableItemBoxText>Free Wifi</AvailableItemBoxText>
-                  <CloseIcon
-                    sx={{
-                      color: "rgba(250, 250, 250, 1)",
-                      ":hover": { cursor: "pointer" },
-                    }}
-                    fontSize='small'
-                  />
-                </AvailableItemBox>
-              </FreeAvailableBox>
-              <KeyboardArrowDownIcon
-                sx={{ marginLeft: "auto", ":hover": { cursor: "pointer" } }}
+              <FacilityLabelText style={{ marginRight: 10 }}>
+                Free:
+              </FacilityLabelText>
+              <HostelNameField
+                variant='standard'
+                placeholder='Enter Tags'
+                onKeyDown={(e) => handleKeyDown(e)}
               />
+              <FreeAvailableBox></FreeAvailableBox>
+              {/* <KeyboardArrowDownIcon
+                sx={{ marginLeft: "auto", ":hover": { cursor: "pointer" } }}
+              /> */}
             </FreeContainer>
+            <Box style={{ display: "flex", justifyContent: "flex-start" }}>
+              {free.map((free, index) => (
+                <AvailableItemBox>
+                  <AvailableItemBoxText>{free}</AvailableItemBoxText>
+                  <IconButton onClick={() => removeFree(index)}>
+                    <CloseIcon
+                      sx={{
+                        color: "rgba(250, 250, 250, 1)",
+                        ":hover": { cursor: "pointer" },
+                      }}
+                      fontSize='small'
+                    />
+                  </IconButton>
+                </AvailableItemBox>
+              ))}
+            </Box>
 
             <GeneralContainer>
-              <FacilityLabelText>General:</FacilityLabelText>
-
-              <GeneralAvailableBox>
-                <AvailableItemBox>
-                  <AvailableItemBoxText>Kitchen</AvailableItemBoxText>
-                  <CloseIcon
-                    sx={{
-                      color: "rgba(250, 250, 250, 1)",
-                      ":hover": { cursor: "pointer" },
-                    }}
-                    fontSize='small'
-                  />
-                </AvailableItemBox>
-                <AvailableItemBox>
-                  <AvailableItemBoxText>Launch</AvailableItemBoxText>
-                  <CloseIcon
-                    sx={{
-                      color: "rgba(250, 250, 250, 1)",
-                      ":hover": { cursor: "pointer" },
-                    }}
-                    fontSize='small'
-                  />
-                </AvailableItemBox>
-                <AvailableItemBox>
-                  <AvailableItemBoxText>Chef</AvailableItemBoxText>
-                  <CloseIcon
-                    sx={{
-                      color: "rgba(250, 250, 250, 1)",
-                      ":hover": { cursor: "pointer" },
-                    }}
-                    fontSize='small'
-                  />
-                </AvailableItemBox>
-              </GeneralAvailableBox>
-              <KeyboardArrowDownIcon
-                sx={{ marginLeft: "auto", ":hover": { cursor: "pointer" } }}
+              <FacilityLabelText style={{ marginRight: 10 }}>
+                General:
+              </FacilityLabelText>
+              <HostelNameField
+                variant='standard'
+                placeholder='Enter General Tag'
+                onKeyDown={(e) => handleKeyDownGeneral(e)}
               />
+              <FreeAvailableBox></FreeAvailableBox>
+              {/* <KeyboardArrowDownIcon
+                sx={{ marginLeft: "auto", ":hover": { cursor: "pointer" } }}
+              /> */}
             </GeneralContainer>
+            <Box style={{ display: "flex", justifyContent: "flex-start" }}>
+              {general.map((general, index) => (
+                <AvailableItemBox>
+                  <AvailableItemBoxText>{general}</AvailableItemBoxText>
+                  <IconButton onClick={() => removeGeneral(index)}>
+                    <CloseIcon
+                      sx={{
+                        color: "rgba(250, 250, 250, 1)",
+                        ":hover": { cursor: "pointer" },
+                      }}
+                      fontSize='small'
+                    />
+                  </IconButton>
+                </AvailableItemBox>
+              ))}
+            </Box>
 
-            <ServiceContainer>
-              <FacilityLabelText>Service:</FacilityLabelText>
-
-              <ServiceAvailableBox>
-                <AvailableItemBox>
-                  <AvailableItemBoxText>Laundry</AvailableItemBoxText>
-                  <CloseIcon
-                    sx={{
-                      color: "rgba(250, 250, 250, 1)",
-                      ":hover": { cursor: "pointer" },
-                    }}
-                    fontSize='small'
-                  />
-                </AvailableItemBox>
-                <AvailableItemBox>
-                  <AvailableItemBoxText>Security</AvailableItemBoxText>
-                  <CloseIcon
-                    sx={{
-                      color: "rgba(250, 250, 250, 1)",
-                      ":hover": { cursor: "pointer" },
-                    }}
-                    fontSize='small'
-                  />
-                </AvailableItemBox>
-                <AvailableItemBox>
-                  <AvailableItemBoxText>Staff 24/7</AvailableItemBoxText>
-                  <CloseIcon
-                    sx={{
-                      color: "rgba(250, 250, 250, 1)",
-                      ":hover": { cursor: "pointer" },
-                    }}
-                    fontSize='small'
-                  />
-                </AvailableItemBox>
-              </ServiceAvailableBox>
-              <KeyboardArrowDownIcon
-                sx={{ marginLeft: "auto", ":hover": { cursor: "pointer" } }}
+            <GeneralContainer>
+              <FacilityLabelText style={{ marginRight: 10 }}>
+                Service:
+              </FacilityLabelText>
+              <HostelNameField
+                variant='standard'
+                placeholder='Enter Service Tag'
+                onKeyDown={(e) => handleKeyDownService(e)}
               />
-            </ServiceContainer>
+              <FreeAvailableBox></FreeAvailableBox>
+              {/* <KeyboardArrowDownIcon
+                sx={{ marginLeft: "auto", ":hover": { cursor: "pointer" } }}
+              /> */}
+            </GeneralContainer>
+            <Box style={{ display: "flex", justifyContent: "flex-start" }}>
+              {service.map((service, index) => (
+                <AvailableItemBox>
+                  <AvailableItemBoxText>{service}</AvailableItemBoxText>
+                  <IconButton onClick={() => removeService(index)}>
+                    <CloseIcon
+                      sx={{
+                        color: "rgba(250, 250, 250, 1)",
+                        ":hover": { cursor: "pointer" },
+                      }}
+                      fontSize='small'
+                    />
+                  </IconButton>
+                </AvailableItemBox>
+              ))}
+            </Box>
           </FacilityAvailableContainer>
         </FacilityContainer>
 
@@ -323,36 +379,40 @@ function Facilities({ hostelFormik }) {
                     sx={{ marginLeft: "1em" }}
                     onChange={handleChange}
                     value='Apartment'
-                    name='catogry'
+                    name='propertyType'
                     control={<Radio size='small' color='default' />}
                     label='Apartment'
+                    onBlur={handleBlur}
                   />
                   <FormControlLabel
                     onChange={handleChange}
                     value='House'
-                    name='catogry'
+                    name='propertyType'
                     control={<Radio size='small' color='default' />}
                     label='House'
+                    onBlur={handleBlur}
                   />
                   <FormControlLabel
                     onChange={handleChange}
                     value='Shared rooms'
-                    name='catogry'
+                    name='propertyType'
                     control={<Radio size='small' color='default' />}
                     label='Shared rooms'
+                    onBlur={handleBlur}
                   />
                   <FormControlLabel
                     onChange={handleChange}
                     value='Hostel'
-                    name='catogry'
+                    name='propertyType'
                     control={<Radio size='small' color='default' />}
                     label='Hostel'
+                    onBlur={handleBlur}
                   />
                 </RadioGroup>
               </RadioContainer>
             </PrivatePropertyContainer>
 
-            <InstitutionContainer>
+            {/* <InstitutionContainer>
               <FacilityLabelText>Institution:</FacilityLabelText>
               <RadioContainer>
                 <RadioGroup
@@ -371,7 +431,7 @@ function Facilities({ hostelFormik }) {
                   />
                 </RadioGroup>
               </RadioContainer>
-            </InstitutionContainer>
+            </InstitutionContainer> */}
           </PropertyContainer>
         </FacilityContainer>
 
@@ -383,15 +443,24 @@ function Facilities({ hostelFormik }) {
             </LabelTextField>
             <TextArea
               size='sm'
-              minRows={2}
+              minRows={4}
               color='neutral'
               onChange={handleChange}
-              name='userInfo'
+              name='hostelRules'
               placeholder='Write here...'
               variant='neutral'
               label='neutral'
+              value={values.hostelRules}
+              onBlur={handleBlur}
             />
           </HostelRuleContainer>
+          {touched.hostelRules && errors.hostelRules ? (
+            <>
+              <ErrorMsgText style={{ marginLeft: 20 }}>
+                {errors.hostelRules}
+              </ErrorMsgText>
+            </>
+          ) : null}
         </FacilityContainer>
 
         {/* <ButtonsContainer>
